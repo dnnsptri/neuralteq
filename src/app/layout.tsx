@@ -9,8 +9,18 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Neuralteq',
-  description: 'Neuralteq - Business Development',
+  title: 'Neuralteq - Help Build the Future of Decentralised AI',
+  description: 'By staking securely with us, you strengthen the network and support real-world adoption.',
+  openGraph: {
+    title: 'Neuralteq - Help Build the Future of Decentralised AI',
+    description: 'By staking securely with us, you strengthen the network and support real-world adoption.',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Neuralteq - Help Build the Future of Decentralised AI',
+    description: 'By staking securely with us, you strengthen the network and support real-world adoption.',
+    card: 'summary_large_image',
+  },
 }
 
 export default function RootLayout({

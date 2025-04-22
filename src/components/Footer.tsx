@@ -4,6 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
+import SocialIcons from './SocialIcons';
+
+interface FooterProps {
+  hideMesh?: boolean;
+}
 
 const footerLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
@@ -11,19 +16,26 @@ const footerLinks = [
   { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
 ];
 
-export default function Footer() {
+export default function Footer({ hideMesh = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer">
-      <div className="footer-mesh">
-        <Image
-          src="/mesh_orange.png"
-          alt="Mesh Background"
-          width={88}
-          height={88}
-          className="w-[80px] h-[80px]"
-        />
+      {!hideMesh && (
+        <div className="footer-mesh">
+          <Image
+            src="/mesh_orange.png"
+            alt="Mesh Background"
+            width={88}
+            height={88}
+            quality={90}
+            sizes="80px"
+            className="w-[80px] h-[80px]"
+          />
+        </div>
+      )}
+      <div className="md:hidden flex justify-center my-8">
+        <SocialIcons className="flex md:hidden" />
       </div>
       <CenteredContent>
         <div className="footer-content">

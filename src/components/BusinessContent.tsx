@@ -15,22 +15,37 @@ import FadeInUp from './motion/FadeInUp';
 export default function BusinessContent() {
   return (
     <>
+      {/* Background Image */}
+      <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
+        <Image
+          src="/bg_business.png"
+          alt="Business Background"
+          fill
+          quality={90}
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+      </div>
+
       <main className="mt-24 md:mt-48 relative">
         <CenteredContent>
           <FadeInUp>
-            <PageTitle className="mb-6 md:mb-8">
-              Help Build the Future of Decentralised AI
+            <PageTitle className="pt-[60px] mb-6 md:mb-8">
+              Help Build the Future
+              <br />
+              of Decentralised AI
             </PageTitle>
           </FadeInUp>
 
           <FadeInUp delay={0.1}>
-            <PageSubtitle className="mb-16 md:mb-24">
+            <PageSubtitle className="mb-16 md:mb-[64px]">
             By staking securely with us, you strengthen the network and support real-world adoption.
             </PageSubtitle>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
-            <IntroText className="mb-6 md:mb-8">
+            <IntroText className="mb-16 md:mb-[64px]">
             Our focus is simple yet impactful: we maximise your staking rewards (APR) while simultaneously improving and strenghtening the network. We do this by connecting Bittensor Subnets with real-world applications, helping gain enterprise recognition and commercial traction.
             </IntroText>
           </FadeInUp>
@@ -41,7 +56,7 @@ export default function BusinessContent() {
                 We have been actively participating, validating and building within the ecosystem since day one, and we are
                 committed to keep building long into the future. Our validator is one of the safest and most secure options in
                 the ecosystem. When you{' '}
-                <Link href="/stake" className="underline hover:opacity-80 transition-opacity">
+                <Link href="/stake" className="underline hover:text-[#EF6C00] transition-colors">
                   stake your TAO with us
                 </Link>
                 , you can trust that it's safe, secure, and directly contributes to
@@ -108,7 +123,7 @@ export default function BusinessContent() {
           <FadeInUp delay={0.8}>
             <Quote 
               text="We bridge decentralised AI with real-world impact, turning subnet innovation into everyday solutions"
-              author="Roger (Neuralteq)"
+              author="Roger Majelle (Neuralteq)"
             />
           </FadeInUp>
 
@@ -124,7 +139,6 @@ export default function BusinessContent() {
           </FadeInUp>
         </CenteredContent>
       </main>
-      <SocialIcons />
       <div className="z-50">
         <Footer />
       </div>

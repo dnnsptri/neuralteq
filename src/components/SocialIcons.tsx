@@ -5,9 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const socialLinks = [
-  { name: 'Discord', href: 'https://discord.com', icon: '/icons/logo_discord.svg' },
-  { name: 'X', href: 'https://x.com', icon: '/icons/logo_x.svg' },
-  { name: 'Medium', href: 'https://medium.com', icon: '/icons/logo_medium.svg' },
+  { name: 'Discord', href: 'https://discord.com', icon: '/icons/logo_Discord.svg' },
+  { name: 'X', href: 'https://x.com', icon: '/icons/logo_X.svg' },
+  { name: 'Medium', href: 'https://medium.com', icon: '/icons/logo_Medium.svg' },
 ];
 
 interface SocialIconsProps {
@@ -16,7 +16,7 @@ interface SocialIconsProps {
 
 export default function SocialIcons({ className }: SocialIconsProps) {
   return (
-    <div className={`social-icons hidden md:flex ${className || ''}`}>
+    <div className={`flex items-center gap-6 ${className || ''}`}>
       {socialLinks.map((social) => (
         <Link
           key={social.name}

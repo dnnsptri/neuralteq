@@ -56,7 +56,7 @@ export default function Button({
         alt=""
         width={20}
         height={20}
-        className={isCompact ? "ml-0 md:ml-2" : "ml-2"}
+        className={`hidden md:block ${isCompact ? "ml-0 md:ml-2" : "ml-2"}`}
       />
     </div>
   ) : children;

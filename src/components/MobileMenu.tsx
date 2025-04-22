@@ -1,9 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Button from './ui/Button';
+import Footer from './Footer';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -22,13 +24,31 @@ const navigationItems = [
 ];
 
 const socialLinks = [
-  { name: 'Discord', href: 'https://discord.com', icon: '/icons/logo_discord.svg' },
-  { name: 'X', href: 'https://x.com', icon: '/icons/logo_x.svg' },
-  { name: 'Medium', href: 'https://medium.com', icon: '/icons/logo_medium.svg' },
+  { name: 'Discord', href: 'https://discord.com', icon: '/icons/logo_Discord.svg' },
+  { name: 'X', href: 'https://x.com', icon: '/icons/logo_X.svg' },
+  { name: 'Medium', href: 'https://medium.com', icon: '/icons/logo_Medium.svg' },
+];
+
+const footerLinks = [
+  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Terms of Service', href: '/terms' },
+  { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
 ];
 
 export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: MobileMenuProps) {
   const pathname = usePathname();
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -42,7 +62,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
 
       {/* Menu */}
       <div 
-        className={`fixed right-0 top-0 h-full w-[280px] bg-[var(--background)] shadow-xl transition-transform z-50 md:hidden ${
+        className={`fixed right-0 top-0 h-full w-full bg-[#ECFBFA] dark:bg-[#021019] text-black dark:text-white shadow-xl transition-transform z-50 md:hidden overflow-hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -64,8 +84,8 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block py-3 text-[17px] relative ${
-                  pathname === item.href ? 'font-medium' : ''
+                className={`block py-2 text-[24px] font-medium relative hover:opacity-100 transition-opacity ${
+                  pathname === item.href ? 'opacity-100' : 'opacity-60'
                 }`}
                 onClick={onClose}
               >
@@ -74,10 +94,20 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
             ))}
           </nav>
 
+          {/* Staking Dashboard Button */}
+          <div className="mt-16">
+            <Button 
+              href="https://staking.tao-validator.com/subnets"
+              className="w-full justify-center"
+            >
+              Staking dashboard
+            </Button>
+          </div>
+
           {/* Theme toggle */}
           <button 
             onClick={onThemeToggle}
-            className="mt-8 py-3 flex items-center gap-3"
+            className="mt-8 py-3 flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
           >
             <Image
@@ -92,28 +122,9 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
             </span>
           </button>
 
-          {/* Social links */}
+          {/* Footer */}
           <div className="mt-auto">
-            <div className="text-[15px] mb-4 opacity-60">Follow us</div>
-            <div className="flex gap-6">
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit our ${social.name} page`}
-                >
-                  <Image
-                    src={social.icon}
-                    alt={`${social.name} icon`}
-                    width={24}
-                    height={24}
-                    className="w-6 h-6 [filter:brightness(0)_contrast(100%)] dark:[filter:brightness(0)_invert(1)]"
-                  />
-                </Link>
-              ))}
-            </div>
+            <Footer hideMesh />
           </div>
         </div>
       </div>
