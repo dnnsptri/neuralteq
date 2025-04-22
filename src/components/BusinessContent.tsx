@@ -1,0 +1,133 @@
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import CenteredContent from './layouts/CenteredContent';
+import WideContent from './layouts/WideContent';
+import { PageTitle, PageSubtitle, IntroText, BodyText } from './typography';
+import Footer from './Footer';
+import SocialIcons from './SocialIcons';
+import Button from './ui/Button';
+import { Video, Quote, Mesh } from './content';
+import FadeInUp from './motion/FadeInUp';
+
+export default function BusinessContent() {
+  return (
+    <>
+      <main className="mt-24 md:mt-48 relative">
+        <CenteredContent>
+          <FadeInUp>
+            <PageTitle className="mb-6 md:mb-8">
+              Help Build the Future of Decentralised AI
+            </PageTitle>
+          </FadeInUp>
+
+          <FadeInUp delay={0.1}>
+            <PageSubtitle className="mb-16 md:mb-24">
+            By staking securely with us, you strengthen the network and support real-world adoption.
+            </PageSubtitle>
+          </FadeInUp>
+
+          <FadeInUp delay={0.2}>
+            <IntroText className="mb-6 md:mb-8">
+            Our focus is simple yet impactful: we maximise your staking rewards (APR) while simultaneously improving and strenghtening the network. We do this by connecting Bittensor Subnets with real-world applications, helping gain enterprise recognition and commercial traction.
+            </IntroText>
+          </FadeInUp>
+
+          <FadeInUp delay={0.3}>
+            <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
+              <p>
+                We have been actively participating, validating and building within the ecosystem since day one, and we are
+                committed to keep building long into the future. Our validator is one of the safest and most secure options in
+                the ecosystem. When you{' '}
+                <Link href="/stake" className="underline hover:opacity-80 transition-opacity">
+                  stake your TAO with us
+                </Link>
+                , you can trust that it's safe, secure, and directly contributes to
+                initiatives driving Bittensor adoption and enhancing the TAO ecosystem.
+              </p>
+
+              <p>
+                Our focus is simple yet impactful: we maximise your staking rewards (APR) while simultaneously strengthening
+                the network. We achieve this by bridging between the innovative world of the Bittensor Subnets with real-world
+                adoption, helping subnets to gain enterprise recognition and commercial traction.
+              </p>
+
+              <p>
+                Our philosophy centers around integrity, performance, and growth, allowing ourstakers and partners to fully benefit from
+                participating in subnets. We believe in decentralised AI that empowers individual autonomy through
+                collaborative and transparent governance.
+              </p>
+            </BodyText>
+          </FadeInUp>
+
+          <FadeInUp delay={0.4}>
+            <div className="mb-12 md:mb-[72px]">
+              <Button href="/stake">
+                Stake your TAO
+              </Button>
+            </div>
+          </FadeInUp>
+        </CenteredContent>
+
+        <div className="flex justify-center">
+          <WideContent>
+            <div className="overflow-hidden">
+              <FadeInUp delay={0.5}>
+                <Video src="https://player.vimeo.com/video/1035908021" />
+              </FadeInUp>
+            </div>
+          </WideContent>
+        </div>
+
+        <CenteredContent>
+          <FadeInUp delay={0.6}>
+            <PageSubtitle className="mb-6 md:mb-8">
+              Driving enterprise adoption
+            </PageSubtitle>
+          </FadeInUp>
+
+          <FadeInUp delay={0.7}>
+            <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
+              <p>
+                We believe strongly in decentralised AI and actively work to bring decentralised AI subnet solutions to the
+                market. Many subnets are ready for real world adoption, and we are passionate about helping them in finding
+                and achieving their product market fit.
+              </p>
+
+              <p>
+                Our main focus is enhancing the interoperability and practical applications of subnets, ensuring they become
+                integral components of everyday business solutions. Our team of experts is dedicated to fostering partnerships
+                and collaborations, driving the integration of subnet developed solutions into mainstream usage. Making
+                complex technologies accessible and valuable for everyone.
+              </p>
+            </BodyText>
+          </FadeInUp>
+
+          <FadeInUp delay={0.8}>
+            <Quote 
+              text="We bridge decentralised AI with real-world impact, turning subnet innovation into everyday solutions"
+              author="Roger (Neuralteq)"
+            />
+          </FadeInUp>
+
+          <FadeInUp delay={0.9}>
+            <BodyText className="mt-8 space-y-6">
+              <p>
+              Today, our role goes beyond providing validation services, we actively work on providing growth and adoption to the Bittensor ecosystem by providing strategic advisory and commercial deal making support. We aim to connect emerging decentralized technologies with traditional markets, empowering businesses to harness the full potential of Bittensor through education, support, and tailored solutions.
+              </p>
+              <p>
+                Join us on this transformative journey as we build towards a future where subnet built solutions are seamlessly integrated into real life applications. Together, we can build the decentralised future, a future where Bittensor and its subnets are widely adopted across various sectors.
+              </p>
+            </BodyText>
+          </FadeInUp>
+        </CenteredContent>
+      </main>
+      <SocialIcons />
+      <div className="z-50">
+        <Footer />
+      </div>
+    </>
+  );
+} 
