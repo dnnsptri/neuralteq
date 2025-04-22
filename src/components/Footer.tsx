@@ -20,38 +20,38 @@ export default function Footer({ hideMesh = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className="footer mb-10">
       {!hideMesh && (
-        <div className="footer-mesh">
-          <Image
-            src="/mesh_orange.png"
-            alt="Mesh Background"
-            width={88}
-            height={88}
+      <div className="footer-mesh">
+        <Image
+          src="/mesh_orange.png"
+          alt="Mesh Background"
+          width={88}
+          height={88}
             quality={90}
             sizes="80px"
-            className="w-[80px] h-[80px]"
-          />
+          className="w-[80px] h-[80px]"
+        />
         </div>
       )}
       <div className="md:hidden flex justify-center my-8">
         <SocialIcons className="flex md:hidden" />
       </div>
       <CenteredContent>
-        <div className="footer-content">
-          <div className="footer-links">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+          <div className="flex gap-4 md:gap-6">
             {footerLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="footer-link"
+                className="text-[12px] md:text-[14px] text-[var(--foreground)] link"
               >
                 {link.name}
               </Link>
             ))}
           </div>
-          <div className="footer-copyright">
-            © {currentYear} Neuralteq, all rights reserved
+          <div className="text-[12px] md:text-[14px] text-[var(--foreground)]">
+            © 2024 Neuralteq. All rights reserved.
           </div>
         </div>
       </CenteredContent>

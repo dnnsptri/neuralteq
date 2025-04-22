@@ -56,7 +56,7 @@ export default function BusinessContent() {
                 We have been actively participating, validating and building within the ecosystem since day one, and we are
                 committed to keep building long into the future. Our validator is one of the safest and most secure options in
                 the ecosystem. When you{' '}
-                <Link href="/stake" className="underline hover:text-[#EF6C00] transition-colors">
+                <Link href="/stake" className="link">
                   stake your TAO with us
                 </Link>
                 , you can trust that it's safe, secure, and directly contributes to

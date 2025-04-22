@@ -147,10 +147,10 @@ export default function Header() {
           {/* Mobile Menu Toggle - Always Visible */}
           <motion.button 
             style={{ opacity: mobileOpacity }}
-            onClick={() => setIsMobileMenuOpen(true)}
+              onClick={() => setIsMobileMenuOpen(true)}
             className="md:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
-            aria-label="Open menu"
-          >
+              aria-label="Open menu"
+            >
             <Image
               src="/icons/icon_menu.svg"
               alt="Menu"

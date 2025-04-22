@@ -23,6 +23,11 @@ body {
 }
 
 @layer components {
+  /* Links */
+  .link {
+    @apply underline hover:text-[#EF6C00] transition-colors;
+  }
+
   /* Navigation */
   .nav-link {
     position: relative;
