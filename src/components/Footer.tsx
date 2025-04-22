@@ -24,7 +24,7 @@ export default function Footer({ hideMesh = false }: FooterProps) {
       {!hideMesh && (
       <div className="footer-mesh">
         <Image
-          src="/mesh_orange.png"
+          src="/visuals/mesh_orange.png"
           alt="Mesh Background"
           width={88}
           height={88}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
@@ -14,23 +14,12 @@ import FadeInUp from './motion/FadeInUp';
 import ContactForm from './ContactForm';
 
 export default function FundContent() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Ensure video plays
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log('Video autoplay failed:', error);
-      });
-    }
-  }, []);
-
   return (
     <>
       {/* Background Image */}
       <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
         <Image
-          src="/bg_business.png"
+          src="/visuals/bg_business.png"
           alt="Business Background"
           fill
           quality={90}
@@ -43,31 +32,6 @@ export default function FundContent() {
       <main className="mt-24 md:mt-48 relative">
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
-            {/* Mesh Background */}
-            <div className="absolute top-0 right-[240px] w-[240px] h-[240px] -z-10">
-              <video
-                ref={videoRef}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-contain"
-              >
-                <source src="/mesh_orange.webm" type="video/webm" />
-                <source src="/mesh_orange.mp4" type="video/mp4" />
-                {/* Fallback for browsers that don't support video */}
-                <Image
-                  src="/mesh_orange@2x.png"
-                  alt="Mesh Background"
-                  width={240}
-                  height={240}
-                  quality={90}
-                  priority
-                  className="object-contain"
-                />
-              </video>
-            </div>
-
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
               Crypto-Native. Research-Driven. Capital-Conservative.
@@ -109,7 +73,7 @@ export default function FundContent() {
           <div className="overflow-hidden">
             <FadeInUp delay={0.5}>
               <Image
-                src="/fund_graph.png"
+                src="/visuals/fund_graph.png"
                 alt="Fund Performance Graph"
                 width={1200}
                 height={800}

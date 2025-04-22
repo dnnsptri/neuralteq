@@ -15,7 +15,7 @@ export default function MiningContent() {
       {/* Background Image */}
       <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
         <Image
-          src="/bg_business.png"
+          src="/visuals/bg_business.png"
           alt="Business Background"
           fill
           quality={90}

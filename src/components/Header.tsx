@@ -9,9 +9,9 @@ import Button from './ui/Button';
 import MobileMenu from './MobileMenu';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const navigationItems = [
-  { name: 'Validator', href: '/validator' },
+const navigationItems = [  
   { name: 'Business Development', href: '/business-development' },
+  { name: 'Validator', href: '/validator' },
   { name: 'Mining', href: '/mining' },
   { name: 'Research', href: '/research' },
   { name: 'Neuralteq Fund', href: '/fund' },
@@ -78,7 +78,7 @@ export default function Header() {
           >
             <div className="relative w-[140px] h-[72px]">
               <Image
-                src={isDark ? "/logo.png" : "/logo_neuralteq_light.gif"}
+                src={isDark ? "/visuals/logo.png" : "/visuals/logo_neuralteq_light.gif"}
                 alt="Neuralteq Logo"
                 fill
                 quality={90}

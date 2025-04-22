@@ -6,9 +6,11 @@ import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
 import { PageTitle, PageSubtitle, IntroText, BodyText } from './typography';
 import Footer from './Footer';
+import Header from './Header';
+import Button from './ui/Button';
 import FadeInUp from './motion/FadeInUp';
 
-export default function WhyUsContent() {
+export default function ValidatorContent() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -22,6 +24,7 @@ export default function WhyUsContent() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Header />
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
@@ -52,32 +55,53 @@ export default function WhyUsContent() {
 
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                Neuralteq: Accelerating Subnet Adoption. Building the TAO EcoSystem
+                Secure. Reliable. Profitable.
               </PageTitle>
+            </FadeInUp>
+
+            <FadeInUp delay={0.1}>
+              <PageSubtitle className="mb-16 md:mb-[64px]">
+                We validate with dedication, to protect the network and maximize your returns.
+              </PageSubtitle>
             </FadeInUp>
           </div>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-              Our vision is a future where decentralised AI seamlessly integrates with everyday life, empowering individuals and enterprises through autonomous, and collaborative technologies.
+              At Neuralteq, validating is what we do best. We've been part of the Bittensor ecosystem since the beginning, with a seasoned team that brings years of experience in crypto infrastructure and on-chain operations.
             </IntroText>
           </FadeInUp>
 
           <FadeInUp delay={0.3}>
-            <BodyText className="space-y-6 md:space-y-8">
+            <BodyText className="space-y-6 md:space-y-8 mb-8">
               <p>
-                Our mission is to drive the long-term success of the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralised AI solutions.
+                Our focus is clear:
+              <ul className="list-disc pl-6 space-y-4">
+                <li>We've been doing this from the start, our experienced team knows what it takes to run high-performance validators.</li>
+                <li>We apply tailored strategies to maximize APR for our stakers, with constant performance tuning and optimization.</li>
+                <li>We're in close contact with subnet teams and have deep insight into the strongest builders and the most promising producers.</li>
+                <li>Revenue from our validator is reinvested directly into our business development team, working to drive real-world adoption and commercial traction for the Bittensor ecosystem.</li>
+              </ul>
               </p>
 
               <p>
-                Neuralteq has a skilled team of data scientists, developers, crypto native degens, and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
+                Our team of developers constantly works to improve efficiency and performance so you get the best APY possible. We're committed to building a high-quality platform with state-of-the-art tooling and giving you clear guidance on which subnets to stake to.
               </p>
 
               <p>
-                Our combined approach enables us to strategically identify and promote high-quality subnets, improve our business development focus, and advance our research capabilities, driving impactful outcomes for our stakers, clients and partners.
+                Stake with us, and help accelerate the future of decentralised AI through TAO.
               </p>
             </BodyText>
           </FadeInUp>
+
+          <FadeInUp delay={0.4}>
+            <div className="mb-12 md:mb-[72px]">
+              <Button href="/stake">
+                Stake your TAO
+              </Button>
+            </div>
+          </FadeInUp>
+          
         </CenteredContent>
       </main>
       <div className="mt-10">
