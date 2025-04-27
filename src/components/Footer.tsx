@@ -19,7 +19,7 @@ export default function Footer({ hideMesh = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer mb-10">
+    <footer className="footer mb-10" style={{ color: '#ECFBFA' }}>
       {!hideMesh && (
       <div className="footer-mesh">
         <Image
@@ -43,14 +43,15 @@ export default function Footer({ hideMesh = false }: FooterProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[12px] md:text-[14px] text-[var(--foreground)] link"
+                className="text-[12px] md:text-[14px] link"
+                style={{ color: '#ECFBFA' }}
                 {...(link.name === 'Privacy Policy' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {link.name}
               </Link>
             ))}
           </div>
-          <div className="text-[12px] md:text-[14px] text-[var(--foreground)]">
+          <div className="text-[12px] md:text-[14px]" style={{ color: '#ECFBFA' }}>
             ©{currentYear} Neuralteq. All rights reserved.
           </div>
         </div>

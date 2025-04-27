@@ -17,6 +17,12 @@
   position: relative;
   padding: 2rem;
   padding-bottom: 120px; /* Add space for footer */
+  transition: justify-content 0.8s cubic-bezier(0.4, 0, 0.2, 1), padding-top 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.containerTop {
+  justify-content: flex-start;
+  padding-top: 48px;
 }
 
 .logo {
@@ -64,36 +70,6 @@
 .line {
   white-space: pre-wrap;
   transition: opacity 0.3s ease;
-  opacity: 0.4;
-}
-
-/* Lines 1-2 */
-.line:nth-child(1),
-.line:nth-child(2) {
-  opacity: 0.4;
-}
-
-/* Lines 3-4 */
-.line:nth-child(3),
-.line:nth-child(4) {
-  opacity: 0.5;
-}
-
-/* Lines 5-6 */
-.line:nth-child(5),
-.line:nth-child(6) {
-  opacity: 0.6;
-}
-
-/* Lines 7-8 */
-.line:nth-child(7),
-.line:nth-child(8) {
-  opacity: 0.7;
-}
-
-/* Last two lines */
-.line:nth-last-child(2),
-.line:last-child {
   opacity: 1;
 }
 

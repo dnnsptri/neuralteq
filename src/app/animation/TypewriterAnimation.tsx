@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
+import SocialIcons from '@/components/SocialIcons';
+import CenteredContent from '@/components/layouts/CenteredContent';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styles from './Typewriter.module.css';
 
 const text = [
@@ -16,8 +20,7 @@ const text = [
   "• The highest APRs",
   "• Cutting edge models",
   "• The best research",
-  "• And real-world adoption for Bittensor",
-  "subnets.",
+  "• And real-world adoption for Bittensor subnets.",
   " ",
   "Stake with us and be part of the",
   "movement_"
@@ -30,10 +33,18 @@ const TypewriterAnimation = () => {
   const [currentChar, setCurrentChar] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
+    // Track visits and redirect after 3
+    const visits = parseInt(localStorage.getItem('animationVisits') || '0', 10) + 1;
+    localStorage.setItem('animationVisits', visits.toString());
+    if (visits > 3) {
+      router.replace('/');
+      return;
+    }
     setMounted(true);
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -77,10 +88,11 @@ const TypewriterAnimation = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
+      <SocialIcons />
+      <div className={styles.container + (isComplete ? ' ' + styles.containerTop : '')}>
         <div className={styles.logo}>
           <Image
-            src="/visuals/logo.png"
+            src="/visuals/logo_neuralteq.png"
             alt="Neuralteq Logo"
             width={140}
             height={72}
@@ -88,37 +100,39 @@ const TypewriterAnimation = () => {
           />
         </div>
         
-        <div className={styles.content}>
-          <div className={styles.textContainer}>
-            {displayText.map((line, index) => (
-              <div 
-                key={index} 
-                className={styles.line}
-              >
-                {line}
-                {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
-              </div>
-            ))}
-          </div>
-          
-          {isComplete && (
-            <div className={styles.callToAction}>
-              <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
-              <div className={styles.buttons}>
-                <a 
-                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={`${styles.button} ${styles.primaryButton}`}
+        <CenteredContent>
+          <div className={styles.content}>
+            <div className={styles.textContainer}>
+              {displayText.map((line, index) => (
+                <div 
+                  key={index} 
+                  className={styles.line}
                 >
-                  Stake Now
-                </a>
-                <a href="/validator" className={styles.button}>Validator</a>
-                <a href="/why-us" className={styles.textLink}>Why us</a>
-              </div>
+                  {line}
+                  {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
+                </div>
+              ))}
             </div>
-          )}
-        </div>
+            
+            {isComplete && (
+              <div className={styles.callToAction}>
+                <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
+                <div className={styles.buttons}>
+                  <a 
+                    href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`${styles.button} ${styles.primaryButton}`}
+                  >
+                    Stake Now
+                  </a>
+                  <Link href="/validator" className={styles.button}>Validator</Link>
+                  <a href="/" className={styles.textLink}>Homepage</a>
+                </div>
+              </div>
+            )}
+          </div>
+        </CenteredContent>
       </div>
       <div className={styles.footerWrapper}>
         <Footer hideMesh={true} />

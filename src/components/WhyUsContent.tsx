@@ -27,7 +27,7 @@ export default function WhyUsContent() {
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
             {/* Mesh Background */}
-            <div className="absolute top-0 right-[240px] w-[240px] h-[240px] -z-10">
+            <div className="absolute top-0 right-[400px] w-[240px] h-[240px] -z-10">
               <video
                 ref={videoRef}
                 autoPlay

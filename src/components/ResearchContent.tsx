@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
@@ -10,6 +10,30 @@ import FadeInUp from './motion/FadeInUp';
 
 export default function ResearchContent() {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Blog filter logic
+  const filters = [
+    { label: 'All', value: 'all' },
+    { label: 'Dynamic TAO Research', value: 'tao' },
+    { label: 'Trade Setups', value: 'trade' },
+    { label: 'AI research', value: 'ai' },
+  ];
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  // Example blog items
+  const blogItems = [
+    {
+      title: 'How to Pick Bittensor Subnets?',
+      category: 'tao',
+      description: 'The importance of Bittensor Subnets. The Bittensor network is a game changer in the development, deployment, and monetisation of artificial intelligence. It rapidly scales the development of open source AI by using subnets. Subnets are specialized networks, focusing on specific AI use ...',
+      author: 'Neuralteq Fund',
+      authorImg: '/icons/logo_Medium.svg',
+      img: '/visuals/mesh_orange@2x.png',
+    },
+    // Add more blog items here with different categories
+  ];
+
+  const filteredItems = activeFilter === 'all' ? blogItems : blogItems.filter(item => item.category === activeFilter);
 
   useEffect(() => {
     // Ensure video plays
@@ -73,6 +97,45 @@ export default function ResearchContent() {
             </BodyText>
           </FadeInUp>
         </CenteredContent>
+        {/* Filter bar section */}
+        <div style={{ background: '#021019', width: '100%' }}>
+          <CenteredContent>
+            <div className="flex gap-6 md:gap-12 pt-8 pb-4 overflow-x-auto">
+              {filters.map(f => (
+                <button
+                  key={f.value}
+                  className={`text-[15px] md:text-[17px] font-light pb-2 px-2 border-b-2 transition-all duration-200 ${activeFilter === f.value ? 'border-[#EF6C00] text-[#ECFBFA]' : 'border-transparent text-[#ECFBFA]/70 hover:text-[#ECFBFA]'}`}
+                  onClick={() => setActiveFilter(f.value)}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </CenteredContent>
+        </div>
+        {/* Blog filter and list section */}
+        <div style={{ background: '#ECFBFA', width: '100%' }}>
+          <CenteredContent>
+            {/* Blog items */}
+            <div className="py-8">
+              {filteredItems.map((item, idx) => (
+                <div key={idx} className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-[#ECFBFA] p-8 rounded-lg mb-8 shadow-sm">
+                  <div className="flex-1">
+                    <h2 className="text-[28px] font-semibold mb-2 text-[#021019]">{item.title}</h2>
+                    <p className="text-[18px] text-[#021019] mb-4">{item.description}</p>
+                    <div className="flex items-center gap-3 mt-2">
+                      <Image src={item.authorImg} alt={item.author} width={32} height={32} className="rounded-full" />
+                      <span className="text-[16px] text-[#021019]/80">By {item.author}</span>
+                    </div>
+                  </div>
+                  <div className="w-[220px] h-[180px] flex-shrink-0 flex items-center justify-center bg-white rounded-lg">
+                    <Image src={item.img} alt={item.title} width={180} height={140} className="object-contain" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CenteredContent>
+        </div>
       </main>
       <div className="mt-10">
         <Footer />

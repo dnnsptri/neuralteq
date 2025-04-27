@@ -105,7 +105,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
             {disableLogoLink ? (
               <div className="relative w-[140px] h-[72px]">
                 <Image
-                  src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo.png" : "/visuals/logo_neuralteq_light.gif")}
+                  src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo_neuralteq.png" : "/visuals/logo_neuralteq_light.gif")}
                   alt="Neuralteq Logo"
                   fill
                   quality={90}
@@ -118,7 +118,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
               <Link href="/">
                 <div className="relative w-[140px] h-[72px]">
                   <Image
-                    src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo.png" : "/visuals/logo_neuralteq_light.gif")}
+                    src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo_neuralteq.png" : "/visuals/logo_neuralteq_light.gif")}
                     alt="Neuralteq Logo"
                     fill
                     quality={90}
