@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import IndexContent from '@/components/index';
 
 export default function Home() {
-  redirect('/business-development');
+  return <IndexContent />;
 } 

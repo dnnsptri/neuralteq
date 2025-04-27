@@ -12,7 +12,6 @@ interface FooterProps {
 
 const footerLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms of Service', href: '/terms' },
   { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
 ];
 
@@ -45,13 +44,14 @@ export default function Footer({ hideMesh = false }: FooterProps) {
                 key={link.name}
                 href={link.href}
                 className="text-[12px] md:text-[14px] text-[var(--foreground)] link"
+                {...(link.name === 'Privacy Policy' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {link.name}
               </Link>
             ))}
           </div>
           <div className="text-[12px] md:text-[14px] text-[var(--foreground)]">
-            © 2024 Neuralteq. All rights reserved.
+            ©{currentYear} Neuralteq. All rights reserved.
           </div>
         </div>
       </CenteredContent>

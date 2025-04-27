@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Work_Sans } from 'next/font/google'
 import './globals.css'
+import SocialIcons from '@/components/SocialIcons'
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${workSans.variable} font-sans min-h-screen transition-colors`}>
         {children}
+        <SocialIcons />
       </body>
     </html>
   )

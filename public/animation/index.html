@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuralteq Animation</title>
+    <style>
+        :root {
+            --background: #000000;
+            --foreground: #ffffff;
+            --cursor-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--foreground);
+            font-family: 'Work Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .cursor {
+            width: 2px;
+            height: 40px;
+            background-color: var(--cursor-color);
+            margin-left: 8px;
+            opacity: 0;
+            animation: 
+                fadeIn 0.1s ease-out forwards,
+                blink 1s step-end infinite,
+                cursorMove 1.5s ease-out forwards;
+        }
+
+        .mesh {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            opacity: 0;
+            animation: meshFloat 20s ease-in-out infinite,
+                       fadeIn 2s ease-out 1s forwards;
+        }
+
+        .mesh-1 { top: 10%; right: 15%; }
+        .mesh-2 { bottom: 20%; left: 10%; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes cursorMove {
+            0% { transform: translateX(-150px); }
+            50% { transform: translateX(0); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes meshFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(-10px, 20px) rotate(-5deg); }
+            75% { transform: translate(-20px, -10px) rotate(3deg); }
+        }
+
+        .footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s forwards;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .social-icon:hover {
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--foreground);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="/visuals/logo.png" alt="Neuralteq Logo" class="logo">
+            <div class="cursor"></div>
+        </div>
+        <img src="/visuals/mesh_orange.png" alt="Mesh Background" class="mesh mesh-1">
+        <img src="/visuals/mesh_orange.png" alt="Mesh Background" class="mesh mesh-2">
+    </div>
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://discord.gg/neuralteq" target="_blank">
+                <img src="/icons/logo_Discord.svg" alt="Discord" class="social-icon">
+            </a>
+            <a href="https://twitter.com/neuralteq" target="_blank">
+                <img src="/icons/logo_X.svg" alt="X (Twitter)" class="social-icon">
+            </a>
+            <a href="https://medium.com/@neuralteq" target="_blank">
+                <img src="/icons/logo_Medium.svg" alt="Medium" class="social-icon">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="/privacy" class="footer-link">Privacy Policy</a>
+            <a href="/terms" class="footer-link">Terms of Service</a>
+            <a href="mailto:roger@neuralteq.com" class="footer-link">Get in touch</a>
+        </div>
+        <div class="copyright">
+            © 2024 Neuralteq. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html> 

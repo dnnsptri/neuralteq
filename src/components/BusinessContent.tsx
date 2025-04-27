@@ -46,7 +46,7 @@ export default function BusinessContent() {
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-            Our focus is simple yet impactful: we maximise your staking rewards (APR) while simultaneously improving and strenghtening the network. We do this by connecting Bittensor Subnets with real-world applications, helping gain enterprise recognition and commercial traction.
+            Our focus is simple yet impactful: we maximise your staking rewards (APY) while simultaneously improving and strenghtening the network. We do this by connecting Bittensor Subnets with real-world applications, helping gain enterprise recognition and commercial traction.
             </IntroText>
           </FadeInUp>
 
@@ -56,7 +56,12 @@ export default function BusinessContent() {
                 We have been actively participating, validating and building within the ecosystem since day one, and we are
                 committed to keep building long into the future. Our validator is one of the safest and most secure options in
                 the ecosystem. When you{' '}
-                <Link href="/stake" className="link">
+                <Link 
+                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link"
+                >
                   stake your TAO with us
                 </Link>
                 , you can trust that it's safe, secure, and directly contributes to
@@ -64,13 +69,7 @@ export default function BusinessContent() {
               </p>
 
               <p>
-                Our focus is simple yet impactful: we maximise your staking rewards (APR) while simultaneously strengthening
-                the network. We achieve this by bridging between the innovative world of the Bittensor Subnets with real-world
-                adoption, helping subnets to gain enterprise recognition and commercial traction.
-              </p>
-
-              <p>
-                Our philosophy centers around integrity, performance, and growth, allowing ourstakers and partners to fully benefit from
+                Our philosophy centers around integrity, performance, and growth, allowing our stakers and partners to fully benefit from
                 participating in subnets. We believe in decentralised AI that empowers individual autonomy through
                 collaborative and transparent governance.
               </p>
@@ -79,7 +78,9 @@ export default function BusinessContent() {
 
           <FadeInUp delay={0.4}>
             <div className="mb-12 md:mb-[72px]">
-              <Button href="/stake">
+              <Button 
+                href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+              >
                 Stake your TAO
               </Button>
             </div>

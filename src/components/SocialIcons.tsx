@@ -2,39 +2,44 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-
-const socialLinks = [
-  { name: 'Discord', href: 'https://discord.com', icon: '/icons/logo_Discord.svg' },
-  { name: 'X', href: 'https://x.com', icon: '/icons/logo_X.svg' },
-  { name: 'Medium', href: 'https://medium.com', icon: '/icons/logo_Medium.svg' },
-];
+import styles from './SocialIcons.module.css';
 
 interface SocialIconsProps {
   className?: string;
 }
 
-export default function SocialIcons({ className }: SocialIconsProps) {
+const SocialIcons = ({ className }: SocialIconsProps) => {
   return (
-    <div className={`flex items-center gap-6 ${className || ''}`}>
-      {socialLinks.map((social) => (
-        <Link
-          key={social.name}
-          href={social.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Visit our ${social.name} page`}
-          className="social-icon"
-        >
-          <Image
-            src={social.icon}
-            alt={`${social.name} icon`}
-            width={24}
-            height={24}
-            className="w-6 h-6 [filter:brightness(0)_contrast(100%)] dark:[filter:brightness(0)_invert(1)]"
-          />
-        </Link>
-      ))}
+    <div className={`${styles.socialIcons} ${className || ''}`}>
+      <a 
+        href="https://discord.gg/neuralteq" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.icon} 
+        aria-label="Discord"
+      >
+        <Image src="/icons/logo_Discord.svg" alt="Discord" width={24} height={24} />
+      </a>
+      <a 
+        href="https://twitter.com/neuralteq" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.icon} 
+        aria-label="X (Twitter)"
+      >
+        <Image src="/icons/logo_X.svg" alt="X" width={24} height={24} />
+      </a>
+      <a 
+        href="https://medium.com/@neuralteq" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.icon} 
+        aria-label="Medium"
+      >
+        <Image src="/icons/logo_Medium.svg" alt="Medium" width={24} height={24} />
+      </a>
     </div>
   );
-} 
+};
+
+export default SocialIcons; 

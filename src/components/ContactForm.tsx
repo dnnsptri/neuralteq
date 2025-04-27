@@ -89,7 +89,7 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`w-full px-4 py-2 rounded border bg-transparent ${errors.name ? 'border-red-500' : 'border-[var(--foreground)]'} focus:outline-none focus:ring-2 focus:ring-[var(--link-color)]`}
+            className={`w-full px-4 py-2 rounded border-0 bg-[#021019] focus:border-2 focus:border-[var(--link-color)] focus:ring-2 focus:ring-[var(--link-color)] ${errors.name ? 'border-2 border-red-500' : ''}`}
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
@@ -102,7 +102,7 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`w-full px-4 py-2 rounded border bg-transparent ${errors.email ? 'border-red-500' : 'border-[var(--foreground)]'} focus:outline-none focus:ring-2 focus:ring-[var(--link-color)]`}
+            className={`w-full px-4 py-2 rounded border-0 bg-[#021019] focus:border-2 focus:border-[var(--link-color)] focus:ring-2 focus:ring-[var(--link-color)] ${errors.email ? 'border-2 border-red-500' : ''}`}
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
@@ -115,7 +115,7 @@ export default function ContactForm() {
             value={formData.note}
             onChange={handleChange}
             rows={4}
-            className="w-full px-4 py-2 rounded border border-[var(--foreground)] bg-transparent focus:outline-none focus:ring-2 focus:ring-[var(--link-color)]"
+            className="w-full px-4 py-2 rounded border-0 bg-[#021019] focus:border-2 focus:border-[var(--link-color)] focus:ring-2 focus:ring-[var(--link-color)]"
           />
         </div>
 

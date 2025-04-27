@@ -25,37 +25,24 @@ export default function ValidatorContent() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      {/* Background Image */}
+      <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
+        <Image
+          src="/visuals/bg_business.png"
+          alt="Business Background"
+          fill
+          quality={90}
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+      </div>
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
-            {/* Mesh Background */}
-            <div className="absolute top-0 right-[240px] w-[240px] h-[240px] -z-10">
-              <video
-                ref={videoRef}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-contain"
-              >
-                <source src="/visuals/mesh_orange.webm" type="video/webm" />
-                <source src="/visuals/mesh_orange.mp4" type="video/mp4" />
-                {/* Fallback for browsers that don't support video */}
-                <Image
-                  src="/visuals/mesh_orange@2x.png"
-                  alt="Mesh Background"
-                  width={240}
-                  height={240}
-                  quality={90}
-                  priority
-                  className="object-contain"
-                />
-              </video>
-            </div>
-
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                Secure. Reliable. Profitable.
+                Secure. Optmized. Reliable.
               </PageTitle>
             </FadeInUp>
 
@@ -76,13 +63,14 @@ export default function ValidatorContent() {
             <BodyText className="space-y-6 md:space-y-8 mb-8">
               <p>
                 Our focus is clear:
-              <ul className="list-disc pl-6 space-y-4">
+              </p>
+
+              <ul className="list-disc list-outside ml-4 space-y-4">
                 <li>We've been doing this from the start, our experienced team knows what it takes to run high-performance validators.</li>
-                <li>We apply tailored strategies to maximize APR for our stakers, with constant performance tuning and optimization.</li>
+                <li>We apply tailored strategies to maximize APY for our stakers, with constant performance tuning and optimization.</li>
                 <li>We're in close contact with subnet teams and have deep insight into the strongest builders and the most promising producers.</li>
                 <li>Revenue from our validator is reinvested directly into our business development team, working to drive real-world adoption and commercial traction for the Bittensor ecosystem.</li>
               </ul>
-              </p>
 
               <p>
                 Our team of developers constantly works to improve efficiency and performance so you get the best APY possible. We're committed to building a high-quality platform with state-of-the-art tooling and giving you clear guidance on which subnets to stake to.
@@ -96,7 +84,9 @@ export default function ValidatorContent() {
 
           <FadeInUp delay={0.4}>
             <div className="mb-12 md:mb-[72px]">
-              <Button href="/stake">
+              <Button 
+                href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+              >
                 Stake your TAO
               </Button>
             </div>

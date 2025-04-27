@@ -12,6 +12,7 @@ interface MobileMenuProps {
   onClose: () => void;
   isDark: boolean;
   onThemeToggle: () => void;
+  disableNav?: boolean;
 }
 
 const navigationItems = [
@@ -35,7 +36,7 @@ const footerLinks = [
   { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
 ];
 
-export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, disableNav = false }: MobileMenuProps) {
   const pathname = usePathname();
 
   // Prevent scrolling when menu is open
@@ -79,6 +80,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
           </button>
 
           {/* Navigation */}
+          {!disableNav && (
           <nav className="mt-8">
             {navigationItems.map((item) => (
               <Link
@@ -93,18 +95,25 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
               </Link>
             ))}
           </nav>
+          )}
 
           {/* Staking Dashboard Button */}
+          {!disableNav && (
           <div className="mt-16">
-            <Button 
-              href="https://staking.tao-validator.com/subnets"
+            <Button
+              href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM5Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
               className="w-full justify-center"
+              icon="/icons/icon_dashboard.svg"
+              iconLight="/icons/icon_dashboard_light.svg"
+              isCompact
             >
               Staking dashboard
             </Button>
           </div>
+          )}
 
           {/* Theme toggle */}
+          {!disableNav && (
           <button 
             onClick={onThemeToggle}
             className="mt-8 py-3 flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity"
@@ -121,6 +130,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle }: M
               {isDark ? 'Light mode' : 'Dark mode'}
             </span>
           </button>
+          )}
 
           {/* Footer */}
           <div className="mt-auto">

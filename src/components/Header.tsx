@@ -10,45 +10,71 @@ import MobileMenu from './MobileMenu';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const navigationItems = [  
-  { name: 'Business Development', href: '/business-development' },
   { name: 'Validator', href: '/validator' },
+  { name: 'Business Development', href: '/business-development' },
   { name: 'Mining', href: '/mining' },
   { name: 'Research', href: '/research' },
   { name: 'Neuralteq Fund', href: '/fund' },
   { name: 'Why us', href: '/why-us' },
 ];
 
-export default function Header() {
+export default function Header({ disableNav = false, disableLogoLink = false }: { disableNav?: boolean; disableLogoLink?: boolean }) {
   const [isDark, setIsDark] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   const { scrollY } = useScroll();
   const mobileOpacity = useTransform(scrollY, [0, 200], [1, 0]);
   const desktopOpacity = useTransform(scrollY, [0, 200], [1, 1]); // Always visible on desktop
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
+  const [isBM, setIsBM] = useState(false);
+
   useEffect(() => {
-    const checkMobile = () => {
+    const checkDevice = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsPortrait(window.matchMedia('(orientation: portrait)').matches);
+      setIsBM(window.innerWidth < 1280);
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    window.addEventListener('orientationchange', checkDevice);
+    return () => {
+      window.removeEventListener('resize', checkDevice);
+      window.removeEventListener('orientationchange', checkDevice);
+    };
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark);
-  }, [isDark]);
+    // Force light mode for privacy page
+    if (pathname === '/privacy') {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!disableNav) {
+      document.documentElement.classList.toggle('dark', isDark);
+    }
+  }, [isDark, disableNav]);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      setIsAtTop(currentScrollY < 10);
       
-      if (currentScrollY > lastScrollY) {
+      if (currentScrollY < 10) {
+        // Always visible at top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
         // Scrolling down
         setIsVisible(false);
       } else {
@@ -76,21 +102,38 @@ export default function Header() {
             style={{ opacity: isMobile ? mobileOpacity : desktopOpacity }} 
             className="relative left-8 flex items-center h-[72px]"
           >
-            <div className="relative w-[140px] h-[72px]">
-              <Image
-                src={isDark ? "/visuals/logo.png" : "/visuals/logo_neuralteq_light.gif"}
-                alt="Neuralteq Logo"
-                fill
-                quality={90}
-                sizes="140px"
-                className="object-contain"
-                priority
-              />
-            </div>
+            {disableLogoLink ? (
+              <div className="relative w-[140px] h-[72px]">
+                <Image
+                  src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo.png" : "/visuals/logo_neuralteq_light.gif")}
+                  alt="Neuralteq Logo"
+                  fill
+                  quality={90}
+                  sizes="140px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            ) : (
+              <Link href="/">
+                <div className="relative w-[140px] h-[72px]">
+                  <Image
+                    src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo.png" : "/visuals/logo_neuralteq_light.gif")}
+                    alt="Neuralteq Logo"
+                    fill
+                    quality={90}
+                    sizes="140px"
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </Link>
+            )}
           </motion.div>
 
           {/* Centered Navigation - Desktop */}
-          <div className={`w-full transition-all duration-300 hidden md:block ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          {!disableNav && (
+          <div className={`w-full transition-all duration-300 hidden md:block ${isVisible || isAtTop ? 'opacity-100' : 'opacity-0'}`}>
             <div className="container mx-auto px-9">
               <nav className="flex items-center space-x-8 lg:ml-[152px]">
                 {navigationItems.map((item) => (
@@ -99,7 +142,7 @@ export default function Header() {
                     href={item.href}
                     className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'font-medium' : ''}`}
                   >
-                    {item.name}
+                    {(isMobile || isPortrait) && item.name === 'Neuralteq Fund' ? 'Fund' : item.name}
                     {pathname === item.href ? (
                       <span className="nav-link-underline" />
                     ) : (
@@ -110,22 +153,22 @@ export default function Header() {
               </nav>
             </div>
           </div>
+          )}
 
           {/* Right Side Actions */}
+          {!disableNav && (
           <motion.div 
             style={{ opacity: isMobile ? mobileOpacity : desktopOpacity }}
             className="absolute right-8 flex items-center gap-6"
           >
             {/* Staking Dashboard - Desktop */}
             <Button 
-              href="https://staking.tao-validator.com/subnets?_gl=1*1nkexmk*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTI2MDYyNi4xNi4xLjE3NDUyNjA2MzQuMC4wLjA"
+              href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
               className="flex md:flex-row flex-col items-center"
-              icon="/icons/icon_dashboard.svg"
-              iconLight="/icons/icon_dashboard_light.svg"
               isCompact
               aria-label="Staking Dashboard"
             >
-              <span className="md:mr-2">Staking dashboard</span>
+              <span>Staking dashboard</span>
             </Button>
 
             {/* Theme Toggle - Desktop */}
@@ -143,8 +186,10 @@ export default function Header() {
               />
             </button>
           </motion.div>
+          )}
 
           {/* Mobile Menu Toggle - Always Visible */}
+          {!disableNav && (
           <motion.button 
             style={{ opacity: mobileOpacity }}
               onClick={() => setIsMobileMenuOpen(true)}
@@ -159,16 +204,20 @@ export default function Header() {
               className="w-5 h-5"
             />
           </motion.button>
+          )}
         </div>
       </header>
 
       {/* Mobile Menu */}
+      {!disableNav && (
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         isDark={isDark}
         onThemeToggle={toggleTheme}
+        disableNav={disableNav}
       />
+      )}
     </>
   );
 } 

@@ -1,11 +1,17 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import Header from '@/components/Header';
 import ValidatorContent from '@/components/ValidatorContent';
 
 export const metadata: Metadata = {
   title: 'Validator - Neuralteq',
-  description: 'Stake with confidence. Our enterprise-grade validator infrastructure ensures optimal performance and security for your TAO investment.',
+  description: 'Secure and reliable validation services for the Bittensor network.',
 };
 
 export default function Validator() {
-  return <ValidatorContent />;
+  return (
+    <>
+      <Header />
+      <ValidatorContent />
+    </>
+  );
 } 

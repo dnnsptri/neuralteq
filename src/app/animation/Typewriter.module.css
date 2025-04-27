@@ -1,0 +1,303 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #021019;
+  font-family: var(--font-work-sans), 'Work Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+  padding-bottom: 120px; /* Add space for footer */
+}
+
+.logo {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  width: 140px;
+  height: 72px;
+  z-index: 2;
+}
+
+.content {
+  max-width: 960px;
+  width: 100%;
+  margin-top: -396px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, #021019 40%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.textContainer {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 110%;
+  color: #ECFBFA;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 48px;
+  padding-top: 120px;
+  position: relative;
+  z-index: 0;
+}
+
+.line {
+  white-space: pre-wrap;
+  transition: opacity 0.3s ease;
+  opacity: 0.4;
+}
+
+/* Lines 1-2 */
+.line:nth-child(1),
+.line:nth-child(2) {
+  opacity: 0.4;
+}
+
+/* Lines 3-4 */
+.line:nth-child(3),
+.line:nth-child(4) {
+  opacity: 0.5;
+}
+
+/* Lines 5-6 */
+.line:nth-child(5),
+.line:nth-child(6) {
+  opacity: 0.6;
+}
+
+/* Lines 7-8 */
+.line:nth-child(7),
+.line:nth-child(8) {
+  opacity: 0.7;
+}
+
+/* Last two lines */
+.line:nth-last-child(2),
+.line:last-child {
+  opacity: 1;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1.06s infinite;
+  color: #ECFBFA;
+  transform: translateY(2px);
+}
+
+.socialIcons {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.icon {
+  color: #ECFBFA;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.icon:hover {
+  opacity: 1;
+}
+
+.callToAction {
+  color: #ECFBFA;
+  text-align: left;
+  width: 100%;
+}
+
+.callToActionText {
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.button {
+  background: transparent;
+  border: 1px solid #ECFBFA;
+  color: #ECFBFA;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+  height: fit-content;
+  text-decoration: none;
+}
+
+.primaryButton {
+  background: #ECFBFA;
+  color: #021019;
+}
+
+.button:hover {
+  background: #ECFBFA;
+  color: #021019;
+}
+
+.primaryButton:hover {
+  background: transparent;
+  color: #ECFBFA;
+}
+
+.textLink {
+  color: #ECFBFA;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  font-size: 1rem;
+}
+
+.textLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    margin-top: -296px;
+  }
+  
+  .textContainer {
+    font-size: 42px;
+  }
+  
+  .callToActionText {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    min-height: 100dvh;
+    justify-content: flex-start;
+  }
+  
+  .logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .content {
+    margin-top: 0;
+    padding: 0;
+  }
+  
+  .textContainer {
+    font-size: 36px;
+    padding-top: 0;
+  }
+  
+  .callToActionText {
+    font-size: 22px;
+  }
+  
+  .buttons {
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .textLink {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .footerWrapper {
+    position: relative;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .logo {
+    width: 120px;
+    height: 62px;
+  }
+  
+  .textContainer {
+    font-size: 28px;
+  }
+  
+  .callToActionText {
+    font-size: 20px;
+  }
+  
+  .buttons {
+    gap: 0.75rem;
+  }
+}
+
+.footerWrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #021019;
+} 

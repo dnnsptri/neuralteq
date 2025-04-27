@@ -64,7 +64,7 @@ export default function FundContent() {
           </FadeInUp>
           <FadeInUp delay={0.4}>
             <PageSubtitle className="mb-6 md:mb-8">
-            Current performance: +567% since inception
+            Current performance: +885% since inception
             </PageSubtitle>
           </FadeInUp>
         </CenteredContent>
@@ -86,7 +86,6 @@ export default function FundContent() {
 
         <CenteredContent>
           <FadeInUp delay={0.6}>
-            <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
               <div className="mt-[72px] flex flex-col md:flex-row gap-12" key="contact-section">
                 <div className="flex-1">
                   <PageSubtitle className="mb-6 md:mb-8 mt-12">
@@ -100,7 +99,6 @@ export default function FundContent() {
                   <ContactForm />
                 </div>
               </div>
-            </BodyText>
           </FadeInUp>
         </CenteredContent>
       </main>

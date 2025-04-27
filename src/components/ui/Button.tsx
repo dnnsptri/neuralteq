@@ -13,6 +13,7 @@ interface ButtonProps {
   iconLight?: string;
   isCompact?: boolean;
   'aria-label'?: string;
+  disabled?: boolean;
 }
 
 export default function Button({ 
@@ -23,7 +24,8 @@ export default function Button({
   icon,
   iconLight,
   isCompact,
-  'aria-label': ariaLabel
+  'aria-label': ariaLabel,
+  disabled = false
 }: ButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -61,40 +63,43 @@ export default function Button({
     </div>
   ) : children;
 
-  const baseStyles = `
-    text-base
-    font-medium
-    ${isCompact ? 'w-10 h-10 p-2 md:w-auto md:h-auto md:px-4 md:py-3' : 'px-4 py-3'}
-    rounded 
-    transition-all
-    duration-300
-    bg-[var(--foreground)]
-    text-[var(--background)]
-    hover:bg-transparent 
-    hover:text-[var(--foreground)] 
-    hover:outline 
-    hover:outline-2 
-    hover:outline-[var(--foreground)]
-    ${className}
-  `.trim();
+  const baseStyles = [
+    'text-base font-medium',
+    isCompact ? 'w-10 h-10 p-2 md:w-auto md:h-auto md:px-4 md:py-3' : 'px-4 py-3',
+    'rounded transition-all duration-300',
+    'bg-[var(--foreground)] text-[var(--background)]',
+    'hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)]',
+    'disabled:opacity-50 disabled:pointer-events-none',
+    className
+  ].join(' ');
 
   const commonProps = {
     className: baseStyles,
     'aria-label': ariaLabel,
     onMouseEnter: () => setIsHovered(true),
-    onMouseLeave: () => setIsHovered(false)
+    onMouseLeave: () => setIsHovered(false),
+    tabIndex: disabled ? -1 : 0,
+    'aria-disabled': disabled || undefined
   };
 
   if (href) {
+    // Check if it's an external link
+    if (href.startsWith('http')) {
+      return (
+        <a href={disabled ? undefined : href} target="_blank" rel="noopener noreferrer" {...commonProps}>
+          {content}
+        </a>
+      );
+    }
     return (
-      <Link href={href} {...commonProps}>
+      <Link href={disabled ? '#' : href} {...commonProps}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} {...commonProps}>
+    <button onClick={onClick} disabled={disabled} {...commonProps}>
       {content}
     </button>
   );
