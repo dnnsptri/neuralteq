@@ -15,8 +15,8 @@ export default function MiningContent() {
       {/* Background Image */}
       <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
         <Image
-          src="/visuals/bg_business.png"
-          alt="Business Background"
+          src="/visuals/bg_mining.png"
+          alt="Mining Background"
           fill
           quality={90}
           priority
@@ -35,13 +35,13 @@ export default function MiningContent() {
 
           <FadeInUp delay={0.1}>
             <PageSubtitle className="mb-16 md:mb-[64px]">
-              We mine to empower innovation, build better products, and accelerate real world adoption.
+              We mine to empower innovation, build better products, and accelerate real-world adoption.
             </PageSubtitle>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-              At Neuralteq, mining is more than just analysing and processing data, it's about actively contributing to a healthier, more robust Bittensor ecosystem. We mine because we believe in supporting the network's continuous improvement and innovation, helping build better products for everyone.
+              At Neuralteq, mining is more than just analyzing and processing data, it's about actively contributing to a healthier, more robust Bittensor ecosystem. We mine because we believe in supporting the network's continuous improvement and innovation, helping build better products for everyone.
             </IntroText>
           </FadeInUp>
 
@@ -51,11 +51,11 @@ export default function MiningContent() {
               <FadeInUp delay={0.3}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p>
-                    Through our mining activities, we gain valuable insights into which Subnets consistently deliver high-quality results and which need further development. These insights directly support our business development efforts and inform our research initiatives, ensuring we can strategically advise and assist our partners effectively.
+                    Through our mining activities, we gain valuable insights into which Subnets consistently deliver high-quality results and which need further development. These insights directly support our business development efforts and become our research initiatives, ensuring we can strategically advise and assist our partners effectively.
                   </p>
 
                   <p>
-                    Interested in joining our mining team? We're always looking for dedicated individuals who share our passion for decentralised AI.
+                    Interested in joining our mining team? We're always looking for dedicated individuals who share our passion for decentralized AI.
                   </p>
                 </BodyText>
               </FadeInUp>

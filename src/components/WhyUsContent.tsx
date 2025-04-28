@@ -27,7 +27,7 @@ export default function WhyUsContent() {
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
             {/* Mesh Background */}
-            <div className="absolute top-0 right-[400px] w-[240px] h-[240px] -z-10">
+            <div className="absolute top-0 right-[80px] w-[240px] h-[240px] -z-10">
               <video
                 ref={videoRef}
                 autoPlay
@@ -53,14 +53,14 @@ export default function WhyUsContent() {
 
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                Neuralteq: Accelerating Subnet Adoption. Building the TAO EcoSystem
+                Neuralteq: Accelerating Subnet Adoption. Building the TAO Ecosystem
               </PageTitle>
             </FadeInUp>
           </div>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-              Our vision is a future where decentralised AI seamlessly integrates with everyday life, empowering individuals and enterprises through autonomous, and collaborative technologies.
+              Our vision is a future where decentralized AI seamlessly integrates with everyday life, empowering individuals and businesses through autonomous, and collaborative technologies.
             </IntroText>
           </FadeInUp>
 
@@ -70,11 +70,11 @@ export default function WhyUsContent() {
           <FadeInUp delay={0.3}>
             <BodyText className="space-y-6 md:space-y-8">
               <p>
-                Our mission is to drive the long-term success of the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralised AI solutions.
+                Our mission is to drive long-term success for the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.
               </p>
 
               <p>
-                Neuralteq has a skilled team of data scientists, developers, crypto native degens, and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
+                Neuralteq has a skilled team of data scientists, developers, crypto natives and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
               </p>
 
               <p>
@@ -87,10 +87,10 @@ export default function WhyUsContent() {
             <div className="md:w-1/3 md:-mt-[60px]">
               <FadeInUp delay={0.4}>
                 <SmallColumn
-                  title="Want to join our team?"
+                  title="Join our team!"
                   description="Reach out and become part of the effort shaping the future of Bittensor."
-                  buttonText="Chat with Rico"
-                  buttonHref="mailto:rico@neuralteq.com"
+                  buttonText="Get in touch"
+                  buttonHref="mailto:info@neuralteq.com"
                 />
               </FadeInUp>
             </div>

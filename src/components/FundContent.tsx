@@ -19,8 +19,8 @@ export default function FundContent() {
       {/* Background Image */}
       <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
         <Image
-          src="/visuals/bg_business.png"
-          alt="Business Background"
+          src="/visuals/bg_fund.png"
+          alt="Fund Background"
           fill
           quality={90}
           priority
@@ -34,20 +34,20 @@ export default function FundContent() {
           <div className="relative mb-16 md:mb-[64px]">
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-              Crypto-Native. Research-Driven. Capital-Conservative.
+                Crypto-Native. Research-Driven. Capital-Conservative
               </PageTitle>
             </FadeInUp>
           </div>
 
           <FadeInUp delay={0.1}>
             <PageSubtitle className="mb-16 md:mb-[64px]">
-            Invest in the right dTAO subnets, at the right time, with the right risk management.
+              Invest in the right dTAO subnets, at the right time, with the right risk management.
             </PageSubtitle>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-            From day one, Neuralteq has been one of the top-performing validators in the Bittensor network, giving us deep insight into the ecosystem and strong relationships with many of the leading subnet teams.
+              Our founders and team members joined Bittensor in the early days. Since then, we've built an extensive network and understanding of the ecosystem, which has given us deep insights and strong relationships with many of the leading subnet teams.
             </IntroText>
           </FadeInUp>
 
@@ -64,7 +64,7 @@ export default function FundContent() {
           </FadeInUp>
           <FadeInUp delay={0.4}>
             <PageSubtitle className="mb-6 md:mb-8">
-            Current performance: +885% since inception
+            Current performance: +567% since inception
             </PageSubtitle>
           </FadeInUp>
         </CenteredContent>
@@ -92,7 +92,7 @@ export default function FundContent() {
                     Stay ahead of the curve
                   </PageSubtitle>
                   <p>
-                    Join our <Link href="https://discord.com" className="link">Discord community</Link> for real-time updates, or fill in the contact form below to be among the first to access the fund at launch.
+                    Join our <Link href="https://discord.com/invite/5wPwqcGnrn" className="link">Discord community</Link> for real-time updates, or fill in the contact form below to be among the first to access the fund at launch.
                   </p>
                 </div>
                 <div className="md:w-[400px] md:-mt-12">

@@ -28,8 +28,8 @@ export default function ValidatorContent() {
       {/* Background Image */}
       <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
         <Image
-          src="/visuals/bg_business.png"
-          alt="Business Background"
+          src="/visuals/bg_validator.png"
+          alt="Validator Background"
           fill
           quality={90}
           priority
@@ -42,20 +42,14 @@ export default function ValidatorContent() {
           <div className="relative mb-16 md:mb-[64px]">
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                Secure. Optmized. Reliable.
+                Secure. Reliable. Profitable
               </PageTitle>
-            </FadeInUp>
-
-            <FadeInUp delay={0.1}>
-              <PageSubtitle className="mb-16 md:mb-[64px]">
-                We validate with dedication, to protect the network and maximize your returns.
-              </PageSubtitle>
             </FadeInUp>
           </div>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-              At Neuralteq, validating is what we do best. We've been part of the Bittensor ecosystem since the beginning, with a seasoned team that brings years of experience in crypto infrastructure and on-chain operations.
+              We've been part of the Bittensor ecosystem since the beginning, with a seasoned team that brings years of experience in crypto infrastructure and on-chain operations.
             </IntroText>
           </FadeInUp>
 
@@ -65,10 +59,10 @@ export default function ValidatorContent() {
                 Our focus is clear:
               </p>
 
-              <ul className="list-disc list-outside ml-4 space-y-4">
+              <ul className="list-disc list-outside ml-4 space-y-0">
                 <li>We've been doing this from the start, our experienced team knows what it takes to run high-performance validators.</li>
                 <li>We apply tailored strategies to maximize APY for our stakers, with constant performance tuning and optimization.</li>
-                <li>We're in close contact with subnet teams and have deep insight into the strongest builders and the most promising producers.</li>
+                <li>We're in close contact with subnet teams and have deep insight into the strongest builders.</li>
                 <li>Revenue from our validator is reinvested directly into our business development team, working to drive real-world adoption and commercial traction for the Bittensor ecosystem.</li>
               </ul>
 
@@ -77,13 +71,13 @@ export default function ValidatorContent() {
               </p>
 
               <p>
-                Stake with us, and help accelerate the future of decentralised AI through TAO.
+                <span className="font-medium">Stake with us, and help accelerate the future of decentralised AI through TAO.</span>
               </p>
             </BodyText>
           </FadeInUp>
 
           <FadeInUp delay={0.4}>
-            <div className="mb-12 md:mb-[72px]">
+            <div className="mt-16 mb-12 md:mb-[72px]">
               <Button 
                 href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
               >

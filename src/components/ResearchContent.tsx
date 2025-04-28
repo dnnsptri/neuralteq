@@ -50,7 +50,7 @@ export default function ResearchContent() {
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
             {/* Mesh Background */}
-            <div className="absolute top-0 right-[240px] w-[240px] h-[240px] -z-10">
+            <div className="absolute top-0 right-[80px] w-[240px] h-[240px] -z-10">
               <video
                 ref={videoRef}
                 autoPlay
@@ -89,13 +89,6 @@ export default function ResearchContent() {
             </IntroText>
           </FadeInUp>
 
-          <FadeInUp delay={0.3}>
-            <BodyText className="space-y-6 md:space-y-8">
-              <p>
-                Please find our latest clustered research-articles below:
-              </p>
-            </BodyText>
-          </FadeInUp>
         </CenteredContent>
         {/* Filter bar section */}
         <div style={{ background: '#021019', width: '100%' }}>

@@ -32,21 +32,19 @@ export default function BusinessContent() {
         <CenteredContent>
           <FadeInUp>
             <PageTitle className="pt-[60px] mb-6 md:mb-8">
-              Help Build the Future
-              <br />
-              of Decentralised AI
+              Support Building the Future of Decentralised AI
             </PageTitle>
           </FadeInUp>
 
           <FadeInUp delay={0.1}>
             <PageSubtitle className="mb-16 md:mb-[64px]">
-            By staking securely with us, you strengthen the network and support real-world adoption.
+              By staking securely with us, you strengthen the network and support real-world adoption.
             </PageSubtitle>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-            Our focus is simple yet impactful: we maximise your staking rewards (APY) while simultaneously improving and strenghtening the network. We do this by connecting Bittensor Subnets with real-world applications, helping gain enterprise recognition and commercial traction.
+              Our focus is simple yet impactful: we maximize your staking rewards (APY) while simultaneously improving and strengthening the network. We do this by connecting Bittensor Subnets with real-world applications, driving SME and Enterprise recognition, leading to real-world commercial traction.
             </IntroText>
           </FadeInUp>
 
@@ -54,8 +52,7 @@ export default function BusinessContent() {
             <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
               <p>
                 We have been actively participating, validating and building within the ecosystem since day one, and we are
-                committed to keep building long into the future. Our validator is one of the safest and most secure options in
-                the ecosystem. When you{' '}
+                committed to keep building long into the future. When you{' '}
                 <Link 
                   href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
                   target="_blank"
@@ -69,9 +66,7 @@ export default function BusinessContent() {
               </p>
 
               <p>
-                Our philosophy centers around integrity, performance, and growth, allowing our stakers and partners to fully benefit from
-                participating in subnets. We believe in decentralised AI that empowers individual autonomy through
-                collaborative and transparent governance.
+                Our philosophy centers around integrity, performance, and growth, allowing our stakers and partners to fully benefit from participating in subnets. We believe in decentralized AI that empowers individual autonomy through collaborative and transparent governance.
               </p>
             </BodyText>
           </FadeInUp>
@@ -87,7 +82,7 @@ export default function BusinessContent() {
           </FadeInUp>
         </CenteredContent>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-24">
           <WideContent>
             <div className="overflow-hidden">
               <FadeInUp delay={0.5}>
@@ -100,22 +95,18 @@ export default function BusinessContent() {
         <CenteredContent>
           <FadeInUp delay={0.6}>
             <PageSubtitle className="mb-6 md:mb-8">
-              Driving enterprise adoption
+              Driving SME and Enterprise adoption
             </PageSubtitle>
           </FadeInUp>
 
           <FadeInUp delay={0.7}>
             <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
               <p>
-                We believe strongly in decentralised AI and actively work to bring decentralised AI subnet solutions to the
-                market. Many subnets are ready for real world adoption, and we are passionate about helping them in finding
-                and achieving their product market fit.
+                We believe in decentralized AI and actively work to bring decentralized AI subnet solutions to market. Many subnets are ready for real-world adoption, and we are passionate about supporting them in finding and achieving product market fit.
               </p>
 
               <p>
-                Our main focus is enhancing the interoperability and practical applications of subnets, ensuring they become
-                integral components of everyday business solutions. Our team of experts is dedicated to fostering partnerships
-                and collaborations, driving the integration of subnet developed solutions into mainstream usage. Making
+                Our main focus is enhancing subnets' interoperability and practical applications, ensuring they become essential to everyday business solutions. Our team of experts is dedicated to fostering partnerships and collaborations, driving the integration of subnet-developed solutions into mainstream usage. Making complex technologies accessible and valuable for everyone. Making
                 complex technologies accessible and valuable for everyone.
               </p>
             </BodyText>
@@ -123,7 +114,7 @@ export default function BusinessContent() {
 
           <FadeInUp delay={0.8}>
             <Quote 
-              text="We bridge decentralised AI with real-world impact, turning subnet innovation into everyday solutions"
+              text="We bridge decentralized AI with real-world impact, turning subnet innovation into everyday solutions"
               author="Roger Majelle (Neuralteq)"
             />
           </FadeInUp>
@@ -131,10 +122,10 @@ export default function BusinessContent() {
           <FadeInUp delay={0.9}>
             <BodyText className="mt-8 space-y-6">
               <p>
-              Today, our role goes beyond providing validation services, we actively work on providing growth and adoption to the Bittensor ecosystem by providing strategic advisory and commercial deal making support. We aim to connect emerging decentralized technologies with traditional markets, empowering businesses to harness the full potential of Bittensor through education, support, and tailored solutions.
+                Today, our role goes beyond providing validation services, we actively work on delivering growth and adoption to the Bittensor ecosystem by providing strategic advisory and commercial deal-making support. We aim to connect emerging decentralized technologies with traditional markets, empowering businesses to harness the full potential of Bittensor through education, support, and tailored solutions.
               </p>
               <p>
-                Join us on this transformative journey as we build towards a future where subnet built solutions are seamlessly integrated into real life applications. Together, we can build the decentralised future, a future where Bittensor and its subnets are widely adopted across various sectors.
+                Join us on this transformative journey as we build towards a future where subnet-built solutions are seamlessly integrated into real-life applications. Together, we can build the decentralized future, a future where Bittensor and its subnets are widely adopted across various sectors.
               </p>
             </BodyText>
           </FadeInUp>

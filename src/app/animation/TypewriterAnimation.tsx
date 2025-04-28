@@ -36,15 +36,8 @@ const TypewriterAnimation = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Track visits and redirect after 3
-    const visits = parseInt(localStorage.getItem('animationVisits') || '0', 10) + 1;
-    localStorage.setItem('animationVisits', visits.toString());
-    if (visits > 3) {
-      router.replace('/');
-      return;
-    }
     setMounted(true);
-  }, [router]);
+  }, []);
 
   useEffect(() => {
     if (!mounted) return;
@@ -101,37 +94,37 @@ const TypewriterAnimation = () => {
         </div>
         
         <CenteredContent>
-          <div className={styles.content}>
-            <div className={styles.textContainer}>
-              {displayText.map((line, index) => (
-                <div 
-                  key={index} 
-                  className={styles.line}
+        <div className={styles.content}>
+          <div className={styles.textContainer}>
+            {displayText.map((line, index) => (
+              <div 
+                key={index} 
+                className={styles.line}
+              >
+                {line}
+                {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
+              </div>
+            ))}
+          </div>
+          
+          {isComplete && (
+            <div className={styles.callToAction}>
+              <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
+              <div className={styles.buttons}>
+                <a 
+                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`${styles.button} ${styles.primaryButton}`}
                 >
-                  {line}
-                  {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
-                </div>
-              ))}
-            </div>
-            
-            {isComplete && (
-              <div className={styles.callToAction}>
-                <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
-                <div className={styles.buttons}>
-                  <a 
-                    href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={`${styles.button} ${styles.primaryButton}`}
-                  >
-                    Stake Now
-                  </a>
+                    Staking dashboard
+                </a>
                   <Link href="/validator" className={styles.button}>Validator</Link>
                   <a href="/" className={styles.textLink}>Homepage</a>
-                </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+        </div>
         </CenteredContent>
       </div>
       <div className={styles.footerWrapper}>

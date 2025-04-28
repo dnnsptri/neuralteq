@@ -8,6 +8,7 @@ import CenteredContent from './layouts/CenteredContent';
 import Button from './ui/Button';
 import MobileMenu from './MobileMenu';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import LogoMesh from './LogoMesh';
 
 const navigationItems = [  
   { name: 'Validator', href: '/validator' },
@@ -62,7 +63,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
 
   useEffect(() => {
     if (!disableNav) {
-      document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle('dark', isDark);
     }
   }, [isDark, disableNav]);
 
@@ -104,28 +105,12 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           >
             {disableLogoLink ? (
               <div className="relative w-[140px] h-[72px]">
-                <Image
-                  src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo_neuralteq.png" : "/visuals/logo_neuralteq_light.gif")}
-                  alt="Neuralteq Logo"
-                  fill
-                  quality={90}
-                  sizes="140px"
-                  className="object-contain"
-                  priority
-                />
+                <LogoMesh />
               </div>
             ) : (
               <Link href="/">
                 <div className="relative w-[140px] h-[72px]">
-                  <Image
-                    src={isBM ? "/visuals/bm_neuralteq.png" : (isDark ? "/visuals/logo_neuralteq.png" : "/visuals/logo_neuralteq_light.gif")}
-                    alt="Neuralteq Logo"
-                    fill
-                    quality={90}
-                    sizes="140px"
-                    className="object-contain"
-                    priority
-                  />
+                  <LogoMesh />
                 </div>
               </Link>
             )}
@@ -159,12 +144,12 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {!disableNav && (
           <motion.div 
             style={{ opacity: isMobile ? mobileOpacity : desktopOpacity }}
-            className="absolute right-8 flex items-center gap-6"
+            className="absolute right-8 flex items-center gap-6 my-16"
           >
             {/* Staking Dashboard - Desktop */}
             <Button 
               href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
-              className="flex md:flex-row flex-col items-center"
+              className="flex md:flex-row flex-col items-center text-[14.4px] gap-5.4"
               isCompact
               aria-label="Staking Dashboard"
             >

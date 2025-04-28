@@ -12,7 +12,7 @@ const SocialIcons = ({ className }: SocialIconsProps) => {
   return (
     <div className={`${styles.socialIcons} ${className || ''}`}>
       <a 
-        href="https://discord.gg/neuralteq" 
+        href="https://discord.com/invite/5wPwqcGnrn" 
         target="_blank" 
         rel="noopener noreferrer" 
         className={styles.icon} 
@@ -21,7 +21,7 @@ const SocialIcons = ({ className }: SocialIconsProps) => {
         <Image src="/icons/logo_Discord.svg" alt="Discord" width={24} height={24} />
       </a>
       <a 
-        href="https://twitter.com/neuralteq" 
+        href="https://x.com/TAO_ValidatorX" 
         target="_blank" 
         rel="noopener noreferrer" 
         className={styles.icon} 
@@ -30,7 +30,16 @@ const SocialIcons = ({ className }: SocialIconsProps) => {
         <Image src="/icons/logo_X.svg" alt="X" width={24} height={24} />
       </a>
       <a 
-        href="https://medium.com/@neuralteq" 
+        href="https://www.linkedin.com/company/neuralteq/" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.icon} 
+        aria-label="Linkedin"
+      >
+        <Image src="/icons/logo_Linkedin.svg" alt="Linkedin" width={24} height={24} />
+      </a>
+      <a 
+        href="https://medium.com/@fund_80390" 
         target="_blank" 
         rel="noopener noreferrer" 
         className={styles.icon} 

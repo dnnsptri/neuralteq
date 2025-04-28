@@ -17,20 +17,52 @@ const footerLinks = [
 
 export default function Footer({ hideMesh = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const [mounted, setMounted] = React.useState(false);
+  const [isDark, setIsDark] = React.useState(true);
+
+  React.useEffect(() => {
+    setMounted(true);
+    setIsDark(document.documentElement.classList.contains('dark'));
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDark(document.documentElement.classList.contains('dark'));
+        }
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <footer className="footer mb-10" style={{ color: '#ECFBFA' }}>
-      {!hideMesh && (
+      {!hideMesh && mounted && (
       <div className="footer-mesh">
-        <Image
-          src="/visuals/mesh_orange.png"
-          alt="Mesh Background"
-          width={88}
-          height={88}
-            quality={90}
+        {isDark ? (
+          <video
+            src="/visuals/mesh_orange_dark_50.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            width={80}
+            height={80}
+            className="w-[80px] h-[80px] object-cover rounded-full"
+          />
+        ) : (
+          <Image
+            src="/visuals/mesh_orange_light.png"
+            alt="Mesh Background"
+            width={80}
+            height={80}
+            quality={100}
             sizes="80px"
-          className="w-[80px] h-[80px]"
-        />
+            className="w-[80px] h-[80px]"
+          />
+        )}
         </div>
       )}
       <div className="md:hidden flex justify-center my-8">

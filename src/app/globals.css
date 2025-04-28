@@ -46,11 +46,11 @@ body {
 
   /* Typography */
   .page-title {
-    @apply text-[32px] md:text-[54px] font-medium leading-[120%] tracking-[-0.01em] text-[var(--foreground)];
+    @apply text-[32px] md:text-[58px] font-medium leading-[120%] tracking-[-0.02em] text-[var(--foreground)];
   }
 
   .page-subtitle {
-    @apply text-[20px] md:text-[28px] font-normal leading-[150%] tracking-[-0.01em] text-[var(--foreground)];
+    @apply text-[20px] md:text-[28px] font-normal leading-[150%] tracking-[-0.02em] text-[var(--foreground)];
   }
 
   .intro-text {

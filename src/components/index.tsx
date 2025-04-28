@@ -17,40 +17,40 @@ export default function IndexContent() {
       key: 'validator',
       label: 'Validator',
       href: '/validator',
-      color: '#0A2233',
-      visual: '/visuals/mesh_orange@2x.png',
+      color: '#2A2628',
+      visual: '/visuals/element_validator@2x.png',
       description: 'Secure, reliable validation for the Bittensor network.'
     },
     {
       key: 'business',
       label: 'Business Development',
       href: '/business-development',
-      color: '#4B2B3B',
-      visual: '/visuals/mesh_orange@2x.png',
+      color: '#1E2241',
+      visual: '/visuals/element_business@2x.png',
       description: 'Connecting subnets with real-world adoption.'
     },
     {
       key: 'mining',
       label: 'Mining',
       href: '/mining',
-      color: '#2B4D2F',
-      visual: '/visuals/mesh_orange@2x.png',
+      color: '#25291A',
+      visual: '/visuals/element_mining@2x.png',
       description: 'High-performance mining operations and insights.'
     },
     {
       key: 'research',
       label: 'Research',
       href: '/research',
-      color: '#2B3B4B',
-      visual: '/visuals/mesh_orange@2x.png',
+      color: '#291D2C',
+      visual: '/visuals/element_research@2x.png',
       description: 'Cutting-edge research and innovation in decentralised AI.'
     },
     {
       key: 'fund',
       label: 'Neuralteq Fund',
       href: '/fund',
-      color: '#3B4B6D',
-      visual: '/visuals/mesh_orange@2x.png',
+      color: '#23142A',
+      visual: '/visuals/element_fund@2x.png',
       description: 'Strategic funding solutions for the TAO economy.'
     },
   ];
@@ -73,11 +73,13 @@ export default function IndexContent() {
     return () => clearInterval(interval);
   }, [services.length]);
 
-  // Helper to get the visible pair of cards
+  // Helper to get the visible trio of cards
   const getVisibleIndices = () => {
-    if (services.length <= 2) return [0, 1];
-    if (activeIndex === services.length - 1) return [activeIndex, 0];
-    return [activeIndex, (activeIndex + 1) % services.length];
+    if (services.length <= 2) return [0, 1, 2];
+    const prev = (activeIndex - 1 + services.length) % services.length;
+    const curr = activeIndex;
+    const next = (activeIndex + 1) % services.length;
+    return [prev, curr, next];
   };
   const visibleIndices = getVisibleIndices();
 
@@ -87,7 +89,7 @@ export default function IndexContent() {
       {/* Background Image */}
       <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
         <Image
-          src="/visuals/bg_business.png"
+          src="/visuals/bg_index.png"
           alt="Business Background"
           fill
           quality={90}
@@ -103,14 +105,14 @@ export default function IndexContent() {
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
                 Accelerating Subnet Adoption.
                 <br />
-                Building the TAO EcoSystem
+                Building the TAO Ecosystem
               </PageTitle>
             </FadeInUp>
           </div>
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-              Our vision is a future where decentralised AI seamlessly integrates with everyday life, empowering individuals and enterprises through autonomous, and collaborative technologies.
+              Our vision is a future where decentralized AI seamlessly integrates with everyday life, empowering individuals and businesses through autonomous, and collaborative technologies.
             </IntroText>
           </FadeInUp>
 
@@ -119,30 +121,20 @@ export default function IndexContent() {
             <div className="w-full">
               <FadeInUp delay={0.3}>
                 <BodyText className="space-y-6 md:space-y-8">
-                  <p>
-                    Our mission is to drive the long-term success of the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralised AI solutions.
+                  <p className="mb-16">
+                    Our mission is to drive long-term success of the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.<br /><br /><br />
                   </p>
 
                   {/* Driving enterprise adoption section from BusinessContent */}
                   <div className="mt-16">
                     <FadeInUp delay={0.4}>
-                      <PageSubtitle className="mb-6 md:mb-8">
-                        Our services
-                      </PageSubtitle>
-                    </FadeInUp>
-                    <FadeInUp delay={0.5}>
-                      <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
-                        <p>
-                          We champion decentralised AI by helping subnets find product-market fit and drive real-world adoption. Our focus is on enhancing interoperability, building partnerships, and making complex technologies accessible and valuable for everyday business use.
-                        </p>
+                      <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-32">
                         {/* Services Section: SmallColumn-style list and animated carousel */}
                         <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
                           {/* SmallColumn-style clickable list */}
                           <div className="bg-white dark:bg-[#061C2B] rounded-lg shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 ml-[-48px] mr-[-48px]" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)'}}>
                             <div className="mb-6 text-[17px] text-[#021019] dark:text-[var(--foreground)]">
-                              Unlock the power of TAO with expert mining setups, smart funding, and hands-on support.
-                              <br />
-                              Grow, innovate, and achieve financial freedom—let's get started.
+                              Unlock the power of TAO with expert mining setups, smart funding, and hands-on support. Grow, innovate, and achieve financial freedom. Let's get started.
                             </div>
                             <ul className="space-y-3">
                               {services.map((service, idx) => (
@@ -162,35 +154,46 @@ export default function IndexContent() {
                           {/* Animated Carousel */}
                           <div className="flex-1 flex flex-col items-center justify-center relative min-h-[420px] ml-[-48px] mr-[-48px]">
                             <div className="relative w-full max-w-[900px] h-[420px] mx-auto flex items-center">
-                              {/* Service Cards (2 visible, animated, mesh image centered) */}
+                              {/* Service Cards (3 visible, animated, mesh image centered) */}
                               <div className="flex w-full justify-center items-center relative">
                                 {visibleIndices.map((idx, i) => {
                                   const service = services[idx];
-                                  const isFront = i === 0;
-                                  const isBehind = i === 1;
+                                  let cardClass = '';
+                                  if (i === 1) cardClass = 'front'; // current
+                                  else if (i === 2) cardClass = 'behind'; // next
+                                  else if (i === 0) cardClass = 'from-behind'; // previous
+                                  // Card position styles
+                                  let style = {
+                                    width: 360,
+                                    height: 480,
+                                    borderRadius: 4,
+                                    background: service.color,
+                                    boxShadow: cardClass === 'front' ? '0 8px 32px rgba(0,0,0,0.18)' : '0 4px 16px rgba(0,0,0,0.10)',
+                                    pointerEvents: cardClass === 'front' ? 'auto' : 'none',
+                                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', overflow: 'hidden',
+                                    padding: 48,
+                                    transition: 'all 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1)',
+                                    opacity: cardClass === 'front' ? 1 : (cardClass === 'behind' ? 0.70 : 0),
+                                    zIndex: cardClass === 'front' ? 20 : (cardClass === 'behind' ? 10 : 0),
+                                    left: cardClass === 'front' ? '50%' : (cardClass === 'behind' ? '60%' : '40%'),
+                                    transform: cardClass === 'front'
+                                      ? 'translateX(-60%) scale(1)'
+                                      : cardClass === 'behind'
+                                        ? 'translateX(-10%) scale(0.85)'
+                                        : 'translateX(-110%) scale(0.92)',
+                                  };
                                   return (
                                     <Link
                                       key={service.key}
                                       href={service.href}
-                                      className={`absolute card-animate cursor-pointer ${isFront ? 'z-20 left-1/2 -translate-x-[60%] scale-100 opacity-100' : 'z-10 left-1/2 -translate-x-[10%] scale-110 card-behind-fade'}`}
-                                      style={{
-                                        width: isFront ? 400 : 480,
-                                        height: 420,
-                                        borderRadius: 2,
-                                        background: service.color,
-                                        boxShadow: isFront ? '0 8px 32px rgba(0,0,0,0.18)' : '0 4px 16px rgba(0,0,0,0.10)',
-                                        pointerEvents: isFront ? 'auto' : 'none',
-                                        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', overflow: 'hidden',
-                                        padding: 48,
-                                        transition: 'all 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1)',
-                                        opacity: isFront ? 1 : 0.5,
-                                      }}
+                                      className={`absolute card-animate cursor-pointer ${cardClass}`}
+                                      style={style as React.CSSProperties}
                                     >
                                       <div className="w-full flex justify-center mb-10">
                                         <Image src={service.visual} alt="Mesh visual" width={240} height={240} style={{borderRadius: 2}} />
                                       </div>
                                       <span className="text-xl text-white mb-2 block text-center" style={{fontWeight: 500}}>{service.label}</span>
-                                      <span className="text-white text-center px-4 block mb-10" style={{fontWeight: 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'normal', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical'}}>{service.description}</span>
+                                      <span className="body-text text-white text-center px-4 block mb-4" style={{fontWeight: 300}}>{service.description}</span>
                                     </Link>
                                   );
                                 })}
@@ -201,30 +204,24 @@ export default function IndexContent() {
                                   aria-label="Previous service"
                                   style={{left: '92px'}}
                                 >
-                                  <Image
-                                    src="/icons/icon_arrow_left.svg"
-                                    alt="Previous"
-                                    width={32}
-                                    height={32}
-                                    className="arrow-icon"
-                                    priority
-                                  />
+                                  <span className="arrow-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                      <path d="M15 18l-6-6 6-6" />
+                                    </svg>
+                                  </span>
                                 </button>
                                 {/* Right arrow */}
                                 <button
                                   className="absolute right-0 top-1/2 -translate-y-1/2 z-30 arrow-btn"
                                   onClick={() => setActiveIndex((activeIndex + 1) % services.length)}
                                   aria-label="Next service"
-                                  style={{right: '92px'}}
+                                  style={{right: '-72px'}}
                                 >
-                                  <Image
-                                    src="/icons/icon_arrow_right.svg"
-                                    alt="Next"
-                                    width={32}
-                                    height={32}
-                                    className="arrow-icon"
-                                    priority
-                                  />
+                                  <span className="arrow-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                      <path d="M9 6l6 6-6 6" />
+                                    </svg>
+                                  </span>
                                 </button>
                               </div>
                             </div>
@@ -234,16 +231,16 @@ export default function IndexContent() {
                     </FadeInUp>
                   </div>
                   {/* Duplicate section */}
-                  <div className="mt-16">
-                    <FadeInUp delay={0.6}>
+                  <div className="mt-16 my-24">
+                    <FadeInUp delay={0.5}>
                       <PageSubtitle className="mb-6 md:mb-8">
-                        Why choose us
+                        Why us
                       </PageSubtitle>
                     </FadeInUp>
-                    <FadeInUp delay={0.7}>
+                    <FadeInUp delay={0.6}>
                       <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
                       <p>
-                        Neuralteq has a skilled team of data scientists, developers, crypto native degens, and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
+                        Neuralteq has a skilled team of data scientists, developers, crypto natives and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
                       </p>
 
                       <p>
@@ -277,7 +274,7 @@ export default function IndexContent() {
           to { opacity: 0.5; }
         }
         .arrow-btn {
-          background: rgba(255,255,255,0.8);
+          background: rgba(236,251,250,1);
           border-radius: 9999px;
           padding: 8px;
           box-shadow: 0 2px 8px rgba(0,0,0,0.10);
@@ -288,25 +285,24 @@ export default function IndexContent() {
           justify-content: center;
         }
         .arrow-btn:hover {
-          background: #ECFBFA;
-          border: 2px solid #ECFBFA;
+          background: #021019;
           box-shadow: 0 0 0 2px #ECFBFA33;
           outline: 2px solid #ECFBFA;
           outline-offset: 2px;
         }
-        .arrow-icon {
-          filter: invert(0%);
+        .arrow-btn .arrow-icon {
+          color: #021019;
+          transition: color 0.2s;
+        }
+        .arrow-btn:hover .arrow-icon {
+          color: #ECFBFA;
         }
         @media (prefers-color-scheme: dark) {
           .arrow-btn {
-            background: rgba(2,16,25,0.8);
-          }
-          .arrow-icon {
-            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(2);
+            background: rgba(2,16,25,1);
           }
           .arrow-btn:hover {
             background: #021019;
-            border: 2px solid #ECFBFA;
             box-shadow: 0 0 0 2px #ECFBFA33;
             outline: 2px solid #ECFBFA;
             outline-offset: 2px;
