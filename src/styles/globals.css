@@ -1,0 +1,6 @@
+/* Show LogoMesh only on screens wider than 1960px */
+@media (max-width: 1960px) {
+  .logo-mesh-1960 {
+    display: none !important;
+  }
+} 

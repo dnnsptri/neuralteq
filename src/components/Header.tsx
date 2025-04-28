@@ -104,12 +104,12 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
             className="relative left-8 flex items-center h-[72px]"
           >
             {disableLogoLink ? (
-              <div className="relative w-[140px] h-[72px]">
+              <div className="relative w-[140px] h-[72px] logo-mesh-1960">
                 <LogoMesh />
               </div>
             ) : (
               <Link href="/">
-                <div className="relative w-[140px] h-[72px]">
+                <div className="relative w-[140px] h-[72px] logo-mesh-1960">
                   <LogoMesh />
                 </div>
               </Link>

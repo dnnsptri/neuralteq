@@ -96,15 +96,22 @@ const TypewriterAnimation = () => {
         <CenteredContent>
         <div className={styles.content}>
           <div className={styles.textContainer}>
-            {displayText.map((line, index) => (
-              <div 
-                key={index} 
-                className={styles.line}
-              >
-                {line}
-                {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
-              </div>
-            ))}
+            {displayText.map((line, index) => {
+              // Calculate how many "steps" behind this line is from the current line, in groups of 2
+              const step = Math.floor((currentLine - index) / 2);
+              // Opacity decreases by 0.1 (10%) per step, minimum 0.1
+              const opacity = Math.max(1 - step * 0.1, 0.2);
+              return (
+                <div 
+                  key={index} 
+                  className={styles.line}
+                  style={{ opacity }}
+                >
+                  {line}
+                  {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
+                </div>
+              );
+            })}
           </div>
           
           {isComplete && (
