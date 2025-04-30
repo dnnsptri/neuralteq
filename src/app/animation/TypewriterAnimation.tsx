@@ -127,7 +127,15 @@ const TypewriterAnimation = () => {
                     Staking dashboard
                 </a>
                   <Link href="/validator" className={styles.button}>Validator</Link>
-                  <a href="/" className={styles.textLink}>Homepage</a>
+                  <Link 
+                    href="/" 
+                    className={styles.textLink}
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        localStorage.setItem('skipAnimationOnce', 'true');
+                      }
+                    }}
+                  >Homepage</Link>
               </div>
             </div>
           )}
