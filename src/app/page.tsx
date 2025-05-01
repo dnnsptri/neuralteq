@@ -9,6 +9,11 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      const skipAnimation = localStorage.getItem('skipAnimationOnce');
+      if (skipAnimation) {
+        localStorage.removeItem('skipAnimationOnce');
+        return;
+      }
       const lastVisit = localStorage.getItem('animationLastVisit');
       const now = Date.now();
       const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
@@ -19,6 +24,5 @@ export default function Home() {
     }
   }, [router]);
 
-  // Optionally render a loading spinner or nothing
-  return null;
+  return <IndexContent />;
 } 

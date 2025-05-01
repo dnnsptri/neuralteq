@@ -108,7 +108,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
                 <LogoMesh />
               </div>
             ) : (
-              <Link href="/">
+              <Link href="/" onClick={() => localStorage.setItem('skipAnimationOnce', 'true')}>
                 <div className="relative w-[140px] h-[72px] logo-mesh-1960">
                   <LogoMesh />
                 </div>
