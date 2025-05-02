@@ -18,7 +18,7 @@ export default function IndexContent() {
       label: 'Validator',
       href: '/validator',
       color: '#2A2628',
-      visual: '/visuals/element_validator@2x.png',
+      visual: '/visuals/element_Validator@2x.png',
       description: 'Secure, reliable validation for the Bittensor network.'
     },
     {
@@ -26,7 +26,7 @@ export default function IndexContent() {
       label: 'Business Development',
       href: '/business-development',
       color: '#1E2241',
-      visual: '/visuals/element_business@2x.png',
+      visual: '/visuals/element_Business@2x.png',
       description: 'Connecting subnets with real-world adoption.'
     },
     {
@@ -34,7 +34,7 @@ export default function IndexContent() {
       label: 'Mining',
       href: '/mining',
       color: '#25291A',
-      visual: '/visuals/element_mining@2x.png',
+      visual: '/visuals/element_Mining@2x.png',
       description: 'High-performance mining operations and insights.'
     },
     {
@@ -42,7 +42,7 @@ export default function IndexContent() {
       label: 'Research',
       href: '/research',
       color: '#291D2C',
-      visual: '/visuals/element_research@2x.png',
+      visual: '/visuals/element_Research@2x.png',
       description: 'Cutting-edge research and innovation in decentralised AI.'
     },
     {
@@ -50,7 +50,7 @@ export default function IndexContent() {
       label: 'Neuralteq Fund',
       href: '/fund',
       color: '#23142A',
-      visual: '/visuals/element_fund@2x.png',
+      visual: '/visuals/element_Fund@2x.png',
       description: 'Strategic funding solutions for the TAO economy.'
     },
   ];
