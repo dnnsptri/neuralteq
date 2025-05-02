@@ -36,8 +36,8 @@ export default function WhyUsContent() {
                 playsInline
                 className="w-full h-full object-contain"
               >
-                <source src="/visuals/mesh_orange_dark_50.webm" type="video/webm" />
-                <source src="/visuals/mesh_orange_dark_50.mp4" type="video/mp4" />
+                <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
+                <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
                 {/* Fallback for browsers that don't support video */}
                 <Image
                   src="/visuals/mesh_orange@2x.png"
@@ -68,8 +68,7 @@ export default function WhyUsContent() {
                 playsInline
                 className="w-full h-full object-contain"
               >
-                <source src="/visuals/mesh_orange_dark_50.webm" type="video/webm" />
-                <source src="/visuals/mesh_orange_dark_50.mp4" type="video/mp4" />
+                <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
                 {/* Fallback for browsers that don't support video */}
                 <Image
                   src="/visuals/mesh_orange@2x.png"
