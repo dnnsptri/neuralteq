@@ -116,6 +116,7 @@ export default function BusinessContent() {
             <Quote 
               text="We bridge decentralized AI with real-world impact, turning subnet innovation into everyday solutions"
               author="Roger Majelle (Neuralteq)"
+              className="mb-12"
             />
           </FadeInUp>
 

@@ -55,6 +55,8 @@ export default function IndexContent() {
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     // Ensure video plays
@@ -72,6 +74,32 @@ export default function IndexContent() {
     }, 4000);
     return () => clearInterval(interval);
   }, [services.length]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setActiveIndex((activeIndex + 1) % services.length);
+    }
+    if (isRightSwipe) {
+      setActiveIndex((activeIndex - 1 + services.length) % services.length);
+    }
+
+    setTouchEnd(0);
+    setTouchStart(0);
+  };
 
   // Helper to get the visible trio of cards
   const getVisibleIndices = () => {
@@ -118,7 +146,7 @@ export default function IndexContent() {
 
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
-            <div className="w-full">
+            <div className="w-full content-box">
               <FadeInUp delay={0.3}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p className="mb-16">
@@ -132,61 +160,103 @@ export default function IndexContent() {
                         {/* Services Section: SmallColumn-style list and animated carousel */}
                         <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
                           {/* SmallColumn-style clickable list */}
-                          <div className="bg-white dark:bg-[#061C2B] rounded-lg shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 ml-[-48px] mr-[-48px]" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)'}}>
-                            <div className="mb-6 text-[17px] text-[#021019] dark:text-[var(--foreground)]">
+                          <div className="bg-white dark:bg-[#061C2B] rounded-lg shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mobile-order-last md:order-1 mobile-centered md:mx-[-48px]" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)'}}>
+                            <div className="mb-6 text-[17px] text-[#021019] dark:text-[var(--foreground)] text-center md:text-left">
                               Unlock the power of TAO with expert mining setups, smart funding, and hands-on support. Grow, innovate, and achieve financial freedom. Let's get started.
                             </div>
-                            <ul className="space-y-3">
+                            <ul className="space-y-3 flex flex-col items-center md:items-start">
                               {services.map((service, idx) => (
                                 <li key={service.key}>
                                   <Link
                                     href={service.href}
-                                    className="w-full text-left font-medium text-[18px] md:text-[20px] flex items-center gap-2 transition-colors service-list-item hover:underline"
+                                    className="text-[18px] md:text-[20px] transition-colors hover:underline text-center md:text-left block"
                                     style={{fontWeight: 500}}
                                     onMouseEnter={() => setActiveIndex(idx)}
                                   >
-                                    {service.label}
+                                    {service.label === 'Business Development' ? (
+                                      <>
+                                        <span className="md:hidden">
+                                          Business<br />Development
+                                        </span>
+                                        <span className="hidden md:inline">
+                                          Business Development
+                                        </span>
+                                      </>
+                                    ) : service.label}
                                   </Link>
                                 </li>
                               ))}
                             </ul>
                           </div>
                           {/* Animated Carousel */}
-                          <div className="flex-1 flex flex-col items-center justify-center relative min-h-[420px] ml-[-48px] mr-[-48px]">
+                          <div className="flex-1 flex flex-col items-center justify-center relative min-h-[420px] mobile-order-first md:order-2 mobile-margin-bottom md:ml-[-48px] md:mr-[-48px]">
                             <div className="relative w-full max-w-[900px] h-[420px] mx-auto flex items-center">
                               {/* Service Cards (3 visible, animated, mesh image centered) */}
-                              <div className="flex w-full justify-center items-center relative">
+                              <div 
+                                className="flex w-full justify-center items-center relative"
+                                onTouchStart={handleTouchStart}
+                                onTouchMove={handleTouchMove}
+                                onTouchEnd={handleTouchEnd}
+                              >
+                                {/* Navigation Arrows - Desktop Only */}
+                                <div className="hidden md:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between px-[100px] z-50">
+                                  <button 
+                                    onClick={() => setActiveIndex((activeIndex - 1 + services.length) % services.length)}
+                                    className="arrow-btn"
+                                    aria-label="Previous service"
+                                  >
+                                    <svg className="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                      <path d="M15 18l-6-6 6-6" />
+                                    </svg>
+                                  </button>
+                                  <button 
+                                    onClick={() => setActiveIndex((activeIndex + 1) % services.length)}
+                                    className="arrow-btn"
+                                    aria-label="Next service"
+                                  >
+                                    <svg className="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                      <path d="M9 18l6-6-6-6" />
+                                    </svg>
+                                  </button>
+                                </div>
+
                                 {visibleIndices.map((idx, i) => {
                                   const service = services[idx];
                                   let cardClass = '';
-                                  if (i === 1) cardClass = 'front'; // current
-                                  else if (i === 2) cardClass = 'behind'; // next
-                                  else if (i === 0) cardClass = 'from-behind'; // previous
-                                  // Card position styles
+                                  if (i === 1) cardClass = 'front';
+                                  else if (i === 2) cardClass = 'behind';
+                                  else if (i === 0) cardClass = 'from-behind';
+
                                   let style = {
-                                    width: 360,
-                                    height: 480,
+                                    width: typeof window !== 'undefined' && window.innerWidth <= 768 ? 320 : 360,
+                                    height: typeof window !== 'undefined' && window.innerWidth <= 768 ? 440 : 480,
+                                    padding: typeof window !== 'undefined' && window.innerWidth <= 768 ? 32 : 48,
                                     borderRadius: 4,
                                     background: service.color,
                                     boxShadow: cardClass === 'front' ? '0 8px 32px rgba(0,0,0,0.18)' : '0 4px 16px rgba(0,0,0,0.10)',
                                     pointerEvents: cardClass === 'front' ? 'auto' : 'none',
-                                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', overflow: 'hidden',
-                                    padding: 48,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-start',
+                                    overflow: 'hidden',
                                     transition: 'all 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1)',
                                     opacity: cardClass === 'front' ? 1 : (cardClass === 'behind' ? 0.70 : 0),
                                     zIndex: cardClass === 'front' ? 20 : (cardClass === 'behind' ? 10 : 0),
-                                    left: cardClass === 'front' ? '50%' : (cardClass === 'behind' ? '60%' : '40%'),
+                                    position: 'absolute',
+                                    left: '50%',
                                     transform: cardClass === 'front'
-                                      ? 'translateX(-60%) scale(1)'
+                                      ? 'translateX(-50%) scale(1)'
                                       : cardClass === 'behind'
-                                        ? 'translateX(-10%) scale(0.85)'
-                                        : 'translateX(-110%) scale(0.92)',
+                                        ? 'translateX(-50%) scale(0.85) translateX(30%)'
+                                        : 'translateX(-50%) scale(0.85) translateX(-30%)',
                                   };
+
                                   return (
                                     <Link
                                       key={service.key}
                                       href={service.href}
-                                      className={`absolute card-animate cursor-pointer ${cardClass}`}
+                                      className={`absolute card-animate cursor-pointer touch-pan-y ${cardClass}`}
                                       style={style as React.CSSProperties}
                                     >
                                       <div className="w-full flex justify-center mb-10">
@@ -197,32 +267,6 @@ export default function IndexContent() {
                                     </Link>
                                   );
                                 })}
-                                {/* Left arrow */}
-                                <button
-                                  className="absolute left-0 top-1/2 -translate-y-1/2 z-30 arrow-btn"
-                                  onClick={() => setActiveIndex((activeIndex - 1 + services.length) % services.length)}
-                                  aria-label="Previous service"
-                                  style={{left: '92px'}}
-                                >
-                                  <span className="arrow-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                      <path d="M15 18l-6-6 6-6" />
-                                    </svg>
-                                  </span>
-                                </button>
-                                {/* Right arrow */}
-                                <button
-                                  className="absolute right-0 top-1/2 -translate-y-1/2 z-30 arrow-btn"
-                                  onClick={() => setActiveIndex((activeIndex + 1) % services.length)}
-                                  aria-label="Next service"
-                                  style={{right: '-72px'}}
-                                >
-                                  <span className="arrow-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                      <path d="M9 6l6 6-6 6" />
-                                    </svg>
-                                  </span>
-                                </button>
                               </div>
                             </div>
                           </div>
@@ -230,15 +274,15 @@ export default function IndexContent() {
                       </BodyText>
                     </FadeInUp>
                   </div>
-                  {/* Duplicate section */}
-                  <div className="mt-16 my-24">
+                  {/* Why us section */}
+                  <div className="mt-16">
                     <FadeInUp delay={0.5}>
                       <PageSubtitle className="mb-6 md:mb-8">
                         Why us
                       </PageSubtitle>
                     </FadeInUp>
                     <FadeInUp delay={0.6}>
-                      <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
+                      <BodyText className="space-y-6 md:space-y-8">
                       <p>
                         Neuralteq has a skilled team of data scientists, developers, crypto natives and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
                       </p>
@@ -255,7 +299,7 @@ export default function IndexContent() {
           </div>
         </CenteredContent>
       </main>
-      <div className="mt-10">
+      <div className="mt-24 md:mt-32 z-50">
         <Footer />
       </div>
       <style jsx>{`

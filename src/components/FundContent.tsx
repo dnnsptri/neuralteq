@@ -102,7 +102,7 @@ export default function FundContent() {
           </FadeInUp>
         </CenteredContent>
       </main>
-      <div className="z-50" key="footer-wrapper">
+      <div className="mt-24 md:mt-32 z-50">
         <Footer />
       </div>
     </>

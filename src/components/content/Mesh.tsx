@@ -18,14 +18,17 @@ export default function Mesh({
   height = 88, 
   className = '' 
 }: MeshProps) {
+  const imageClassName = `w-[${width}px] h-[${height}px] ${className}`.trim();
+  
   return (
-    <div className={`mesh ${className}`}>
+    <div className="mesh relative">
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className={`w-[${width}px] h-[${height}px]`}
+        className={imageClassName}
+        priority
       />
     </div>
   );

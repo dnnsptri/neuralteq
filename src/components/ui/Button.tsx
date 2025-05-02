@@ -14,6 +14,7 @@ interface ButtonProps {
   isCompact?: boolean;
   'aria-label'?: string;
   disabled?: boolean;
+  showIconOnlyOnMobile?: boolean;
 }
 
 export default function Button({ 
@@ -25,7 +26,8 @@ export default function Button({
   iconLight,
   isCompact,
   'aria-label': ariaLabel,
-  disabled = false
+  disabled = false,
+  showIconOnlyOnMobile = false
 }: ButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -50,22 +52,37 @@ export default function Button({
   
   const content = icon ? (
     <div className="flex items-center justify-center">
-      <span className={isCompact ? "md:block hidden" : ""}>
-        {children}
-      </span>
-      <Image
-        src={isDark && !isHovered ? icon : iconLight || icon}
-        alt=""
-        width={20}
-        height={20}
-        className={`hidden md:block ${isCompact ? "ml-0 md:ml-2" : "ml-2"}`}
-      />
+      {showIconOnlyOnMobile ? (
+        <>
+          <span className="hidden md:block">{children}</span>
+          <Image
+            src={isDark && !isHovered ? icon : iconLight || icon}
+            alt=""
+            width={20}
+            height={20}
+            className={`md:hidden ${isCompact ? "ml-0" : "ml-2"}`}
+          />
+        </>
+      ) : (
+        <>
+          <span className={isCompact ? "md:block hidden" : ""}>
+            {children}
+          </span>
+          <Image
+            src={isDark && !isHovered ? icon : iconLight || icon}
+            alt=""
+            width={20}
+            height={20}
+            className={`hidden md:block ${isCompact ? "ml-0 md:ml-2" : "ml-2"}`}
+          />
+        </>
+      )}
     </div>
   ) : children;
 
   const baseStyles = [
     'text-base font-medium',
-    isCompact ? 'w-10 h-10 p-2 md:w-auto md:h-auto md:px-4 md:py-3' : 'px-4 py-3',
+    isCompact ? 'w-10 h-10 p-2 md:w-auto md:h-auto md:px-2 md:py-2 text-sm' : 'px-4 py-3',
     'rounded transition-all duration-300',
     'bg-[var(--foreground)] text-[var(--background)]',
     'hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)]',

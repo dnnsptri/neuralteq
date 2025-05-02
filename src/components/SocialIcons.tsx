@@ -6,11 +6,14 @@ import styles from './SocialIcons.module.css';
 
 interface SocialIconsProps {
   className?: string;
+  isFooter?: boolean;
 }
 
-const SocialIcons = ({ className }: SocialIconsProps) => {
+const SocialIcons = ({ className, isFooter }: SocialIconsProps) => {
+  const containerClass = isFooter ? styles.footerIcons : styles.socialIcons;
+  
   return (
-    <div className={`${styles.socialIcons} ${className || ''}`}>
+    <div className={`${containerClass} ${className || ''}`}>
       <a 
         href="https://discord.com/invite/5wPwqcGnrn" 
         target="_blank" 

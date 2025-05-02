@@ -25,9 +25,9 @@ export default function WhyUsContent() {
     <div className="min-h-screen flex flex-col">
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
-          <div className="relative mb-16 md:mb-[64px]">
+          <div className="relative mb-8 md:mb-[64px]">
             {/* Mesh Background */}
-            <div className="absolute top-0 right-[80px] w-[240px] h-[240px] -z-10">
+            <div className="hidden md:block absolute top-0 right-[80px] w-[240px] h-[240px] -z-10">
               <video
                 ref={videoRef}
                 autoPlay
@@ -56,6 +56,32 @@ export default function WhyUsContent() {
                 Neuralteq: Accelerating Subnet Adoption. Building the TAO Ecosystem
               </PageTitle>
             </FadeInUp>
+          </div>
+
+          {/* Mobile Mesh */}
+          <div className="flex justify-center mb-16 md:hidden">
+            <div className="w-[160px] h-[160px]">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-contain"
+              >
+                <source src="/visuals/mesh_orange_dark_50.webm" type="video/webm" />
+                <source src="/visuals/mesh_orange_dark_50.mp4" type="video/mp4" />
+                {/* Fallback for browsers that don't support video */}
+                <Image
+                  src="/visuals/mesh_orange@2x.png"
+                  alt="Mesh Background"
+                  width={160}
+                  height={160}
+                  quality={90}
+                  priority
+                  className="object-contain"
+                />
+              </video>
+            </div>
           </div>
 
           <FadeInUp delay={0.2}>
@@ -97,7 +123,7 @@ export default function WhyUsContent() {
           </div>
         </CenteredContent>
       </main>
-      <div className="mt-10">
+      <div className="mt-24 md:mt-32 z-50">
         <Footer />
       </div>
     </div>

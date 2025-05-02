@@ -24,6 +24,90 @@ body {
   background-color: #021019;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Text Content */
+  .page-title,
+  .page-subtitle,
+  .intro-text,
+  .body-text {
+    text-align: center;
+  }
+
+  .body-text {
+    font-weight: 400;
+  }
+
+  /* List Alignment */
+  .body-text ul {
+    text-align: left;
+    padding-left: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+
+  .content-box {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Button Centering */
+  main div[class*="mb-"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Card Carousel */
+  .card-animate {
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Service Cards */
+  .service-card {
+    width: 320px !important;
+    height: 440px !important;
+    padding: 32px !important;
+  }
+
+  /* Service List */
+  .service-list {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .service-list-item {
+    justify-content: center;
+  }
+
+  /* Layout Adjustments */
+  .mobile-centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .mobile-order-first {
+    order: 1;
+  }
+
+  .mobile-order-last {
+    order: 2;
+  }
+
+  .mobile-margin-bottom {
+    margin-bottom: 32px;
+  }
+}
+
 @layer components {
   /* Links */
   .link {
@@ -46,7 +130,7 @@ body {
 
   /* Typography */
   .page-title {
-    @apply text-[32px] md:text-[58px] font-medium leading-[120%] tracking-[-0.02em] text-[var(--foreground)];
+    @apply text-[48px] md:text-[58px] font-medium leading-[120%] tracking-[-0.02em] text-[var(--foreground)];
   }
 
   .page-subtitle {
@@ -63,7 +147,7 @@ body {
 
   /* Quote */
   .quote-container {
-    @apply mb-4;
+    @apply mb-4 text-center;
   }
 
   .quote-mark {
@@ -75,16 +159,17 @@ body {
   }
 
   .quote-author {
-    @apply text-[13px] md:text-[15px] font-normal leading-[150%] italic text-[var(--foreground)];
+    @apply text-[13px] md:text-[15px] font-normal leading-[150%] italic text-[var(--foreground)] text-center block;
   }
 
   /* Footer */
   .footer {
-    @apply mt-8;
+    @apply mt-8 relative;
   }
 
   .footer-mesh {
-    @apply flex justify-center mb-12 md:mb-20;
+    @apply relative flex justify-center mb-12 md:mb-20;
+    z-index: -1;
   }
 
   .footer-content {
@@ -110,6 +195,25 @@ body {
 
   .social-icon {
     @apply transition-colors w-5 h-5 md:w-6 md:h-6;
+  }
+
+  /* Mesh Components */
+  .logo-mesh-1960 {
+    @apply relative overflow-hidden;
+  }
+
+  .logo-mesh-1960 video,
+  .logo-mesh-1960 img {
+    @apply absolute right-0 top-1/2 -translate-y-1/2;
+  }
+
+  .mesh {
+    @apply relative overflow-hidden rounded-full;
+  }
+
+  .footer-mesh video,
+  .footer-mesh img {
+    @apply rounded-full object-cover;
   }
 
   /* Animations */

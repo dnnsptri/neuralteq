@@ -32,7 +32,6 @@ const socialLinks = [
 
 const footerLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms of Service', href: '/terms' },
   { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
 ];
 
@@ -63,21 +62,40 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
 
       {/* Menu */}
       <div 
-        className={`fixed right-0 top-0 h-full w-full bg-[#ECFBFA] dark:bg-[#021019] text-black dark:text-white shadow-xl transition-transform z-50 md:hidden overflow-hidden ${
+        className={`fixed right-0 top-0 h-full w-full bg-[#021019] text-[#ECFBFA] shadow-xl transition-transform z-50 md:hidden overflow-hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full p-6">
-          {/* Close button */}
-          <button 
-            onClick={onClose}
-            className="self-end p-2"
-            aria-label="Close menu"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
+          {/* Header with Close and Theme buttons */}
+          <div className="flex items-center justify-end gap-5">
+            {/* Theme toggle */}
+            {!disableNav && (
+              <button 
+                onClick={onThemeToggle}
+                className="p-2"
+                aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                <Image
+                  src={isDark ? "/icons/icon_light.svg" : "/icons/icon_dark.svg"}
+                  alt="Theme toggle"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
+              </button>
+            )}
+            {/* Close button */}
+            <button 
+              onClick={onClose}
+              className="p-2"
+              aria-label="Close menu"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
           {/* Navigation */}
           {!disableNav && (
@@ -86,8 +104,8 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block py-2 text-[24px] font-medium relative hover:opacity-100 transition-opacity ${
-                  pathname === item.href ? 'opacity-100' : 'opacity-60'
+                className={`block py-2 text-[24px] font-medium relative transition-opacity ${
+                  pathname === item.href ? 'underline underline-offset-4' : ''
                 }`}
                 onClick={onClose}
               >
@@ -99,37 +117,15 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
 
           {/* Staking Dashboard Button */}
           {!disableNav && (
-          <div className="mt-16">
+          <div className="mt-6 mb-[72px]">
             <Button
               href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM5Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
-              className="w-full justify-center"
-              icon="/icons/icon_dashboard.svg"
-              iconLight="/icons/icon_dashboard_light.svg"
+              className="w-full justify-center text-[#021019] bg-[#ECFBFA] hover:text-[#ECFBFA] hover:bg-transparent hover:outline-[#ECFBFA]"
               isCompact
             >
               Staking dashboard
             </Button>
           </div>
-          )}
-
-          {/* Theme toggle */}
-          {!disableNav && (
-          <button 
-            onClick={onThemeToggle}
-            className="mt-8 py-3 flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity"
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            <Image
-              src={isDark ? "/icons/icon_light.svg" : "/icons/icon_dark.svg"}
-              alt="Theme toggle"
-              width={24}
-              height={24}
-              className="w-6 h-6"
-            />
-            <span className="text-[17px]">
-              {isDark ? 'Light mode' : 'Dark mode'}
-            </span>
-          </button>
           )}
 
           {/* Footer */}

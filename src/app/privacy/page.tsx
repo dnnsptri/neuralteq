@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           </FadeInUp>
         </CenteredContent>
       </main>
-      <div className="mt-10">
+      <div className="mt-24 md:mt-32 z-50">
         <Footer />
       </div>
     </div>

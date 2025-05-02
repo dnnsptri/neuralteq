@@ -33,13 +33,13 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
 
   const [isMobile, setIsMobile] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
-  const [isBM, setIsBM] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const checkDevice = () => {
       setIsMobile(window.innerWidth < 768);
       setIsPortrait(window.matchMedia('(orientation: portrait)').matches);
-      setIsBM(window.innerWidth < 1280);
+      setIsSmallScreen(window.innerWidth <= 1336);
     };
     checkDevice();
     window.addEventListener('resize', checkDevice);
@@ -127,7 +127,12 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
                     href={item.href}
                     className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'font-medium' : ''}`}
                   >
-                    {(isMobile || isPortrait) && item.name === 'Neuralteq Fund' ? 'Fund' : item.name}
+                    {item.name === 'Neuralteq Fund' ? (
+                      <>
+                        <span className="hidden max-[1336px]:inline">Fund</span>
+                        <span className="inline max-[1336px]:hidden">Neuralteq Fund</span>
+                      </>
+                    ) : item.name}
                     {pathname === item.href ? (
                       <span className="nav-link-underline" />
                     ) : (
@@ -148,12 +153,28 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           >
             {/* Staking Dashboard - Desktop */}
             <Button 
-              href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
-              className="flex md:flex-row flex-col items-center text-[14.4px] gap-5.4"
+              href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+              className="group flex md:flex-row flex-col items-center text-[15px] gap-2"
               isCompact
               aria-label="Staking Dashboard"
             >
-              <span>Staking dashboard</span>
+              <span className="hidden max-[1336px]:inline relative w-5 h-5">
+                <Image
+                  src="/icons/icon_dashboard.svg"
+                  alt="Dashboard"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 absolute group-hover:opacity-0 transition-opacity"
+                />
+                <Image
+                  src="/icons/icon_dashboard_light.svg"
+                  alt="Dashboard"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 absolute opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+              </span>
+              <span className="inline max-[1336px]:hidden">Staking dashboard</span>
             </Button>
 
             {/* Theme Toggle - Desktop */}
@@ -177,10 +198,10 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {!disableNav && (
           <motion.button 
             style={{ opacity: mobileOpacity }}
-              onClick={() => setIsMobileMenuOpen(true)}
+            onClick={() => setIsMobileMenuOpen(true)}
             className="md:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
-              aria-label="Open menu"
-            >
+            aria-label="Open menu"
+          >
             <Image
               src="/icons/icon_menu.svg"
               alt="Menu"
