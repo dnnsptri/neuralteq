@@ -70,19 +70,23 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
       setIsAtTop(currentScrollY < 10);
-      
+
+      const isAtBottom = windowHeight + currentScrollY >= docHeight - 10;
+
       if (currentScrollY < 10) {
-        // Always visible at top
         setIsVisible(true);
+      } else if (isAtBottom) {
+        setIsVisible(false);
       } else if (currentScrollY > lastScrollY) {
-        // Scrolling down
         setIsVisible(false);
       } else {
-        // Scrolling up
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
