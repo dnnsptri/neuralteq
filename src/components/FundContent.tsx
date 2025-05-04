@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
@@ -14,6 +14,9 @@ import FadeInUp from './motion/FadeInUp';
 import ContactForm from './ContactForm';
 
 export default function FundContent() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+
   return (
     <>
       {/* Background Image */}
@@ -67,7 +70,7 @@ export default function FundContent() {
           </FadeInUp>
           <FadeInUp delay={0.4}>
             <PageSubtitle className="mb-6 md:mb-8">
-            Current performance: +567% since inception
+            Current performance: +1551% since inception
             </PageSubtitle>
           </FadeInUp>
         </CenteredContent>
@@ -75,14 +78,16 @@ export default function FundContent() {
         <CenteredContent>
           <div className="overflow-hidden">
             <FadeInUp delay={0.5}>
-              <Image
-                src="/visuals/fund_graph.png"
-                alt="Fund Performance Graph"
-                width={1200}
-                height={800}
-                className="w-full h-auto"
-                priority
-              />
+              {mounted && (
+                <Image
+                  src="/visuals/fund_graph.png"
+                  alt="Fund Performance Graph"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto"
+                  priority
+                />
+              )}
             </FadeInUp>
           </div>
         </CenteredContent>
