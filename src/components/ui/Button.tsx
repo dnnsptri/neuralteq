@@ -65,16 +65,16 @@ export default function Button({
         </>
       ) : (
         <>
-          <span className={isCompact ? "md:block hidden" : ""}>
-            {children}
-          </span>
-          <Image
-            src={isDark && !isHovered ? icon : iconLight || icon}
-            alt=""
-            width={20}
-            height={20}
-            className={`hidden md:block ${isCompact ? "ml-0 md:ml-2" : "ml-2"}`}
-          />
+      <span className={isCompact ? "md:block hidden" : ""}>
+        {children}
+      </span>
+      <Image
+        src={isDark && !isHovered ? icon : iconLight || icon}
+        alt=""
+        width={20}
+        height={20}
+        className={`hidden md:block ${isCompact ? "ml-0 md:ml-2" : "ml-2"}`}
+      />
         </>
       )}
     </div>

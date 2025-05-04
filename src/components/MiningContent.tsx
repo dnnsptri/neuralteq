@@ -13,16 +13,19 @@ export default function MiningContent() {
   return (
     <>
       {/* Background Image */}
-      <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
-        <Image
-          src="/visuals/bg_mining.png"
-          alt="Mining Background"
-          fill
-          quality={90}
-          priority
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+      <div className="w-full flex justify-center fixed top-0 left-0 right-0 -z-10">
+        <div className="relative w-full max-w-[1360px]">
+          <Image
+            src="/visuals/bg_mining.png"
+            alt="Mining Background"
+            width={1360}
+            height={520}
+            quality={100}
+            priority
+            className="object-contain object-center w-full h-auto"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+        </div>
       </div>
 
       <main className="mt-24 md:mt-48 relative">
@@ -51,7 +54,7 @@ export default function MiningContent() {
               <FadeInUp delay={0.3}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p>
-                    Through our mining activities, we gain valuable insights into which Subnets consistently deliver high-quality results and which need further development. These insights directly support our business development efforts and become our research initiatives, ensuring we can strategically advise and assist our partners effectively.
+                    Through our mining activities, we gain valuable insights into which Subnets consistently deliver high-quality results and which need further development. These insights directly support our business development efforts and become part of our research initiatives, ensuring we can strategically advise and assist our partners effectively.
                   </p>
 
                   <p>

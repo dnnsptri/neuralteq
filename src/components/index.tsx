@@ -27,7 +27,7 @@ export default function IndexContent() {
       href: '/business-development',
       color: '#1E2241',
       visual: '/visuals/element_Business@2x.png',
-      description: 'Connecting subnets with real-world adoption.'
+      description: 'Accelerating Subnet Adoption. Building the TAO Ecosystem.'
     },
     {
       key: 'mining',
@@ -51,7 +51,7 @@ export default function IndexContent() {
       href: '/fund',
       color: '#23142A',
       visual: '/visuals/element_Fund@2x.png',
-      description: 'Strategic funding solutions for the TAO economy.'
+      description: 'Crypto-Native. Research-Driven. Capital-Conservative.'
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -115,25 +115,26 @@ export default function IndexContent() {
     <div className="min-h-screen flex flex-col">
       <Header />
       {/* Background Image */}
-      <div className="fixed top-0 left-0 right-0 w-full h-[60vh] -z-10 overflow-hidden">
-        <Image
-          src="/visuals/bg_index.png"
-          alt="Business Background"
-          fill
-          quality={90}
-          priority
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+      <div className="w-full flex justify-center fixed top-0 left-0 right-0 -z-10">
+        <div className="relative w-full max-w-[1360px]">
+          <Image
+            src="/visuals/bg_index.png"
+            alt="Business Background"
+            width={1360}
+            height={520}
+            quality={100}
+            priority
+            className="object-contain object-center w-full h-auto"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+        </div>
       </div>
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
           <div className="relative mb-16 md:mb-[64px]">
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                Accelerating Subnet Adoption.
-                <br />
-                Building the TAO Ecosystem
+                Neuralteq: Accelerating Subnet Adoption. Building the TAO Ecosystem
               </PageTitle>
             </FadeInUp>
           </div>
@@ -150,7 +151,7 @@ export default function IndexContent() {
               <FadeInUp delay={0.3}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p className="mb-16">
-                    Our mission is to drive long-term success of the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.<br /><br /><br />
+                    Our mission is to drive long-term success for the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.<br /><br /><br />
                   </p>
 
                   {/* Driving enterprise adoption section from BusinessContent */}
@@ -162,7 +163,7 @@ export default function IndexContent() {
                           {/* SmallColumn-style clickable list */}
                           <div className="bg-white dark:bg-[#061C2B] rounded-lg shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mobile-order-last md:order-1 mobile-centered md:mx-[-48px]" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)'}}>
                             <div className="mb-6 text-[17px] text-[#021019] dark:text-[var(--foreground)] text-center md:text-left">
-                              Unlock the power of TAO with expert mining setups, smart funding, and hands-on support. Grow, innovate, and achieve financial freedom. Let's get started.
+                            Dive deeper in what Neuralteq is all about:
                             </div>
                             <ul className="space-y-3 flex flex-col items-center md:items-start">
                               {services.map((service, idx) => (

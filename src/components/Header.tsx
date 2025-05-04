@@ -15,7 +15,7 @@ const navigationItems = [
   { name: 'Business Development', href: '/business-development' },
   { name: 'Mining', href: '/mining' },
   { name: 'Research', href: '/research' },
-  { name: 'Neuralteq Fund', href: '/fund' },
+  { name: 'Fund', href: '/fund' },
   { name: 'Why us', href: '/why-us' },
 ];
 
@@ -111,8 +111,8 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
               <Link href="/" onClick={() => localStorage.setItem('skipAnimationOnce', 'true')}>
                 <div className="relative w-[140px] h-[72px] logo-mesh-1960">
                   <LogoMesh />
-                </div>
-              </Link>
+              </div>
+            </Link>
             )}
           </motion.div>
 
@@ -120,27 +120,31 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {!disableNav && (
           <div className={`w-full transition-all duration-300 hidden md:block ${isVisible || isAtTop ? 'opacity-100' : 'opacity-0'}`}>
             <div className="container mx-auto px-9">
-              <nav className="flex items-center space-x-8 lg:ml-[152px]">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'font-medium' : ''}`}
-                  >
-                    {item.name === 'Neuralteq Fund' ? (
-                      <>
-                        <span className="hidden max-[1336px]:inline">Fund</span>
-                        <span className="inline max-[1336px]:hidden">Neuralteq Fund</span>
-                      </>
-                    ) : item.name}
-                    {pathname === item.href ? (
-                      <span className="nav-link-underline" />
-                    ) : (
-                      <span className="nav-link-hover" />
-                    )}
-                  </Link>
-                ))}
-              </nav>
+              <div className="flex justify-center">
+                <div className="bg-[#ECFBFA] dark:bg-[#061C2B] rounded-full px-8 py-2 flex items-center shadow-sm">
+                  <nav className="flex items-center space-x-8">
+                    {navigationItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'font-medium' : ''}`}
+                      >
+                        {item.name === 'Neuralteq Fund' ? (
+                          <>
+                            <span className="hidden max-[1336px]:inline">Fund</span>
+                            <span className="inline max-[1336px]:hidden">Neuralteq Fund</span>
+                          </>
+                        ) : item.name}
+                        {pathname === item.href ? (
+                          <span className="nav-link-underline" />
+                        ) : (
+                          <span className="nav-link-hover" />
+                        )}
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
           )}
@@ -198,10 +202,10 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {!disableNav && (
           <motion.button 
             style={{ opacity: mobileOpacity }}
-            onClick={() => setIsMobileMenuOpen(true)}
+              onClick={() => setIsMobileMenuOpen(true)}
             className="md:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
-            aria-label="Open menu"
-          >
+              aria-label="Open menu"
+            >
             <Image
               src="/icons/icon_menu.svg"
               alt="Menu"

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
@@ -14,16 +14,16 @@ const text = [
   "A new era, a new collective",
   "United by the same purpose:",
   "Build Open Source Decentralized AI,",
-  "with humanities best interest at its core.",
+  "with humanities best interest at its core",
   " ",
   "Our commitment:",
-  "• The highest APRs",
-  "• Cutting edge models",
+  "• The highest APYs",
   "• The best research",
-  "• And real-world adoption for Bittensor subnets.",
+  "• Cutting edge models",
+  "• And real-world adoption for Bittensor subnets",
   " ",
   "Stake with us and be part of the",
-  "movement_"
+  "movement"
 ];
 
 const TypewriterAnimation = () => {
@@ -34,6 +34,7 @@ const TypewriterAnimation = () => {
   const [showCursor, setShowCursor] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
   const router = useRouter();
+  const activeLineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -77,12 +78,18 @@ const TypewriterAnimation = () => {
     return () => clearInterval(cursorInterval);
   }, [mounted]);
 
+  useEffect(() => {
+    if (activeLineRef.current) {
+      activeLineRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [currentLine, isComplete]);
+
   if (!mounted) return null;
 
   return (
     <div className={styles.wrapper}>
       <SocialIcons />
-      <div className={styles.container + (isComplete ? ' ' + styles.containerTop : '')}>
+      <div className={styles.container} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <div className={styles.logo}>
           <Image
             src="/visuals/logo_neuralteq.png"
@@ -92,46 +99,44 @@ const TypewriterAnimation = () => {
             priority
           />
         </div>
-        
         <CenteredContent>
-        <div className={styles.content}>
-          <div className={styles.textContainer}>
-            {displayText.map((line, index) => {
-              // Calculate how many "steps" behind this line is from the current line, in groups of 2
-              const step = Math.floor((currentLine - index) / 2);
-              // Opacity decreases by 0.1 (10%) per step, minimum 0.1
-              const opacity = Math.max(1 - step * 0.1, 0.2);
-              return (
-                <div 
-                  key={index} 
-                  className={styles.line}
-                  style={{ opacity }}
-                >
-                  {line}
-                  {index === currentLine && showCursor && <span className={styles.cursor}>_</span>}
-                </div>
-              );
-            })}
-          </div>
-          
-          {isComplete && (
-            <div className={styles.callToAction}>
-              <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
-              <div className={styles.buttons}>
-                <a 
-                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={`${styles.button} ${styles.primaryButton}`}
-                >
-                    Staking dashboard
-                </a>
-                  <Link href="/validator" className={styles.button}>Validator</Link>
-                  <a href="/" className={styles.textLink}>Homepage</a>
-              </div>
+          <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className={styles.textContainer}>
+              {displayText.map((line, index) => {
+                const step = Math.floor((currentLine - index) / 2);
+                const opacity = Math.max(1 - step * 0.1, 0.05);
+                return (
+                  <div
+                    key={index}
+                    className={styles.line}
+                    style={{ opacity }}
+                    ref={index === currentLine || (isComplete && index === text.length - 1) ? activeLineRef : undefined}
+                  >
+                    {line}
+                    {((index === currentLine && !isComplete) || (isComplete && index === text.length - 1)) && showCursor && (
+                      <span className={styles.cursor}>|</span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-          )}
-        </div>
+            {isComplete && (
+              <div className={styles.callToAction}>
+                <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
+                <div className={styles.buttons}>
+                  <a
+                    href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.button} ${styles.primaryButton}`}
+                  >
+                    Staking dashboard
+                  </a>
+                  <Link href="/" className={styles.button}>Homepage</Link>
+                </div>
+              </div>
+            )}
+          </div>
         </CenteredContent>
       </div>
       <div className={styles.footerWrapper}>
