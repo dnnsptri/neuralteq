@@ -76,7 +76,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
       setIsAtTop(currentScrollY < 10);
 
       const isAtBottom = windowHeight + currentScrollY >= docHeight - 10;
-
+      
       if (currentScrollY < 10) {
         setIsVisible(true);
       } else if (isAtBottom) {
@@ -86,7 +86,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
       } else {
         setIsVisible(true);
       }
-
+      
       setLastScrollY(currentScrollY);
     };
 
@@ -122,35 +122,27 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
 
           {/* Centered Navigation - Desktop */}
           {!disableNav && (
-          <div className={`w-full transition-all duration-300 hidden md:block ${isVisible || isAtTop ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="container mx-auto px-9">
-              <div className="flex justify-center">
-                <div className="bg-[#ECFBFA] dark:bg-[#061C2B] rounded-full px-8 py-2 flex items-center shadow-sm">
-                  <nav className="flex items-center space-x-8">
-                    {navigationItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'font-medium' : ''}`}
-                      >
-                        {item.name === 'Neuralteq Fund' ? (
-                          <>
-                            <span className="hidden max-[1336px]:inline">Fund</span>
-                            <span className="inline max-[1336px]:hidden">Neuralteq Fund</span>
-                          </>
-                        ) : item.name}
-                        {pathname === item.href ? (
-                          <span className="nav-link-underline" />
-                        ) : (
-                          <span className="nav-link-hover" />
-                        )}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 hidden md:block">
+              <div className="bg-[#ECFBFA] dark:bg-[#061C2B] rounded-full px-8 py-2 flex items-center shadow-sm">
+                <nav className="flex items-center space-x-8">
+                  {navigationItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'nav-link-active' : ''}`}
+                    >
+                      {item.name === 'Neuralteq Fund' ? (
+                        <>
+                          <span className="hidden max-[1336px]:inline">Fund</span>
+                          <span className="inline max-[1336px]:hidden">Neuralteq Fund</span>
+                        </>
+                      ) : item.name}
+                      <span className="nav-link-hover" />
+                    </Link>
+                  ))}
+                </nav>
               </div>
             </div>
-          </div>
           )}
 
           {/* Right Side Actions */}

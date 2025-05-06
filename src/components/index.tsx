@@ -43,7 +43,7 @@ export default function IndexContent() {
       href: '/research',
       color: '#291D2C',
       visual: '/visuals/element_Research@2x.png',
-      description: 'Cutting-edge research and innovation in decentralised AI.'
+      description: 'Cutting-edge research and innovation in decentralized AI.'
     },
     {
       key: 'fund',

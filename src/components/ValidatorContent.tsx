@@ -28,16 +28,16 @@ export default function ValidatorContent() {
       {/* Background Image */}
       <div className="w-full flex justify-center fixed top-0 left-0 right-0 -z-10">
         <div className="relative w-full max-w-[1360px]">
-          <Image
+        <Image
             src="/visuals/bg_validator.png"
             alt="Validator Background"
             width={1360}
             height={520}
             quality={100}
-            priority
+          priority
             className="object-contain object-center w-full h-auto"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--background)] pointer-events-none" />
         </div>
       </div>
       <main className="mt-24 md:mt-48 flex-1">

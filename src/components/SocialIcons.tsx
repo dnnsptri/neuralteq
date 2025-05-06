@@ -41,15 +41,6 @@ const SocialIcons = ({ className, isFooter }: SocialIconsProps) => {
       >
         <Image src="/icons/logo_Linkedin.svg" alt="Linkedin" width={24} height={24} />
       </a>
-      <a 
-        href="https://medium.com/@fund_80390" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className={styles.icon} 
-        aria-label="Medium"
-      >
-        <Image src="/icons/logo_Medium.svg" alt="Medium" width={24} height={24} />
-      </a>
     </div>
   );
 };

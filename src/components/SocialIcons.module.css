@@ -1,6 +1,6 @@
 .socialIcons {
   position: fixed;
-  right: 2rem;
+  right: 2.6rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -20,7 +20,7 @@
 .icon {
   color: #ECFBFA;
   text-decoration: none;
-  opacity: 0.8;
+  opacity: 1.0;
   transition: opacity 0.2s ease;
   display: flex;
   align-items: center;

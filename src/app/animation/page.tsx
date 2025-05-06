@@ -7,7 +7,7 @@ const TypewriterAnimation = dynamic(() => import('./TypewriterAnimation'), {
 
 export const metadata: Metadata = {
   title: 'Neuralteq - Accelerating Subnet Adoption. Building the TAO Ecosystem',
-  description: 'Accelerating Subnet Adoption. Building the TAO Ecosystem nwith Neuralteq',
+  description: 'Accelerating Subnet Adoption. Building the TAO Ecosystem with Neuralteq',
 };
 
 export default function AnimationPage() {

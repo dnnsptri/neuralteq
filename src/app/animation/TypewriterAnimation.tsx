@@ -17,13 +17,12 @@ const text = [
   "with humanities best interest at its core",
   " ",
   "Our commitment:",
-  "• The highest APYs",
-  "• The best research",
+  "• High APY",
+  "• Quality research",
   "• Cutting edge models",
   "• And real-world adoption for Bittensor subnets",
   " ",
-  "Stake with us and be part of the",
-  "movement"
+  "Stake with us and be part of the movement"
 ];
 
 const TypewriterAnimation = () => {
@@ -84,12 +83,32 @@ const TypewriterAnimation = () => {
     }
   }, [currentLine, isComplete]);
 
+  useEffect(() => {
+    if (isComplete) {
+      const timeout = setTimeout(() => {
+        router.push('/');
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isComplete, router]);
+
   if (!mounted) return null;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <SocialIcons />
-      <div className={styles.container} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div
+        className={styles.container}
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: 0,
+          ...(isComplete
+            ? { maxHeight: 'calc(100vh - 120px)', overflow: 'auto' }
+            : {}),
+        }}
+      >
         <div className={styles.logo}>
           <Image
             src="/visuals/logo_neuralteq.png"
@@ -101,47 +120,47 @@ const TypewriterAnimation = () => {
         </div>
         <CenteredContent>
           <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <div className={styles.textContainer}>
+          <div className={styles.textContainer}>
               {displayText.map((line, index) => {
-                const step = Math.floor((currentLine - index) / 2);
-                const opacity = Math.max(1 - step * 0.1, 0.05);
                 return (
-                  <div
-                    key={index}
-                    className={styles.line}
-                    style={{ opacity }}
-                    ref={index === currentLine || (isComplete && index === text.length - 1) ? activeLineRef : undefined}
-                  >
-                    {line}
+              <div 
+                key={index} 
+                className={styles.line}
+                style={{ opacity: 1 }}
+                ref={index === currentLine || (isComplete && index === text.length - 1) ? activeLineRef : undefined}
+              >
+                {line}
                     {((index === currentLine && !isComplete) || (isComplete && index === text.length - 1)) && showCursor && (
                       <span className={styles.cursor}>|</span>
                     )}
-                  </div>
+              </div>
                 );
               })}
-            </div>
-            {isComplete && (
-              <div className={styles.callToAction}>
-                <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
-                <div className={styles.buttons}>
-                  <a
-                    href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.button} ${styles.primaryButton}`}
-                  >
-                    Staking dashboard
-                  </a>
-                  <Link href="/" className={styles.button}>Homepage</Link>
-                </div>
-              </div>
-            )}
           </div>
+          {isComplete && (
+            <div className={styles.callToAction}>
+              <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
+              <div className={styles.buttons}>
+                <a 
+                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`${styles.button} ${styles.primaryButton}`}
+                >
+                    Staking dashboard
+                </a>
+                  <Link href="/" className={styles.button}>Homepage</Link>
+              </div>
+            </div>
+          )}
+        </div>
         </CenteredContent>
       </div>
-      <div className={styles.footerWrapper}>
-        <Footer hideMesh={true} />
-      </div>
+      {isComplete && (
+        <div className={styles.footerWrapper}>
+          <Footer />
+        </div>
+      )}
     </div>
   );
 };

@@ -51,10 +51,10 @@ export default function Footer({ hideMesh = false }: FooterProps) {
           else if (pathname.startsWith('/business-development')) elementSrc = '/visuals/element_Business@2x.png';
           else if (pathname.startsWith('/mining')) elementSrc = '/visuals/element_Mining@2x.png';
           else if (pathname.startsWith('/fund')) elementSrc = '/visuals/element_Fund@2x.png';
-          else if (pathname.startsWith('/research') || pathname.startsWith('/why-us') || pathname === '/' || pathname.startsWith('/index')) elementSrc = '/visuals/element_Research@2x.png';
+          else if (pathname.startsWith('/research') || pathname.startsWith('/why-us') || pathname === '/' || pathname.startsWith('/index') || pathname.startsWith('/animation')) elementSrc = '/visuals/element_Research@2x.png';
           if (!elementSrc) return null;
           return (
-            <Image
+        <Image
               src={elementSrc}
               alt="Footer Visual"
               width={80}
@@ -62,10 +62,10 @@ export default function Footer({ hideMesh = false }: FooterProps) {
               quality={100}
               priority
               className="w-[80px] h-[80px] object-contain rounded-full"
-            />
+        />
           );
         })()}
-      </div>
+        </div>
       )}
       <div className="block md:hidden mb-8">
         <SocialIcons isFooter />
