@@ -69,7 +69,7 @@ export default function FundContent() {
               </p>
             </BodyText>
           </FadeInUp>
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.0}>
             <PageSubtitle className="mb-6 md:mb-8">
             Current performance: +1551% since inception
             </PageSubtitle>
@@ -78,7 +78,7 @@ export default function FundContent() {
 
         <CenteredContent>
           <div className="overflow-hidden">
-            <FadeInUp delay={0.2}>
+            <FadeInUp delay={0.0}>
               {mounted && (
                 <Image
                   src="/visuals/fund_graph.png"
@@ -94,7 +94,7 @@ export default function FundContent() {
         </CenteredContent>
 
         <CenteredContent>
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.0}>
               <div className="mt-[72px] flex flex-col md:flex-row gap-12" key="contact-section">
                 <div className="flex-1">
                   <PageSubtitle className="mb-6 md:mb-8 mt-0">

@@ -92,7 +92,7 @@ export default function WhyUsContent() {
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
             <div className="md:w-2/3">
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.0}>
             <BodyText className="space-y-6 md:space-y-8">
               <p>
                 Our mission is to drive long-term success for the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.

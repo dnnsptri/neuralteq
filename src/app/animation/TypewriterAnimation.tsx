@@ -42,31 +42,34 @@ const TypewriterAnimation = () => {
 
   useEffect(() => {
     if (!mounted) return;
-    
+
     const totalChars = text.reduce((sum, line) => sum + line.length, 0);
     const typingDelay = Math.max(7000 / totalChars, 30);
+    let timeout: NodeJS.Timeout;
 
-    const typingInterval = setInterval(() => {
-      if (currentLine < text.length) {
-        if (currentChar < text[currentLine].length) {
-          setDisplayText(prev => {
-            const newText = [...prev];
-            newText[currentLine] = text[currentLine].substring(0, currentChar + 1);
-            return newText;
-          });
-          setCurrentChar(prev => prev + 1);
+    function type(line: number, char: number, display: string[]) {
+      if (line < text.length) {
+        if (char < text[line].length) {
+          const newText = [...display];
+          newText[line] = text[line].substring(0, char + 1);
+          setDisplayText(newText);
+          setCurrentLine(line);
+          setCurrentChar(char + 1);
+          timeout = setTimeout(() => type(line, char + 1, newText), typingDelay);
         } else {
-          setCurrentLine(prev => prev + 1);
+          setCurrentLine(line + 1);
           setCurrentChar(0);
+          timeout = setTimeout(() => type(line + 1, 0, display), typingDelay);
         }
       } else {
         setIsComplete(true);
-        clearInterval(typingInterval);
       }
-    }, typingDelay);
+    }
 
-    return () => clearInterval(typingInterval);
-  }, [currentLine, currentChar, mounted]);
+    type(0, 0, Array(text.length).fill(''));
+
+    return () => clearTimeout(timeout);
+  }, [mounted]);
 
   useEffect(() => {
     if (!mounted) return;

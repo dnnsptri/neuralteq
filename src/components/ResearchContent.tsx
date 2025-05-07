@@ -98,7 +98,8 @@ export default function ResearchContent() {
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
               Neuralteq Research is our cutting edge, decentralized AI research unit.
-              <br />With strong roots in crypto and involved in the Bittensor ecosystem since the early beginnings, Neuralteq leverages crypto native insights, quantitative strategies and subnet analysis to deliver actionable, high impact research reports.
+                <br /><br />
+              With strong roots in crypto and involved in the Bittensor ecosystem since the early beginnings, Neuralteq leverages crypto native insights, quantitative strategies and subnet analysis to deliver actionable, high impact research reports.
             </IntroText>
           </FadeInUp>
 

@@ -156,7 +156,7 @@ export default function IndexContent() {
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
             <div className="w-full content-box">
-              <FadeInUp delay={0.2}>
+              <FadeInUp delay={0.0}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p className="mb-16">
                     Our mission is to drive long-term success for the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.<br /><br /><br />
@@ -164,7 +164,7 @@ export default function IndexContent() {
 
                   {/* Driving enterprise adoption section from BusinessContent */}
                   <div className="mt-16">
-                    <FadeInUp delay={0.4}>
+                    <FadeInUp delay={0.0}>
                       <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-32">
                         {/* Services Section: SmallColumn-style list and animated carousel */}
                         <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
@@ -277,12 +277,12 @@ export default function IndexContent() {
                   </div>
                   {/* Why us section */}
                   <div className="mt-16">
-                    <FadeInUp delay={0.2}>
+                    <FadeInUp delay={0.0}>
                       <PageSubtitle className="mb-6 md:mb-8">
                         Why us
                       </PageSubtitle>
                     </FadeInUp>
-                    <FadeInUp delay={0.2}>
+                    <FadeInUp delay={0.0}>
                       <BodyText className="space-y-6 md:space-y-8">
                       <p>
                         Neuralteq has a skilled team of data scientists, developers, crypto natives and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.

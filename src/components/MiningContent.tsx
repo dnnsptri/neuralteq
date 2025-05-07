@@ -51,7 +51,7 @@ export default function MiningContent() {
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
             <div className="md:w-2/3 content-box">
-              <FadeInUp delay={0.2}>
+              <FadeInUp delay={0.0}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p>
                     Through our mining activities, we gain valuable insights into which Subnets consistently deliver high-quality results and which need further development. These insights directly support our business development efforts and become part of our research initiatives, ensuring we can strategically advise and assist our partners effectively.
@@ -66,7 +66,7 @@ export default function MiningContent() {
 
             {/* Side Column - 1/3 width */}
             <div className="md:w-1/3 md:-mt-[60px] mobile-centered">
-              <FadeInUp delay={0.2}>
+              <FadeInUp delay={0.0}>
                 <SmallColumn
                   title="Want to join our mining team?"
                   description="Reach out and become part of the effort shaping the future of Bittensor."

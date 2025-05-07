@@ -51,7 +51,7 @@ export default function BusinessContent() {
             </IntroText>
           </FadeInUp>
 
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.0}>
             <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
               <p>
                 We have been actively participating, validating and building within the ecosystem since day one, and we are
@@ -87,13 +87,13 @@ export default function BusinessContent() {
 
         <div className="mt-0">
           <CenteredContent>
-            <FadeInUp delay={0.2}>
+            <FadeInUp delay={0.0}>
               <PageSubtitle className="mb-6 md:mb-8">
                 Driving SME and Enterprise adoption
               </PageSubtitle>
             </FadeInUp>
 
-            <FadeInUp delay={0.2}>
+            <FadeInUp delay={0.0}>
               <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
                 <p>
                   We believe in decentralized AI and actively work to bring decentralized AI subnet solutions to market. Many subnets are ready for real-world adoption, and we are passionate about supporting them in finding and achieving product market fit.
@@ -105,7 +105,7 @@ export default function BusinessContent() {
               </BodyText>
             </FadeInUp>
 
-            <FadeInUp delay={0.6}>
+            <FadeInUp delay={0.0}>
               <Quote 
                 text="We bridge decentralized AI with real-world impact, turning subnet innovation into everyday solutions"
                 author="Roger Majelle (Neuralteq)"
@@ -113,7 +113,7 @@ export default function BusinessContent() {
               />
             </FadeInUp>
 
-            <FadeInUp delay={0.6}>
+            <FadeInUp delay={0.0}>
               <BodyText className="mt-8 space-y-6">
                 <p>
                   Today, our role goes beyond providing validation services, we actively work on delivering growth and adoption to the Bittensor ecosystem by providing strategic advisory and commercial deal-making support. We aim to connect emerging decentralized technologies with traditional markets, empowering businesses to harness the full potential of Bittensor through education, support, and tailored solutions.
@@ -123,7 +123,7 @@ export default function BusinessContent() {
                 </p>
               </BodyText>
             </FadeInUp>
-            <FadeInUp delay={0.2}>
+            <FadeInUp delay={0.0}>
               <div className="mb-12 md:mb-[72px] mt-16">
                 <Button 
                   href="https://dashboard.neuralteq.com"
