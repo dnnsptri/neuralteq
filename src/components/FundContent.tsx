@@ -6,12 +6,13 @@ import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
 import WideContent from './layouts/WideContent';
 import { PageTitle, PageSubtitle, IntroText, BodyText } from './typography';
-import Footer from './Footer';
+import FooterMesh from './FooterMesh';
 import SocialIcons from './SocialIcons';
 import Button from './ui/Button';
 import { Video, Quote, Mesh } from './content';
 import FadeInUp from './motion/FadeInUp';
 import ContactForm from './ContactForm';
+import Footer from './Footer';
 
 export default function FundContent() {
   const [mounted, setMounted] = useState(false);
@@ -45,7 +46,7 @@ export default function FundContent() {
             </FadeInUp>
           </div>
 
-          <FadeInUp delay={0.1}>
+          <FadeInUp delay={0.2}>
             <PageSubtitle className="mb-16 md:mb-[64px]">
               Invest in the right dTAO subnets, at the right time, with the right risk management.
             </PageSubtitle>
@@ -57,7 +58,7 @@ export default function FundContent() {
             </IntroText>
           </FadeInUp>
 
-          <FadeInUp delay={0.3}>
+          <FadeInUp delay={0.2}>
             <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-16">
               <p>
                 Introducing the Neuralteq Fund, we combine our AI expertise with extensive portfolio management experience, deep crypto-native insights, and advanced algorithmic trading to deliver a unique approach to stake management. We combine strategic subnet selection with quantitative strategies to time the market, a powerful combination that optimizes sustainable performance.
@@ -68,7 +69,7 @@ export default function FundContent() {
               </p>
             </BodyText>
           </FadeInUp>
-          <FadeInUp delay={0.4}>
+          <FadeInUp delay={0.2}>
             <PageSubtitle className="mb-6 md:mb-8">
             Current performance: +1551% since inception
             </PageSubtitle>
@@ -77,7 +78,7 @@ export default function FundContent() {
 
         <CenteredContent>
           <div className="overflow-hidden">
-            <FadeInUp delay={0.5}>
+            <FadeInUp delay={0.2}>
               {mounted && (
                 <Image
                   src="/visuals/fund_graph.png"
@@ -93,7 +94,7 @@ export default function FundContent() {
         </CenteredContent>
 
         <CenteredContent>
-          <FadeInUp delay={0.6}>
+          <FadeInUp delay={0.2}>
               <div className="mt-[72px] flex flex-col md:flex-row gap-12" key="contact-section">
                 <div className="flex-1">
                   <PageSubtitle className="mb-6 md:mb-8 mt-12">
@@ -110,7 +111,7 @@ export default function FundContent() {
           </FadeInUp>
         </CenteredContent>
       </main>
-      <div className="mt-24 md:mt-32 z-50">
+      <div className="mt-24 md:mt-16 z-50">
         <Footer />
       </div>
     </>

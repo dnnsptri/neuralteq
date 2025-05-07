@@ -17,7 +17,7 @@ export default function SmallColumn({
   className = ''
 }: SmallColumnProps) {
   return (
-    <div className={`bg-white dark:bg-[#061C2B] rounded-lg shadow p-8 md:p-12 ${className}`}>
+    <div className={`bg-white dark:bg-[#061C2B] shadow p-8 md:p-12 ${className}`} style={{ borderRadius: '20px' }}>
       <h3 className="text-[24px] md:text-[28px] font-normal leading-[120%] tracking-[-0.02em] text-[var(--foreground)] mb-6">
         {title}
       </h3>

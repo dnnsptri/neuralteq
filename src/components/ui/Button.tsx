@@ -81,7 +81,7 @@ export default function Button({
   ) : children;
 
   const baseStyles = [
-    'text-base font-medium',
+    'text-base font-bold',
     isCompact ? 'w-10 h-10 p-2 md:w-auto md:h-auto md:px-2 md:py-2 text-sm' : 'px-4 py-3',
     'rounded transition-all duration-300',
     'bg-[var(--foreground)] text-[var(--background)]',

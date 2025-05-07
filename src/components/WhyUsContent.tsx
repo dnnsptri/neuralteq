@@ -92,7 +92,7 @@ export default function WhyUsContent() {
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
             <div className="md:w-2/3">
-          <FadeInUp delay={0.3}>
+          <FadeInUp delay={0.2}>
             <BodyText className="space-y-6 md:space-y-8">
               <p>
                 Our mission is to drive long-term success for the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.
@@ -109,8 +109,8 @@ export default function WhyUsContent() {
           </FadeInUp>
             </div>
             {/* Side Column - 1/3 width */}
-            <div className="md:w-1/3 md:-mt-[60px]">
-              <FadeInUp delay={0.4}>
+            <div className="md:w-1/3">
+              <FadeInUp delay={0.2}>
                 <SmallColumn
                   title="Join our team!"
                   description="Reach out and become part of the effort shaping the future of Bittensor."
@@ -122,7 +122,7 @@ export default function WhyUsContent() {
           </div>
         </CenteredContent>
       </main>
-      <div className="mt-24 md:mt-32 z-50">
+      <div className="mt-24 md:mt-16 z-50">
         <Footer />
       </div>
     </div>

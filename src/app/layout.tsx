@@ -10,16 +10,16 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Neuralteq - Help Build the Future of Decentralised AI',
-  description: 'By staking securely with us, you strengthen the network and support real-world adoption.',
+  title: 'Neuralteq - Accelerating Subnet Adoption. Building the TAO Ecosystem',
+  description: 'By staking securely with us, you help accelerate the furure of decentralized AI through TAO.',
   openGraph: {
-    title: 'Neuralteq - Help Build the Future of Decentralised AI',
-    description: 'By staking securely with us, you strengthen the network and support real-world adoption.',
+    title: 'Neuralteq - Accelerating Subnet Adoption. Building the TAO Ecosystem',
+    description: 'By staking securely with us, you help accelerate the furure of decentralized AI through TAO.',
     type: 'website',
   },
   twitter: {
-    title: 'Neuralteq - Help Build the Future of Decentralised AI',
-    description: 'By staking securely with us, you strengthen the network and support real-world adoption.',
+    title: 'Neuralteq - Accelerating Subnet Adoption. Building the TAO Ecosystem',
+    description: 'By staking securely with us, you help accelerate the furure of decentralized AI through TAO.',
     card: 'summary_large_image',
   },
 }

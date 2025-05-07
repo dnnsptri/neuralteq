@@ -36,7 +36,7 @@ export default function MiningContent() {
             </PageTitle>
           </FadeInUp>
 
-          <FadeInUp delay={0.1}>
+          <FadeInUp delay={0.2}>
             <PageSubtitle className="mb-16 md:mb-[64px] content-box">
               We mine to empower innovation, build better products, and accelerate real-world adoption.
             </PageSubtitle>
@@ -51,7 +51,7 @@ export default function MiningContent() {
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
             <div className="md:w-2/3 content-box">
-              <FadeInUp delay={0.3}>
+              <FadeInUp delay={0.2}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p>
                     Through our mining activities, we gain valuable insights into which Subnets consistently deliver high-quality results and which need further development. These insights directly support our business development efforts and become part of our research initiatives, ensuring we can strategically advise and assist our partners effectively.
@@ -66,7 +66,7 @@ export default function MiningContent() {
 
             {/* Side Column - 1/3 width */}
             <div className="md:w-1/3 md:-mt-[60px] mobile-centered">
-              <FadeInUp delay={0.4}>
+              <FadeInUp delay={0.2}>
                 <SmallColumn
                   title="Want to join our mining team?"
                   description="Reach out and become part of the effort shaping the future of Bittensor."
@@ -79,7 +79,8 @@ export default function MiningContent() {
           </div>
         </CenteredContent>
       </main>
-      <div className="mt-24 md:mt-32 z-50">
+
+      <div className="mt-24 md:mt-16 z-50">
         <Footer />
       </div>
     </>

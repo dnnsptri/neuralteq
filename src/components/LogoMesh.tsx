@@ -21,8 +21,8 @@ export default function LogoMesh() {
           className="absolute right-0 top-1/2 -translate-y-1/2 w-[77px] h-[77px] object-cover pointer-events-none"
           style={{ zIndex: 1 }}
         >
-          <source src="/visuals/mesh_orange_dark_50.mp4" type="video/mp4" />
-          <source src="/visuals/mesh_orange_dark_50.webm" type="video/webm" />
+          <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
+          <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
           {/* Fallback for browsers that don't support video */}
           <Image
             src="/visuals/mesh_orange@2x.png"

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Button from './ui/Button';
-import Footer from './Footer';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -16,6 +15,7 @@ interface MobileMenuProps {
 }
 
 const navigationItems = [
+  { name: 'Home', href: '/' },
   { name: 'Validator', href: '/validator' },
   { name: 'Business Development', href: '/business-development' },
   { name: 'Mining', href: '/mining' },
@@ -62,7 +62,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
 
       {/* Menu */}
       <div 
-        className={`fixed right-0 top-0 h-full w-full bg-[#021019] text-[#ECFBFA] shadow-xl transition-transform z-50 md:hidden overflow-hidden ${
+        className={`fixed right-0 top-0 h-full w-full bg-[#021019] text-[#ECFBFA] shadow-xl transition-transform z-50 md:hidden overflow-hidden overflow-x-hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -99,7 +99,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
 
           {/* Navigation */}
           {!disableNav && (
-          <nav className="mt-8">
+          <nav className="mt-8 ml-6">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
@@ -117,7 +117,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
 
           {/* Staking Dashboard Button */}
           {!disableNav && (
-          <div className="mt-6 mb-[72px]">
+          <div className="mt-6 mb-[72px] ml-6">
             <Button
               href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM5Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
               className="w-full justify-center text-[#021019] bg-[#ECFBFA] hover:text-[#ECFBFA] hover:bg-transparent hover:outline-[#ECFBFA]"
@@ -125,13 +125,18 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
             >
               Staking dashboard
             </Button>
+            <div className="flex justify-center mt-6">
+              <Image
+                src="/visuals/element_Why@2x.png"
+                alt="Why Mesh"
+                width={64}
+                height={64}
+                className="w-[64px] h-[64px] mt-6"
+                priority
+              />
+            </div>
           </div>
           )}
-
-          {/* Footer */}
-          <div className="mt-auto">
-            <Footer hideMesh />
-          </div>
         </div>
       </div>
     </>

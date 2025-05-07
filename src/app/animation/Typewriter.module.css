@@ -183,6 +183,16 @@
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 0.8s ease;
+  opacity: 1;
+}
+
 @media (max-width: 1024px) {
   .content {
     margin-top: -296px;

@@ -87,7 +87,7 @@ const TypewriterAnimation = () => {
     if (isComplete) {
       const timeout = setTimeout(() => {
         router.push('/');
-      }, 2000);
+      }, 5000);
       return () => clearTimeout(timeout);
     }
   }, [isComplete, router]);
@@ -138,7 +138,7 @@ const TypewriterAnimation = () => {
               })}
           </div>
           {isComplete && (
-            <div className={styles.callToAction}>
+            <div className={`${styles.callToAction} ${styles.fadeIn}`}>
               <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
               <div className={styles.buttons}>
                 <a 
@@ -156,11 +156,6 @@ const TypewriterAnimation = () => {
         </div>
         </CenteredContent>
       </div>
-      {isComplete && (
-        <div className={styles.footerWrapper}>
-          <Footer />
-        </div>
-      )}
     </div>
   );
 };

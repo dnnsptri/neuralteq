@@ -42,7 +42,6 @@ export default function Footer({ hideMesh = false }: FooterProps) {
 
   return (
     <footer className="footer relative mb-10" style={{ color: isPrivacyPage ? '#021019' : '#ECFBFA' }}>
-      {!hideMesh && mounted && !isPrivacyPage && (
       <div className="footer-mesh flex justify-center mb-12 md:mb-20">
         {/* Show element visual based on page */}
         {(() => {
@@ -51,7 +50,8 @@ export default function Footer({ hideMesh = false }: FooterProps) {
           else if (pathname.startsWith('/business-development')) elementSrc = '/visuals/element_Business@2x.png';
           else if (pathname.startsWith('/mining')) elementSrc = '/visuals/element_Mining@2x.png';
           else if (pathname.startsWith('/fund')) elementSrc = '/visuals/element_Fund@2x.png';
-          else if (pathname.startsWith('/research') || pathname.startsWith('/why-us') || pathname === '/' || pathname.startsWith('/index') || pathname.startsWith('/animation')) elementSrc = '/visuals/element_Research@2x.png';
+          else if (pathname.startsWith('/research')) elementSrc = '/visuals/element_Research@2x.png';
+          else if (pathname.startsWith('/why-us') || pathname === '/' || pathname.startsWith('/index') || pathname.startsWith('/animation')) elementSrc = '/visuals/element_Why@2x.png';
           if (!elementSrc) return null;
           return (
         <Image
@@ -65,8 +65,7 @@ export default function Footer({ hideMesh = false }: FooterProps) {
         />
           );
         })()}
-        </div>
-      )}
+      </div>
       <div className="block md:hidden mb-8">
         <SocialIcons isFooter />
       </div>
@@ -99,7 +98,7 @@ export default function Footer({ hideMesh = false }: FooterProps) {
             })}
           </div>
           <div className="text-[12px] md:text-[14px]" style={{ color: isPrivacyPage ? '#021019' : '#ECFBFA' }}>
-            ©{currentYear} Neuralteq. All rights reserved.
+            © {currentYear} - Neuralteq. All rights reserved.
           </div>
         </div>
       </CenteredContent>

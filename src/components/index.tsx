@@ -17,41 +17,49 @@ export default function IndexContent() {
       key: 'validator',
       label: 'Validator',
       href: '/validator',
-      color: '#2A2628',
+      color: '#262331',
       visual: '/visuals/element_Validator@2x.png',
-      description: 'Secure, reliable validation for the Bittensor network.'
+      description: 'Secure, reliable validation for the Bittensor network'
     },
     {
       key: 'business',
       label: 'Business Development',
       href: '/business-development',
-      color: '#1E2241',
+      color: '#122841',
       visual: '/visuals/element_Business@2x.png',
-      description: 'Accelerating Subnet Adoption. Building the TAO Ecosystem.'
+      description: 'Accelerating Subnet Adoption. Building the TAO Ecosystem'
     },
     {
       key: 'mining',
       label: 'Mining',
       href: '/mining',
-      color: '#25291A',
+      color: '#221B2F',
       visual: '/visuals/element_Mining@2x.png',
-      description: 'High-performance mining operations and insights.'
+      description: 'High-performance mining operations and insights'
     },
     {
       key: 'research',
       label: 'Research',
       href: '/research',
-      color: '#291D2C',
+      color: '#252827',
       visual: '/visuals/element_Research@2x.png',
-      description: 'Cutting-edge research and innovation in decentralized AI.'
+      description: 'Cutting-edge research and innovation in decentralized AI'
     },
     {
       key: 'fund',
       label: 'Neuralteq Fund',
       href: '/fund',
-      color: '#23142A',
+      color: '#153331',
       visual: '/visuals/element_Fund@2x.png',
-      description: 'Crypto-Native. Research-Driven. Capital-Conservative.'
+      description: 'Crypto-Native. Research-Driven. Capital-Conservative'
+    },
+    {
+      key: 'why',
+      label: 'Why us',
+      href: '/why-us',
+      color: '#28231C',
+      visual: '/visuals/element_Why@2x.png',
+      description: 'Driving impactful outcomes. For stakers, clients & partners'
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -148,7 +156,7 @@ export default function IndexContent() {
           <div className="flex flex-col md:flex-row gap-12 md:gap-16">
             {/* Main Content - 2/3 width */}
             <div className="w-full content-box">
-              <FadeInUp delay={0.3}>
+              <FadeInUp delay={0.2}>
                 <BodyText className="space-y-6 md:space-y-8">
                   <p className="mb-16">
                     Our mission is to drive long-term success for the Bittensor ecosystem by actively building, innovating, and improving the space. We achieve this through working on essential tooling, building strategic and corporate partnerships, and accelerating global adoption of decentralized AI solutions.<br /><br /><br />
@@ -160,37 +168,28 @@ export default function IndexContent() {
                       <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-32">
                         {/* Services Section: SmallColumn-style list and animated carousel */}
                         <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
-                          {/* SmallColumn-style clickable list */}
-                          <div className="bg-white dark:bg-[#061C2B] rounded-lg shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mobile-order-last md:order-1 mobile-centered md:mx-[-48px]" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)'}}>
-                            <div className="mb-6 text-[17px] text-[#021019] dark:text-[var(--foreground)] text-center md:text-left">
-                            Dive deeper in what Neuralteq is all about:
+                          {/* SmallColumn-style clickable list - now always first */}
+                          <div className="bg-white dark:bg-[#061C2B] shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mx-auto" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)', borderRadius: '20px'}}>
+                            <div className="mb-6 text-[20px] text-[#021019] dark:text-[var(--foreground)] text-left">
+                              Dive deeper in what Neuralteq is all about:
                             </div>
-                            <ul className="space-y-3 flex flex-col items-center md:items-start">
+                            <ul className="space-y-3 flex flex-col items-start">
                               {services.map((service, idx) => (
-                                <li key={service.key}>
+                                <li key={service.key} className="w-full">
                                   <Link
                                     href={service.href}
-                                    className="text-[18px] md:text-[20px] transition-colors hover:underline text-center md:text-left block"
+                                    className="text-[18px] md:text-[20px] transition-colors hover:underline text-left block"
                                     style={{fontWeight: 500}}
                                     onMouseEnter={() => setActiveIndex(idx)}
                                   >
-                                    {service.label === 'Business Development' ? (
-                                      <>
-                                        <span className="md:hidden">
-                                          Business<br />Development
-                                        </span>
-                                        <span className="hidden md:inline">
-                                          Business Development
-                                        </span>
-                                      </>
-                                    ) : service.label}
+                                    {service.label}
                                   </Link>
                                 </li>
                               ))}
                             </ul>
                           </div>
-                          {/* Animated Carousel */}
-                          <div className="flex-1 flex flex-col items-center justify-center relative min-h-[420px] mobile-order-first md:order-2 mobile-margin-bottom md:ml-[-48px] md:mr-[-48px]">
+                          {/* Animated Carousel - always second */}
+                          <div className="flex-1 flex flex-col items-center justify-center relative min-h-[420px] md:ml-[-48px] md:mr-[-48px]">
                             <div className="relative w-full max-w-[900px] h-[420px] mx-auto flex items-center">
                               {/* Service Cards (3 visible, animated, mesh image centered) */}
                               <div 
@@ -229,10 +228,10 @@ export default function IndexContent() {
                                   else if (i === 0) cardClass = 'from-behind';
 
                                   let style = {
-                                    width: typeof window !== 'undefined' && window.innerWidth <= 768 ? 320 : 360,
+                                    width: typeof window !== 'undefined' && window.innerWidth <= 768 ? 280 : 320,
                                     height: typeof window !== 'undefined' && window.innerWidth <= 768 ? 440 : 480,
                                     padding: typeof window !== 'undefined' && window.innerWidth <= 768 ? 32 : 48,
-                                    borderRadius: 4,
+                                    borderRadius: 20,
                                     background: service.color,
                                     boxShadow: cardClass === 'front' ? '0 8px 32px rgba(0,0,0,0.18)' : '0 4px 16px rgba(0,0,0,0.10)',
                                     pointerEvents: cardClass === 'front' ? 'auto' : 'none',
@@ -260,11 +259,11 @@ export default function IndexContent() {
                                       className={`absolute card-animate cursor-pointer touch-pan-y ${cardClass}`}
                                       style={style as React.CSSProperties}
                                     >
-                                      <div className="w-full flex justify-center mb-10">
-                                        <Image src={service.visual} alt="Mesh visual" width={240} height={240} style={{borderRadius: 2}} />
+                                      <div className="w-full flex justify-center mb-14">
+                                        <Image src={service.visual} alt="Mesh visual" width={230} height={220} style={{borderRadius: 2, width: 230, height: 220}} />
                                       </div>
                                       <span className="text-xl text-white mb-2 block text-center" style={{fontWeight: 500}}>{service.label}</span>
-                                      <span className="body-text text-white text-center px-4 block mb-4" style={{fontWeight: 300}}>{service.description}</span>
+                                      <span className="text-[16px] text-white text-center px-4 block mb-4" style={{fontWeight: 300}}>{service.description}</span>
                                     </Link>
                                   );
                                 })}
@@ -277,12 +276,12 @@ export default function IndexContent() {
                   </div>
                   {/* Why us section */}
                   <div className="mt-16">
-                    <FadeInUp delay={0.5}>
+                    <FadeInUp delay={0.2}>
                       <PageSubtitle className="mb-6 md:mb-8">
                         Why us
                       </PageSubtitle>
                     </FadeInUp>
-                    <FadeInUp delay={0.6}>
+                    <FadeInUp delay={0.2}>
                       <BodyText className="space-y-6 md:space-y-8">
                       <p>
                         Neuralteq has a skilled team of data scientists, developers, crypto natives and sales leaders who have been actively involved in crypto since 2016, and within the Bittensor ecosystem since 2022. By combining work in Validating, Mining, Trading, Business Development, and Research, we are able to create valuable synergy, resulting in cross-pollination, providing unique insights that enhance each facet of our work.
@@ -300,7 +299,7 @@ export default function IndexContent() {
           </div>
         </CenteredContent>
       </main>
-      <div className="mt-24 md:mt-32 z-50">
+      <div className="mt-24 md:mt-16 z-50">
         <Footer />
       </div>
       <style jsx>{`

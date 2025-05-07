@@ -56,7 +56,7 @@ export default function ValidatorContent() {
             </IntroText>
           </FadeInUp>
 
-          <FadeInUp delay={0.3}>
+          <FadeInUp delay={0.2}>
             <BodyText className="space-y-6 md:space-y-8 mb-8">
               <p>
                 Our focus is clear:
@@ -74,12 +74,12 @@ export default function ValidatorContent() {
               </p>
 
               <p>
-                <span className="font-medium">Stake with us, and help accelerate the future of decentralised AI through TAO.</span>
+                <span className="font-medium">Stake with us, and help accelerate the future of decentralized AI through TAO.</span>
               </p>
             </BodyText>
           </FadeInUp>
 
-          <FadeInUp delay={0.4}>
+          <FadeInUp delay={0.2}>
             <div className="mt-16 mb-12 md:mb-[72px]">
               <Button 
                 href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
@@ -91,7 +91,7 @@ export default function ValidatorContent() {
           
         </CenteredContent>
       </main>
-      <div className="mt-24 md:mt-32 z-50">
+      <div className="mt-24 md:mt-2 z-50">
         <Footer />
       </div>
     </div>

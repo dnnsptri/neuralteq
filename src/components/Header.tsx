@@ -25,6 +25,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [headerOpacity, setHeaderOpacity] = useState(1);
   const pathname = usePathname();
 
   const { scrollY } = useScroll();
@@ -77,14 +78,14 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
 
       const isAtBottom = windowHeight + currentScrollY >= docHeight - 10;
       
-      if (currentScrollY < 10) {
-        setIsVisible(true);
+      if (currentScrollY < 120) {
+        setHeaderOpacity(1);
       } else if (isAtBottom) {
         setIsVisible(false);
       } else if (currentScrollY > lastScrollY) {
-        setIsVisible(false);
+        setHeaderOpacity(0);
       } else {
-        setIsVisible(true);
+        setHeaderOpacity(1);
       }
       
       setLastScrollY(currentScrollY);
@@ -100,7 +101,7 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
 
   return (
     <>
-      <header className="fixed top-4 md:top-8 left-0 right-0 z-50">
+      <header className="fixed top-4 md:top-8 left-0 right-0 z-50" style={{ opacity: headerOpacity, transition: 'opacity 0.5s' }}>
         <div className="relative flex items-center h-[72px]">
           {/* Logo */}
           <motion.div 
@@ -123,20 +124,15 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {/* Centered Navigation - Desktop */}
           {!disableNav && (
             <div className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 hidden md:block">
-              <div className="bg-[#ECFBFA] dark:bg-[#061C2B] rounded-full px-8 py-2 flex items-center shadow-sm">
-                <nav className="flex items-center space-x-8">
+              <div className="bg-[#ECFBFA] dark:bg-[#061C2B] rounded-full px-4 py-2 flex items-center shadow-sm">
+                <nav className="flex items-center space-x-1 whitespace-nowrap">
                   {navigationItems.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
                       className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'nav-link-active' : ''}`}
                     >
-                      {item.name === 'Neuralteq Fund' ? (
-                        <>
-                          <span className="hidden max-[1336px]:inline">Fund</span>
-                          <span className="inline max-[1336px]:hidden">Neuralteq Fund</span>
-                        </>
-                      ) : item.name}
+                      {item.name === 'Fund' || item.name === 'Fund' ? 'Fund' : item.name}
                       <span className="nav-link-hover" />
                     </Link>
                   ))}
