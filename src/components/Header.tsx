@@ -145,12 +145,12 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {!disableNav && (
           <motion.div 
             style={{ opacity: isMobile ? mobileOpacity : desktopOpacity }}
-            className="absolute right-8 flex items-center gap-6 my-16"
+            className="absolute right-8 hidden md:flex items-center gap-6 my-16"
           >
             {/* Staking Dashboard - Desktop */}
             <Button 
-              href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
-              className="group flex md:flex-row flex-col items-center text-[15px] gap-2"
+              href="https://dashboard.neuralteq.com"
+              className="group flex md:flex-row flex-col items-center text-[15px] gap-2 h-12"
               isCompact
               aria-label="Staking Dashboard"
             >
@@ -194,10 +194,10 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
           {!disableNav && (
           <motion.button 
             style={{ opacity: mobileOpacity }}
-              onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
-              aria-label="Open menu"
-            >
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded-[4px] bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
+            aria-label="Open menu"
+          >
             <Image
               src="/icons/icon_menu.svg"
               alt="Menu"

@@ -17,7 +17,7 @@ export default function IndexContent() {
       key: 'validator',
       label: 'Validator',
       href: '/validator',
-      color: '#262331',
+      color: '#1B212F',
       visual: '/visuals/element_Validator@2x.png',
       description: 'Secure, reliable validation for the Bittensor network'
     },
@@ -25,7 +25,7 @@ export default function IndexContent() {
       key: 'business',
       label: 'Business Development',
       href: '/business-development',
-      color: '#122841',
+      color: '#0F1D2F',
       visual: '/visuals/element_Business@2x.png',
       description: 'Accelerating Subnet Adoption. Building the TAO Ecosystem'
     },
@@ -33,7 +33,7 @@ export default function IndexContent() {
       key: 'mining',
       label: 'Mining',
       href: '/mining',
-      color: '#221B2F',
+      color: '#181728',
       visual: '/visuals/element_Mining@2x.png',
       description: 'High-performance mining operations and insights'
     },
@@ -41,7 +41,7 @@ export default function IndexContent() {
       key: 'research',
       label: 'Research',
       href: '/research',
-      color: '#252827',
+      color: '#192022',
       visual: '/visuals/element_Research@2x.png',
       description: 'Cutting-edge research and innovation in decentralized AI'
     },
@@ -49,7 +49,7 @@ export default function IndexContent() {
       key: 'fund',
       label: 'Neuralteq Fund',
       href: '/fund',
-      color: '#153331',
+      color: '#0F2729',
       visual: '/visuals/element_Fund@2x.png',
       description: 'Crypto-Native. Research-Driven. Capital-Conservative'
     },
@@ -57,7 +57,7 @@ export default function IndexContent() {
       key: 'why',
       label: 'Why us',
       href: '/why-us',
-      color: '#28231C',
+      color: '#1B1D1B',
       visual: '/visuals/element_Why@2x.png',
       description: 'Driving impactful outcomes. For stakers, clients & partners'
     },
@@ -169,7 +169,8 @@ export default function IndexContent() {
                         {/* Services Section: SmallColumn-style list and animated carousel */}
                         <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
                           {/* SmallColumn-style clickable list - now always first */}
-                          <div className="bg-white dark:bg-[#061C2B] shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mx-auto" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)', borderRadius: '20px'}}>
+                          <PageSubtitle className="block md:hidden mb-6 text-center mt-[-96px]">Dive deeper in what Neuralteq is all about:</PageSubtitle>
+                          <div className="hidden md:block bg-white dark:bg-[#061C2B] shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mx-auto mt-[-96px] md:mt-4" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)', borderRadius: '20px'}}>
                             <div className="mb-6 text-[20px] text-[#021019] dark:text-[var(--foreground)] text-left">
                               Dive deeper in what Neuralteq is all about:
                             </div>
@@ -230,7 +231,7 @@ export default function IndexContent() {
                                   let style = {
                                     width: typeof window !== 'undefined' && window.innerWidth <= 768 ? 280 : 320,
                                     height: typeof window !== 'undefined' && window.innerWidth <= 768 ? 440 : 480,
-                                    padding: typeof window !== 'undefined' && window.innerWidth <= 768 ? 32 : 48,
+                                    padding: typeof window !== 'undefined' && window.innerWidth <= 768 ? 24 : 40,
                                     borderRadius: 20,
                                     background: service.color,
                                     boxShadow: cardClass === 'front' ? '0 8px 32px rgba(0,0,0,0.18)' : '0 4px 16px rgba(0,0,0,0.10)',
@@ -259,7 +260,7 @@ export default function IndexContent() {
                                       className={`absolute card-animate cursor-pointer touch-pan-y ${cardClass}`}
                                       style={style as React.CSSProperties}
                                     >
-                                      <div className="w-full flex justify-center mb-14">
+                                      <div className="w-full flex justify-center mb-10">
                                         <Image src={service.visual} alt="Mesh visual" width={230} height={220} style={{borderRadius: 2, width: 230, height: 220}} />
                                       </div>
                                       <span className="text-xl text-white mb-2 block text-center" style={{fontWeight: 500}}>{service.label}</span>

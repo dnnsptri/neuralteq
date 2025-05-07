@@ -31,6 +31,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.documentElement.classList.add('dark');
+            `,
+          }}
+        />
+      </head>
       <body className={`${workSans.variable} font-sans min-h-screen transition-colors`}>
         {children}
         <SocialIcons />

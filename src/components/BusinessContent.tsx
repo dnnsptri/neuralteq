@@ -57,7 +57,7 @@ export default function BusinessContent() {
                 We have been actively participating, validating and building within the ecosystem since day one, and we are
                 committed to keep building long into the future. When you{' '}
                 <Link 
-                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+                  href="https://dashboard.neuralteq.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="link"
@@ -126,7 +126,7 @@ export default function BusinessContent() {
             <FadeInUp delay={0.2}>
               <div className="mb-12 md:mb-[72px] mt-16">
                 <Button 
-                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+                  href="https://dashboard.neuralteq.com"
                 >
                   Stake your TAO
                 </Button>

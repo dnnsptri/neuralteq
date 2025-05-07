@@ -14,11 +14,22 @@ export default function Home() {
         localStorage.removeItem('skipAnimationOnce');
         return;
       }
-      const lastVisit = localStorage.getItem('animationLastVisit');
       const now = Date.now();
-      const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
-      if (!lastVisit || now - Number(lastVisit) > THIRTY_DAYS) {
-        localStorage.setItem('animationLastVisit', String(now));
+      const TWO_WEEKS = 14 * 24 * 60 * 60 * 1000;
+      const visitDataRaw = localStorage.getItem('animationVisitData');
+      let visitData = { count: 0, lastReset: now };
+      if (visitDataRaw) {
+        try {
+          visitData = JSON.parse(visitDataRaw);
+        } catch {}
+      }
+      // If more than 2 weeks have passed, reset counter
+      if (now - visitData.lastReset > TWO_WEEKS) {
+        visitData = { count: 0, lastReset: now };
+      }
+      visitData.count += 1;
+      localStorage.setItem('animationVisitData', JSON.stringify(visitData));
+      if (visitData.count <= 3) {
         router.replace('/animation');
       }
     }

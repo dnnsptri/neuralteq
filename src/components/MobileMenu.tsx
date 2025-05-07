@@ -20,19 +20,8 @@ const navigationItems = [
   { name: 'Business Development', href: '/business-development' },
   { name: 'Mining', href: '/mining' },
   { name: 'Research', href: '/research' },
-  { name: 'Neuralteq Fund', href: '/fund' },
+  { name: 'Fund', href: '/fund' },
   { name: 'Why us', href: '/why-us' },
-];
-
-const socialLinks = [
-  { name: 'Discord', href: 'https://discord.com', icon: '/icons/logo_Discord.svg' },
-  { name: 'X', href: 'https://x.com', icon: '/icons/logo_X.svg' },
-  { name: 'Medium', href: 'https://medium.com', icon: '/icons/logo_Medium.svg' },
-];
-
-const footerLinks = [
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
 ];
 
 export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, disableNav = false }: MobileMenuProps) {
@@ -119,7 +108,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
           {!disableNav && (
           <div className="mt-6 mb-[72px] ml-6">
             <Button
-              href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc4NTM5Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+              href="https://dashboard.neuralteq.com"
               className="w-full justify-center text-[#021019] bg-[#ECFBFA] hover:text-[#ECFBFA] hover:bg-transparent hover:outline-[#ECFBFA]"
               isCompact
             >

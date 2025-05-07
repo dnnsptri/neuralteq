@@ -97,11 +97,11 @@ export default function FundContent() {
           <FadeInUp delay={0.2}>
               <div className="mt-[72px] flex flex-col md:flex-row gap-12" key="contact-section">
                 <div className="flex-1">
-                  <PageSubtitle className="mb-6 md:mb-8 mt-12">
+                  <PageSubtitle className="mb-6 md:mb-8 mt-0">
                     Stay ahead of the curve
                   </PageSubtitle>
-                  <p>
-                    Join our <Link href="https://discord.com/invite/5wPwqcGnrn" className="link">Discord community</Link> for real-time updates, or fill in the contact form below to be among the first to access the fund at launch.
+                  <p className="text-center md:text-left">
+                    Join our <Link href="https://discord.com/invite/5wPwqcGnrn" className="link">Discord community</Link> for real-time updates, or fill in the contact form to be among the first to access the fund at launch.
                   </p>
                 </div>
                 <div className="md:w-[400px] md:-mt-12">

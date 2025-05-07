@@ -70,8 +70,8 @@ export default function MiningContent() {
                 <SmallColumn
                   title="Want to join our mining team?"
                   description="Reach out and become part of the effort shaping the future of Bittensor."
-                  buttonText="Chat with Rico"
-                  buttonHref="mailto:rico@neuralteq.com"
+                  buttonText="Get in touch"
+                  buttonHref="mailto:info@neuralteq.com"
                   className="text-center md:text-left"
                 />
               </FadeInUp>

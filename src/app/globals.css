@@ -144,19 +144,19 @@ body {
 
   /* Typography */
   .page-title {
-    @apply text-[48px] md:text-[56px] font-medium leading-[120%] tracking-[-0.02em] text-[var(--foreground)];
+    @apply text-[44px] md:text-[56px] font-medium leading-[120%] tracking-[-0.02em] text-[var(--foreground)];
   }
 
   .page-subtitle {
-    @apply text-[20px] md:text-[32px] font-medium leading-[150%] tracking-[-0.02em] text-[var(--foreground)];
+    @apply text-[24px] md:text-[32px] font-medium leading-[150%] tracking-[-0.02em] text-[var(--foreground)];
   }
 
   .intro-text {
-    @apply text-[18px] md:text-[24px] font-medium leading-[150%] text-[var(--foreground)];
+    @apply text-[19px] md:text-[24px] font-medium leading-[150%] text-[var(--foreground)];
   }
 
   .body-text {
-    @apply text-[15px] md:text-[17px] font-light leading-[150%] tracking-[0.05em] text-[var(--foreground)];
+    @apply text-[16px] md:text-[17px] font-light leading-[150%] tracking-[0.05em] text-[var(--foreground)];
   }
 
   /* Quote */
@@ -169,11 +169,11 @@ body {
   }
 
   .quote-text {
-    @apply text-[32px] md:text-[40px] font-medium leading-[110%] inline text-[var(--foreground)];
+    @apply text-[28px] md:text-[40px] font-medium leading-[110%] inline text-[var(--foreground)];
   }
 
   .quote-author {
-    @apply text-[13px] md:text-[15px] font-light leading-[150%] inline text-[var(--foreground)] text-center block;
+    @apply text-[15px] md:text-[15px] font-light leading-[150%] inline text-[var(--foreground)] text-center block;
   }
 
   /* Footer */

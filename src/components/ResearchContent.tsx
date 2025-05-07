@@ -14,9 +14,9 @@ export default function ResearchContent() {
   // Blog filter logic
   const filters = [
     { label: 'All', value: 'all' },
-    { label: 'Dynamic TAO Research', value: 'tao' },
-    { label: 'Trade Setups', value: 'trade' },
-    { label: 'AI research', value: 'ai' },
+    // { label: 'Dynamic TAO Research', value: 'tao' },
+    // { label: 'Trade Setups', value: 'trade' },
+    // { label: 'AI research', value: 'ai' },
   ];
   const [activeFilter, setActiveFilter] = useState('all');
 
@@ -25,9 +25,29 @@ export default function ResearchContent() {
     {
       title: 'How to Pick Bittensor Subnets?',
       category: 'tao',
-      description: 'The importance of Bittensor Subnets. The Bittensor network is a game changer in the development, deployment, and monetisation of artificial intelligence. It rapidly scales the development of open source AI by using subnets. Subnets are specialized networks, focusing on specific AI use ...',
+      description: 'The Bittensor network is a game changer in the development, deployment, and monetisation of artificial intelligence. It rapidly scales the development of open source AI by using subnets. Subnets are specialized networks, focusing on specific AI use cases while leveraging distributed computing power.',
       author: 'Neuralteq Fund',
-      authorImg: '/icons/logo_Medium.svg',
+      img: '/visuals/mesh_orange@2x.png',
+    },
+    {
+      title: 'How to build a dynamic $TAO portfolio - Part 1',
+      category: 'tao',
+      description: 'How to build a dynamic $TAO portfolio that gives you enough exposure to profit from upswings, while still having enough "dry powder" to buy potential dips? Building a portfolio is a fine art, a skill to master, not something you just learn over time, and certainly not something to take lightly.',
+      author: 'Neuralteq Fund',
+      img: '/visuals/mesh_orange@2x.png',
+    },
+    {
+      title: 'How to build a dynamic $TAO portfolio - Part 2',
+      category: 'tao',
+      description: 'Subnet Use Cases and Balanced Exposure. In our previous post we discussed $dTAO specific to take into account when building your portfolio, Emission, Subnet teams, Dilution risks and more. These are important in understanding the #Bittensor protocol dynamics and help to paint a picture on what kind of ...',
+      author: 'Neuralteq Fund',
+      img: '/visuals/mesh_orange@2x.png',
+    },
+    {
+      title: '6 weeks in dynamic TAO, how is root proportion holding up?',
+      category: 'tao',
+      description: 'What is it, and why does it matter? Bittensor subnets launch with 1 Alpha token supply. From there, each block emits 2 Alpha per subnet, while 1 $TAO total is split across all subnets based on their emission percentage.',
+      author: 'Neuralteq Fund',
       img: '/visuals/mesh_orange@2x.png',
     },
     // Add more blog items here with different categories
@@ -84,9 +104,9 @@ export default function ResearchContent() {
 
         </CenteredContent>
         {/* Filter bar section */}
-        <div style={{ background: '#021019', width: '100%' }}>
+        <div style={{ background: 'transparent', width: '100%' }}>
           <CenteredContent>
-            <div className="flex gap-6 md:gap-12 pt-8 pb-4 overflow-x-auto">
+            <div className="flex gap-6 md:gap-12 pt-8 overflow-x-auto">
               {filters.map(f => (
                 <button
                   key={f.value}
@@ -105,19 +125,25 @@ export default function ResearchContent() {
             {/* Blog items */}
             <div className="py-8">
               {filteredItems.map((item, idx) => (
-                <div key={idx} className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-[#ECFBFA] p-8 rounded-lg mb-8 shadow-sm">
-                  <div className="flex-1">
-                    <h2 className="text-[28px] font-semibold mb-2 text-[#021019]">{item.title}</h2>
-                    <p className="text-[18px] text-[#021019] mb-4">{item.description}</p>
-                    <div className="flex items-center gap-3 mt-2">
-                      <Image src={item.authorImg} alt={item.author} width={32} height={32} className="rounded-full" />
-                      <span className="text-[16px] text-[#021019]/80">By {item.author}</span>
+                <React.Fragment key={idx}>
+                  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 bg-[#ECFBFA] pt-8 pb-8 px-0 rounded-lg">
+                    <div className="flex-1">
+                      <h2 className="text-[28px] font-semibold mb-2 text-[#021019]">{item.title}</h2>
+                      <p className="text-[18px] text-[#021019] mb-4">{item.description}</p>
+                      <div className="flex items-center gap-3 mt-2">
+                        <span className="text-[16px] text-[#021019]/80">By {item.author}</span>
+                      </div>
                     </div>
+                    {/*
+                    <div className="w-[210px] h-[180px] flex-shrink-0 flex items-center justify-center bg-white rounded-[20px]">
+                      <Image src={item.img} alt={item.title} width={180} height={140} className="object-contain" />
+                    </div>
+                    */}
                   </div>
-                  <div className="w-[220px] h-[180px] flex-shrink-0 flex items-center justify-center bg-white rounded-lg">
-                    <Image src={item.img} alt={item.title} width={180} height={140} className="object-contain" />
-                  </div>
-                </div>
+                  {idx !== filteredItems.length - 1 && (
+                    <div className="h-px bg-[#D6E4E3] my-8" />
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </CenteredContent>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageSubtitle } from './typography';
 
 interface FormData {
@@ -8,6 +8,9 @@ interface FormData {
   email: string;
   note: string;
 }
+
+// TODO: Replace with your actual reCAPTCHA v3 site key
+const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -19,6 +22,17 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+
+  useEffect(() => {
+    // Dynamically load reCAPTCHA v3 script if not already present
+    if (!document.querySelector('#recaptcha-script')) {
+      const script = document.createElement('script');
+      script.id = 'recaptcha-script';
+      script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }, []);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -46,12 +60,18 @@ export default function ContactForm() {
     }
 
     try {
+      // Get reCAPTCHA token if grecaptcha is available
+      let recaptchaToken = '';
+      const grecaptcha = (window as any).grecaptcha;
+      if (grecaptcha && RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY') {
+        recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+      }
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       if (!response.ok) {
@@ -78,7 +98,7 @@ export default function ContactForm() {
 
   return (
     <div className="dark:bg-[#061C2B] bg-[#E0F0F0] p-8 md:p-12 rounded-lg max-w-[400px] mt-8" suppressHydrationWarning>
-      <PageSubtitle className="mb-6 dark:text-[var(--foreground)] text-[#021019] mt-4">Get in touch</PageSubtitle>
+      <PageSubtitle className="mb-6 dark:text-[var(--foreground)] text-[#021019] mt-[-12px]">Get in touch</PageSubtitle>
       
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>

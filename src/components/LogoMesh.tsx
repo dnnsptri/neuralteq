@@ -1,24 +1,42 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function LogoMesh() {
   const pathname = usePathname();
   const isPrivacyPage = pathname === '/privacy';
+  const [showMesh, setShowMesh] = React.useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setShowMesh(window.innerWidth >= 480);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
 
   return (
     <div className="relative w-[140px] h-[72px] flex items-center justify-end">
-      {!isPrivacyPage && (
+      {!isPrivacyPage && showMesh && (
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           width={77}
           height={77}
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[77px] h-[77px] object-cover pointer-events-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[60px] h-[60px] object-cover pointer-events-none"
           style={{ zIndex: 1 }}
         >
           <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />

@@ -9,6 +9,7 @@ import CenteredContent from '@/components/layouts/CenteredContent';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from './Typewriter.module.css';
+import LogoMesh from '@/components/LogoMesh';
 
 const text = [
   "A new era, a new collective",
@@ -87,7 +88,7 @@ const TypewriterAnimation = () => {
     if (isComplete) {
       const timeout = setTimeout(() => {
         router.push('/');
-      }, 5000);
+      }, 8000);
       return () => clearTimeout(timeout);
     }
   }, [isComplete, router]);
@@ -110,13 +111,7 @@ const TypewriterAnimation = () => {
         }}
       >
         <div className={styles.logo}>
-          <Image
-            src="/visuals/logo_neuralteq.png"
-            alt="Neuralteq Logo"
-            width={140}
-            height={72}
-            priority
-          />
+          <LogoMesh />
         </div>
         <CenteredContent>
           <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -142,7 +137,7 @@ const TypewriterAnimation = () => {
               <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
               <div className={styles.buttons}>
                 <a 
-                  href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS.xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi.xNy4wLjE3NDUzNTM3ODIuMC4wLjA." 
+                  href="https://dashboard.neuralteq.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={`${styles.button} ${styles.primaryButton}`}

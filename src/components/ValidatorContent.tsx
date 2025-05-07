@@ -79,10 +79,10 @@ export default function ValidatorContent() {
             </BodyText>
           </FadeInUp>
 
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.0}>
             <div className="mt-16 mb-12 md:mb-[72px]">
               <Button 
-                href="https://staking.tao-validator.com/subnets?_gl=1*1p3hjy1*_ga*MjAzNTIxNDEwMS4xNzM0MDAwMDM0*_ga_G55BM4VS8R*MTc0NTM1Mzc4Mi4xNy4wLjE3NDUzNTM3ODIuMC4wLjA."
+                href="https://dashboard.neuralteq.com"
               >
                 Stake your TAO
               </Button>
