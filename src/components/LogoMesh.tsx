@@ -4,20 +4,24 @@ import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-export default function LogoMesh() {
+export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: boolean }) {
   const pathname = usePathname();
   const isPrivacyPage = pathname === '/privacy';
   const [showMesh, setShowMesh] = React.useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   React.useEffect(() => {
+    if (alwaysShowMesh) {
+      setShowMesh(true);
+      return;
+    }
     const handleResize = () => {
       setShowMesh(window.innerWidth >= 480);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [alwaysShowMesh]);
 
   useEffect(() => {
     if (videoRef.current) {

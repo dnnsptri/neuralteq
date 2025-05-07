@@ -68,6 +68,7 @@
 }
 
 .line {
+  font-size: 28px;
   white-space: pre-wrap;
   transition: opacity 0.3s ease;
   opacity: 1;
@@ -205,6 +206,10 @@
   .callToActionText {
     font-size: 24px;
   }
+  
+  .line {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -275,6 +280,12 @@
   
   .buttons {
     gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .line {
+    font-size: 40px;
   }
 }
 

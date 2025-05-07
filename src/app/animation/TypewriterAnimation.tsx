@@ -110,12 +110,12 @@ const TypewriterAnimation = () => {
             : {}),
         }}
       >
-        <div className={styles.logo}>
-          <LogoMesh />
-        </div>
         <CenteredContent>
           <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div className={styles.textContainer}>
+            <div className="mb-8 w-[140px] h-[72px] pl-4 md:pl-0 md:fixed md:left-8 md:top-8 md:z-10">
+              <LogoMesh alwaysShowMesh />
+            </div>
+            <div className={styles.textContainer + " pl-4 md:pl-0"}>
               {displayText.map((line, index) => {
                 return (
               <div 
@@ -131,24 +131,24 @@ const TypewriterAnimation = () => {
               </div>
                 );
               })}
-          </div>
-          {isComplete && (
-            <div className={`${styles.callToAction} ${styles.fadeIn}`}>
-              <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
-              <div className={styles.buttons}>
-                <a 
-                  href="https://dashboard.neuralteq.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={`${styles.button} ${styles.primaryButton}`}
-                >
-                    Staking dashboard
-                </a>
-                  <Link href="/" className={styles.button}>Homepage</Link>
-              </div>
             </div>
-          )}
-        </div>
+            {isComplete && (
+              <div className={`${styles.callToAction} ${styles.fadeIn}`}>
+                <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
+                <div className={styles.buttons}>
+                  <a 
+                    href="https://dashboard.neuralteq.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`${styles.button} ${styles.primaryButton}`}
+                  >
+                      Staking dashboard
+                  </a>
+                    <Link href="/" className={styles.button}>Homepage</Link>
+                </div>
+              </div>
+            )}
+          </div>
         </CenteredContent>
       </div>
     </div>
