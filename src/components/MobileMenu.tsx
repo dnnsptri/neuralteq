@@ -96,7 +96,12 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
                 className={`block py-2 text-[24px] font-medium relative transition-opacity ${
                   pathname === item.href ? 'underline underline-offset-4' : ''
                 }`}
-                onClick={onClose}
+                onClick={() => {
+                  if (item.name === 'Home') {
+                    localStorage.setItem('skipAnimationOnce', 'true');
+                  }
+                  setTimeout(onClose, 100);
+                }}
               >
                 {item.name}
               </Link>
@@ -118,9 +123,9 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
               <Image
                 src="/visuals/element_Why@2x.png"
                 alt="Why Mesh"
-                width={64}
-                height={64}
-                className="w-[64px] h-[64px] mt-6"
+                width={48}
+                height={48}
+                className="w-[48px] h-[48px] mt-6"
                 priority
               />
             </div>

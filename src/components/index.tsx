@@ -65,6 +65,9 @@ export default function IndexContent() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const autoAdvanceRef = useRef<NodeJS.Timeout | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     // Ensure video plays
@@ -75,13 +78,47 @@ export default function IndexContent() {
     }
   }, []);
 
-  // Auto-advance carousel
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % services.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [services.length]);
+    if (autoAdvanceRef.current) clearInterval(autoAdvanceRef.current);
+    if (!isHovering && !isTransitioning) {
+      autoAdvanceRef.current = setInterval(() => {
+        setIsTransitioning(true);
+        setActiveIndex((prev) => (prev + 1) % services.length);
+        setTimeout(() => setIsTransitioning(false), 700); // Match transition duration
+      }, 4000);
+    }
+    return () => {
+      if (autoAdvanceRef.current) clearInterval(autoAdvanceRef.current);
+    };
+  }, [services.length, isHovering, isTransitioning]);
+
+  const handlePauseAutoAdvance = () => {
+    setIsHovering(true);
+    if (autoAdvanceRef.current) clearInterval(autoAdvanceRef.current);
+  };
+
+  const handleResumeAutoAdvance = () => {
+    setIsHovering(false);
+  };
+
+  const handleServiceHover = (index: number) => {
+    if (index !== activeIndex) {
+      setIsTransitioning(true);
+      setActiveIndex(index);
+      setTimeout(() => setIsTransitioning(false), 700); // Match transition duration
+    }
+    handlePauseAutoAdvance();
+  };
+
+  const handleServiceLeave = () => {
+    handleResumeAutoAdvance();
+  };
+
+  const handleCardClick = (index: number) => {
+    setIsTransitioning(true);
+    setActiveIndex(index);
+    setTimeout(() => setIsTransitioning(false), 700); // Match transition duration
+  };
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
@@ -177,14 +214,18 @@ export default function IndexContent() {
                             <ul className="space-y-3 flex flex-col items-start">
                               {services.map((service, idx) => (
                                 <li key={service.key} className="w-full">
-                                  <Link
-                                    href={service.href}
-                                    className="text-[18px] md:text-[20px] transition-colors hover:underline text-left block"
+                                  <button
+                                    type="button"
+                                    className={`text-[18px] md:text-[20px] transition-colors hover:underline text-left block w-full text-left ${activeIndex === idx ? 'text-[#021019] dark:text-[var(--foreground)] font-semibold' : ''}`}
                                     style={{fontWeight: 500}}
-                                    onMouseEnter={() => setActiveIndex(idx)}
+                                    onClick={() => handleCardClick(idx)}
+                                    onMouseEnter={() => handleServiceHover(idx)}
+                                    onMouseLeave={handleServiceLeave}
+                                    onFocus={() => handleServiceHover(idx)}
+                                    onBlur={handleServiceLeave}
                                   >
                                     {service.label}
-                                  </Link>
+                                  </button>
                                 </li>
                               ))}
                             </ul>
@@ -198,11 +239,17 @@ export default function IndexContent() {
                                 onTouchStart={handleTouchStart}
                                 onTouchMove={handleTouchMove}
                                 onTouchEnd={handleTouchEnd}
+                                onMouseEnter={handlePauseAutoAdvance}
+                                onMouseLeave={handleResumeAutoAdvance}
                               >
                                 {/* Navigation Arrows - Desktop Only */}
                                 <div className="hidden md:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between px-[100px] z-50">
                                   <button 
-                                    onClick={() => setActiveIndex((activeIndex - 1 + services.length) % services.length)}
+                                    onClick={() => {
+                                      setIsTransitioning(true);
+                                      setActiveIndex((activeIndex - 1 + services.length) % services.length);
+                                      setTimeout(() => setIsTransitioning(false), 700);
+                                    }}
                                     className="arrow-btn"
                                     aria-label="Previous service"
                                   >
@@ -211,7 +258,11 @@ export default function IndexContent() {
                                     </svg>
                                   </button>
                                   <button 
-                                    onClick={() => setActiveIndex((activeIndex + 1) % services.length)}
+                                    onClick={() => {
+                                      setIsTransitioning(true);
+                                      setActiveIndex((activeIndex + 1) % services.length);
+                                      setTimeout(() => setIsTransitioning(false), 700);
+                                    }}
                                     className="arrow-btn"
                                     aria-label="Next service"
                                   >

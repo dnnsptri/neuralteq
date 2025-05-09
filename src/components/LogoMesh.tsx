@@ -3,20 +3,19 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: boolean }) {
   const pathname = usePathname();
   const isPrivacyPage = pathname === '/privacy';
-  const [showMesh, setShowMesh] = React.useState(true);
+  const [showMesh, setShowMesh] = useState(true);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  React.useEffect(() => {
-    if (alwaysShowMesh) {
-      setShowMesh(true);
-      return;
-    }
+  useEffect(() => {
     const handleResize = () => {
-      setShowMesh(window.innerWidth >= 480);
+      setWindowWidth(window.innerWidth);
+      setShowMesh(alwaysShowMesh || window.innerWidth >= 480);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -29,31 +28,64 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
     }
   }, []);
 
+  // Don't render mesh until windowWidth is known (avoids SSR mismatch/flash)
+  if (windowWidth === null) {
+    return (
+      <div className="relative w-[140px] h-[72px] flex items-center justify-end">
+        <Image
+          src={isPrivacyPage ? "/visuals/logo_neuralteq_light.png" : "/visuals/logo_neuralteq.svg"}
+          alt="Neuralteq Logo"
+          width={140}
+          height={72}
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ zIndex: 2 }}
+          priority
+        />
+      </div>
+    );
+  }
+
+  const showVideo = windowWidth >= 1400;
+
   return (
-    <div className="relative w-[140px] h-[72px] flex items-center justify-end">
+    <Link 
+      href="/" 
+      className="relative w-[140px] h-[72px] flex items-center justify-end"
+      onClick={() => localStorage.setItem('skipAnimationOnce', 'true')}
+    >
       {!isPrivacyPage && showMesh && (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          width={77}
-          height={77}
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[60px] h-[60px] object-cover pointer-events-none"
-          style={{ zIndex: 1 }}
-        >
-          <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
-          <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
-          {/* Fallback for browsers that don't support video */}
+        showVideo ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            width={77}
+            height={77}
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-[60px] h-[60px] object-cover pointer-events-none"
+            style={{ zIndex: 1 }}
+          >
+            <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
+            <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
+            <Image
+              src="/visuals/mesh_orange@2x.png"
+              alt="Mesh Background"
+              width={77}
+              height={77}
+              className="object-cover"
+            />
+          </video>
+        ) : (
           <Image
             src="/visuals/mesh_orange@2x.png"
             alt="Mesh Background"
             width={77}
             height={77}
-            className="object-cover"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-[60px] h-[60px] object-cover pointer-events-none"
+            style={{ zIndex: 1 }}
           />
-        </video>
+        )
       )}
       <Image
         src={isPrivacyPage ? "/visuals/logo_neuralteq_light.png" : "/visuals/logo_neuralteq.svg"}
@@ -64,6 +96,6 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
         style={{ zIndex: 2 }}
         priority
       />
-    </div>
+    </Link>
   );
 } 

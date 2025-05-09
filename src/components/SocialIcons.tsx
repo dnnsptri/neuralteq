@@ -32,6 +32,7 @@ const SocialIcons = ({ className, isFooter }: SocialIconsProps) => {
       >
         <Image src="/icons/logo_X.svg" alt="X" width={24} height={24} />
       </a>
+      {/*
       <a 
         href="https://www.linkedin.com/company/neuralteq/" 
         target="_blank" 
@@ -41,6 +42,7 @@ const SocialIcons = ({ className, isFooter }: SocialIconsProps) => {
       >
         <Image src="/icons/logo_Linkedin.svg" alt="Linkedin" width={24} height={24} />
       </a>
+      */}
     </div>
   );
 };

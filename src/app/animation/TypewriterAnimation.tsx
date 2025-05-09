@@ -35,13 +35,15 @@ const TypewriterAnimation = () => {
   const [isComplete, setIsComplete] = useState(false);
   const router = useRouter();
   const activeLineRef = useRef<HTMLDivElement>(null);
+  const hasStarted = useRef(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || hasStarted.current) return;
+    hasStarted.current = true;
 
     const totalChars = text.reduce((sum, line) => sum + line.length, 0);
     const typingDelay = Math.max(7000 / totalChars, 30);
@@ -101,6 +103,14 @@ const TypewriterAnimation = () => {
   return (
     <div className={styles.wrapper} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <SocialIcons />
+      <Link 
+        href="/" 
+        onClick={() => localStorage.setItem('skipAnimationOnce', 'true')}
+        className="fixed right-8 bottom-8 text-[#ECFBFA] text-[14px] opacity-80 hover:opacity-100 transition-opacity z-50 cursor-pointer"
+        style={{ pointerEvents: 'auto' }}
+      >
+        Skip
+      </Link>
       <div
         className={styles.container}
         style={{
