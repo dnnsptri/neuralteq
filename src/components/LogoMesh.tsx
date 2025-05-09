@@ -11,6 +11,7 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
   const [showMesh, setShowMesh] = useState(true);
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,12 +29,28 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
     }
   }, []);
 
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDark(document.documentElement.classList.contains('dark'));
+        }
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   // Don't render mesh until windowWidth is known (avoids SSR mismatch/flash)
   if (windowWidth === null) {
     return (
       <div className="relative w-[140px] h-[72px] flex items-center justify-end">
         <Image
-          src={isPrivacyPage ? "/visuals/logo_neuralteq_light.png" : "/visuals/logo_neuralteq.svg"}
+          src={isDark ? "/visuals/logo_neuralteq@2x.png" : "/visuals/logo_neuralteq_light@2x.png"}
           alt="Neuralteq Logo"
           width={140}
           height={72}
@@ -47,14 +64,28 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
 
   const showVideo = windowWidth >= 1400;
 
+  // Light mode: always use _light@2x.png, no SVG or mp4
+  if (!isDark) {
+    return (
+      <div className="relative w-[140px] h-[72px] flex items-center justify-end">
+        <Image
+          src="/visuals/logo_neuralteq_light@2x.png"
+          alt="Neuralteq Logo"
+          width={140}
+          height={72}
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ zIndex: 2 }}
+          priority
+        />
+      </div>
+    );
+  }
+
+  // Dark mode: >=1400px use SVG + mp4, <1400px use @2x.PNG
   return (
-    <Link 
-      href="/" 
-      className="relative w-[140px] h-[72px] flex items-center justify-end"
-      onClick={() => localStorage.setItem('skipAnimationOnce', 'true')}
-    >
-      {!isPrivacyPage && showMesh && (
-        showVideo ? (
+    <div className="relative w-[140px] h-[72px] flex items-center justify-end">
+      {showVideo ? (
+        <>
           <video
             ref={videoRef}
             autoPlay
@@ -63,7 +94,7 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
             playsInline
             width={77}
             height={77}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[60px] h-[60px] object-cover pointer-events-none"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-[64px] h-[64px] object-cover pointer-events-none"
             style={{ zIndex: 1 }}
           >
             <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
@@ -76,26 +107,27 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
               className="object-cover"
             />
           </video>
-        ) : (
           <Image
-            src="/visuals/mesh_orange@2x.png"
-            alt="Mesh Background"
-            width={77}
-            height={77}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[60px] h-[60px] object-cover pointer-events-none"
-            style={{ zIndex: 1 }}
+            src="/visuals/logo_neuralteq.svg"
+            alt="Neuralteq Logo"
+            width={140}
+            height={72}
+            className="absolute inset-0 w-full h-full object-contain"
+            style={{ zIndex: 2 }}
+            priority
           />
-        )
+        </>
+      ) : (
+        <Image
+          src="/visuals/logo_neuralteq@2x.png"
+          alt="Neuralteq Logo"
+          width={140}
+          height={72}
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ zIndex: 2 }}
+          priority
+        />
       )}
-      <Image
-        src={isPrivacyPage ? "/visuals/logo_neuralteq_light.png" : "/visuals/logo_neuralteq.svg"}
-        alt="Neuralteq Logo"
-        width={140}
-        height={72}
-        className="absolute inset-0 w-full h-full object-contain"
-        style={{ zIndex: 2 }}
-        priority
-      />
-    </Link>
+    </div>
   );
 } 

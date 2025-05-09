@@ -54,21 +54,24 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
   }, []);
 
   useEffect(() => {
-    // Force light mode for privacy page
-    if (pathname === '/privacy') {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    } else {
+    // Initialize theme state only once on mount
+    const storedTheme = localStorage.getItem('theme');
+    // Default to dark mode if no theme is set
+    if (!storedTheme) {
+      localStorage.setItem('theme', 'dark');
       document.documentElement.classList.add('dark');
       setIsDark(true);
+    } else {
+      // Apply the stored theme
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        setIsDark(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        setIsDark(false);
+      }
     }
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!disableNav) {
-    document.documentElement.classList.toggle('dark', isDark);
-    }
-  }, [isDark, disableNav]);
+  }, []); // Empty dependency array means this only runs once on mount
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,7 +102,20 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
   }, [lastScrollY]);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    setIsDark(prev => {
+      const next = !prev;
+      const html = document.documentElement;
+      if (next) {
+        html.classList.add('dark');
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        html.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+      return next;
+    });
   };
 
   return (
@@ -123,13 +139,14 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
               {/* Centered Navigation - Desktop */}
               {!disableNav && (
                 <div className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 hidden md:block">
-                  <div className="bg-[#ECFBFA] dark:bg-[#061C2B] rounded-full px-4 py-2 flex items-center shadow-sm">
+                  <div className={`rounded-full px-4 py-2 flex items-center shadow-sm ${isDark ? 'bg-[#061C2B]' : 'bg-[#FFFFFF]'}` }>
                     <nav className="flex items-center space-x-1 whitespace-nowrap">
                       {navigationItems.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? 'nav-link-active' : ''}`}
+                          className={`nav-link group text-[var(--foreground)] ${pathname === item.href ? (isDark ? 'nav-link-active' : 'bg-[#ECFBFA]') : ''}`}
+                          style={pathname === item.href && !isDark ? { background: '#ECFBFA', color: '#021019', fontWeight: 600 } : {}}
                         >
                           {item.name === 'Fund' || item.name === 'Fund' ? 'Fund' : item.name}
                           <span className="nav-link-hover" />
@@ -149,8 +166,6 @@ export default function Header({ disableNav = false, disableLogoLink = false }: 
                 {/* Staking Dashboard - Desktop */}
                 <Button 
                   href="https://dashboard.neuralteq.com"
-                  className="group flex md:flex-row flex-col items-center text-[15px] gap-2 h-12"
-                  isCompact
                   aria-label="Staking Dashboard"
                 >
                   <span className="hidden max-[1336px]:inline relative w-5 h-5">

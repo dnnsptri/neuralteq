@@ -21,7 +21,6 @@ export default function Footer({ hideMesh = false }: FooterProps) {
   const [mounted, setMounted] = React.useState(false);
   const [isDark, setIsDark] = React.useState(true);
   const pathname = usePathname();
-  const isPrivacyPage = pathname === '/privacy';
 
   React.useEffect(() => {
     setMounted(true);
@@ -41,7 +40,7 @@ export default function Footer({ hideMesh = false }: FooterProps) {
   }, []);
 
   return (
-    <footer className="footer relative mb-10" style={{ color: isPrivacyPage ? '#021019' : '#ECFBFA' }}>
+    <footer className="footer relative mb-10" style={{ color: isDark ? '#ECFBFA' : '#021019' }}>
       <div className="footer-mesh flex justify-center mb-12 md:mb-20">
         {/* Show element visual based on page */}
         {(() => {
@@ -72,32 +71,19 @@ export default function Footer({ hideMesh = false }: FooterProps) {
       <CenteredContent>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
           <div className="flex gap-4 md:gap-6">
-            {footerLinks.map((link) => {
-              if (isPrivacyPage && link.name === 'Privacy Policy') {
-                return (
-                  <span
-                    key={link.name}
-                    className="text-[12px] md:text-[14px]"
-                    style={{ color: '#021019' }}
-                  >
-                    {link.name}
-                  </span>
-                );
-              }
-              return (
+            {footerLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                  className="text-[12px] md:text-[14px] link"
-                  style={{ color: isPrivacyPage ? '#021019' : '#ECFBFA' }}
+                className="text-[12px] md:text-[14px] link"
+                style={{ color: isDark ? '#ECFBFA' : '#021019' }}
                 {...(link.name === 'Privacy Policy' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {link.name}
               </Link>
-              );
-            })}
+            ))}
           </div>
-          <div className="text-[12px] md:text-[14px]" style={{ color: isPrivacyPage ? '#021019' : '#ECFBFA' }}>
+          <div className="text-[12px] md:text-[14px]" style={{ color: isDark ? '#ECFBFA' : '#021019' }}>
             © {currentYear} - Neuralteq. All rights reserved.
           </div>
         </div>

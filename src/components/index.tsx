@@ -68,6 +68,23 @@ export default function IndexContent() {
   const autoAdvanceRef = useRef<NodeJS.Timeout | null>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDark(document.documentElement.classList.contains('dark'));
+        }
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     // Ensure video plays
@@ -207,25 +224,24 @@ export default function IndexContent() {
                         <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
                           {/* SmallColumn-style clickable list - now always first */}
                           <PageSubtitle className="block md:hidden mb-6 text-center mt-[-96px]">Dive deeper in what Neuralteq is all about:</PageSubtitle>
-                          <div className="hidden md:block bg-white dark:bg-[#061C2B] shadow p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mx-auto mt-[-96px] md:mt-4" style={{opacity: 1, transform: `scale(1)`, boxShadow: '0 8px 32px rgba(0,0,0,0.10)', borderRadius: '20px'}}>
+                          <div className={`hidden md:block bg-white dark:bg-[#061C2B] ${isDark ? 'shadow' : ''} p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mx-auto mt-[-96px] md:mt-4`} style={{opacity: 1, transform: `scale(1)`, borderRadius: '20px'}}>
                             <div className="mb-6 text-[20px] text-[#021019] dark:text-[var(--foreground)] text-left">
                               Dive deeper in what Neuralteq is all about:
                             </div>
                             <ul className="space-y-3 flex flex-col items-start">
                               {services.map((service, idx) => (
                                 <li key={service.key} className="w-full">
-                                  <button
-                                    type="button"
+                                  <Link
+                                    href={service.href}
                                     className={`text-[18px] md:text-[20px] transition-colors hover:underline text-left block w-full text-left ${activeIndex === idx ? 'text-[#021019] dark:text-[var(--foreground)] font-semibold' : ''}`}
                                     style={{fontWeight: 500}}
-                                    onClick={() => handleCardClick(idx)}
                                     onMouseEnter={() => handleServiceHover(idx)}
                                     onMouseLeave={handleServiceLeave}
                                     onFocus={() => handleServiceHover(idx)}
                                     onBlur={handleServiceLeave}
                                   >
                                     {service.label}
-                                  </button>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>

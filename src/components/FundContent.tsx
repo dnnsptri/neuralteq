@@ -13,6 +13,7 @@ import { Video, Quote, Mesh } from './content';
 import FadeInUp from './motion/FadeInUp';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
+import SmallColumn from './ui/SmallColumn';
 
 export default function FundContent() {
   const [mounted, setMounted] = useState(false);
@@ -105,7 +106,13 @@ export default function FundContent() {
                   </p>
                 </div>
                 <div className="md:w-[400px] md:-mt-12">
-                  <ContactForm />
+                  <SmallColumn
+                    title="Get first access"
+                    description="Want to be among the first to access the fund at launch? Get in touch with us directly."
+                    buttonText="Send request"
+                    buttonHref="mailto:info@neuralteq.com"
+                    className="text-center md:text-left"
+                  />
                 </div>
               </div>
           </FadeInUp>

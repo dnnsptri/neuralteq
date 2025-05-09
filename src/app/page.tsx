@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import IndexContent from '@/components/index';
 
 export default function Home() {
   const router = useRouter();
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const skipAnimation = localStorage.getItem('skipAnimationOnce');
       if (skipAnimation) {
         localStorage.removeItem('skipAnimationOnce');
+        setChecked(true);
         return;
       }
       const now = Date.now();
@@ -31,9 +33,16 @@ export default function Home() {
       localStorage.setItem('animationVisitData', JSON.stringify(visitData));
       if (visitData.count <= 3) {
         router.replace('/animation');
+        return;
       }
     }
+    setChecked(true);
   }, [router]);
+
+  if (!checked) {
+    // Optionally, show a loading spinner here
+    return null;
+  }
 
   return <IndexContent />;
 } 

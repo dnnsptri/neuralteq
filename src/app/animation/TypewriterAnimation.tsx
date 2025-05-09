@@ -98,19 +98,23 @@ const TypewriterAnimation = () => {
     }
   }, [isComplete, router]);
 
+  const handleSkip = () => {
+    localStorage.setItem('skipAnimationOnce', 'true');
+    router.push('/');
+  };
+
   if (!mounted) return null;
 
   return (
     <div className={styles.wrapper} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <SocialIcons />
-      <Link 
-        href="/" 
-        onClick={() => localStorage.setItem('skipAnimationOnce', 'true')}
+      <button
+        onClick={handleSkip}
         className="fixed right-8 bottom-8 text-[#ECFBFA] text-[14px] opacity-80 hover:opacity-100 transition-opacity z-50 cursor-pointer"
         style={{ pointerEvents: 'auto' }}
       >
         Skip
-      </Link>
+      </button>
       <div
         className={styles.container}
         style={{
@@ -126,7 +130,14 @@ const TypewriterAnimation = () => {
         <CenteredContent>
           <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="mb-8 w-[140px] h-[72px] pl-4 md:pl-0 md:fixed md:left-8 md:top-8 md:z-10">
-              <LogoMesh alwaysShowMesh />
+              <Image
+                src="/visuals/logo_neuralteq@2x.png"
+                alt="Neuralteq Logo"
+                width={140}
+                height={72}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
             <div className={styles.textContainer + " pl-4 md:pl-0"}>
               {displayText.map((line, index) => {
@@ -134,7 +145,7 @@ const TypewriterAnimation = () => {
               <div 
                 key={index} 
                 className={styles.line}
-                style={{ opacity: 1 }}
+                style={{ opacity: 1, marginLeft: 40 }}
                 ref={index === currentLine || (isComplete && index === text.length - 1) ? activeLineRef : undefined}
               >
                 {line}

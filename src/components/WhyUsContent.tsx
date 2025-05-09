@@ -11,6 +11,23 @@ import SmallColumn from './ui/SmallColumn';
 
 export default function WhyUsContent() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isDark, setIsDark] = React.useState(true);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDark(document.documentElement.classList.contains('dark'));
+        }
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     // Ensure video plays
@@ -28,27 +45,39 @@ export default function WhyUsContent() {
           <div className="relative mb-8 md:mb-[64px]">
             {/* Mesh Background */}
             <div className="hidden md:block absolute top-0 right-[80px] w-[240px] h-[240px] -z-10">
-              <video
-                ref={videoRef}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-contain"
-              >
-                <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
-                <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
-                {/* Fallback for browsers that don't support video */}
+              {isDark ? (
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-contain"
+                >
+                  <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
+                  <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
+                  {/* Fallback for browsers that don't support video */}
+                  <Image
+                    src="/visuals/mesh_orange@2x.png"
+                    alt="Mesh Background"
+                    width={240}
+                    height={240}
+                    quality={90}
+                    priority
+                    className="object-contain"
+                  />
+                </video>
+              ) : (
                 <Image
-                  src="/visuals/mesh_orange@2x.png"
-                  alt="Mesh Background"
+                  src="/visuals/element_Why@2x.png"
+                  alt="Why Mesh"
                   width={240}
                   height={240}
                   quality={90}
                   priority
                   className="object-contain"
                 />
-              </video>
+              )}
             </div>
 
             <FadeInUp>

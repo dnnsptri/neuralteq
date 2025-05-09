@@ -169,11 +169,11 @@ body {
   }
 
   .quote-text {
-    @apply text-[28px] md:text-[40px] font-medium leading-[110%] inline text-[var(--foreground)];
+    @apply text-[28px] md:text-[40px] font-medium leading-[110%] text-[var(--foreground)] text-center mx-auto max-w-4xl;
   }
 
   .quote-author {
-    @apply text-[15px] md:text-[15px] font-light leading-[150%] inline text-[var(--foreground)] text-center block;
+    @apply text-[15px] md:text-[15px] font-light leading-[150%] text-[var(--foreground)] text-center block mx-auto max-w-4xl;
   }
 
   /* Footer */

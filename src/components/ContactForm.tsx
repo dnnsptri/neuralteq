@@ -10,7 +10,7 @@ interface FormData {
 }
 
 // TODO: Replace with your actual reCAPTCHA v3 site key
-const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
+const RECAPTCHA_SITE_KEY = '6LfxqjMrAAAAAFycj20aUWgCDQNaRaTKhtGguuXv';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -63,7 +63,7 @@ export default function ContactForm() {
       // Get reCAPTCHA token if grecaptcha is available
       let recaptchaToken = '';
       const grecaptcha = (window as any).grecaptcha;
-      if (grecaptcha && RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY') {
+      if (grecaptcha && RECAPTCHA_SITE_KEY !== '6LfxqjMrAAAAAFycj20aUWgCDQNaRaTKhtGguuXv') {
         recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
       }
       const response = await fetch('/api/contact', {
