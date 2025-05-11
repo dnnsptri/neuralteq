@@ -103,7 +103,7 @@ export default function ResearchContent() {
   const filters = [
     { label: 'All', value: 'all' },
     { label: 'dTAO', value: 'dtao' },
-    { label: 'Updates', value: 'updates' },
+    { label: 'Market updates', value: 'updates' },
     { label: 'Investing', value: 'investing' },
     { label: 'AI', value: 'ai' },
   ];
@@ -161,16 +161,20 @@ export default function ResearchContent() {
         {/* Filter bar section */}
         <div style={{ background: 'transparent', width: '100%' }}>
           <CenteredContent>
-            <div className="flex gap-4 md:gap-12 pt-8 overflow-x-auto">
-              {filters.map(f => (
-                <button
-                  key={f.value}
-                  className={`text-[15px] md:text-[17px] font-light pb-2 px-2 transition-all duration-200 ${activeFilter === f.value ? 'border-b-4 border-[#EF6C00] text-[#ECFBFA]' : 'border-b-2 border-transparent text-[#ECFBFA] hover:text-[#ECFBFA]'}`}
-                  onClick={() => setActiveFilter(f.value)}
-                >
-                  {f.label}
-                </button>
-              ))}
+            <div className="relative">
+              <div className="flex gap-4 md:gap-12 pt-8 overflow-x-auto whitespace-nowrap px-2">
+                {filters.map(f => (
+                  <button
+                    key={f.value}
+                    className={`flex-shrink-0 text-[15px] md:text-[17px] font-light pb-2 px-2 transition-all duration-200 ${activeFilter === f.value ? 'border-b-4 border-[#EF6C00] text-[#ECFBFA]' : 'border-b-2 border-transparent text-[#ECFBFA] hover:text-[#ECFBFA]'}`}
+                    onClick={() => setActiveFilter(f.value)}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+              {/* Gradient overlay, only on mobile */}
+              <div className="pointer-events-none fixed right-0 top-0 h-12 w-12 md:hidden z-20" style={{background: 'linear-gradient(to left, rgba(2,16,25,0.8) 0%, transparent 80%)'}} />
             </div>
           </CenteredContent>
         </div>
@@ -202,14 +206,14 @@ export default function ResearchContent() {
                         {/* Mobile image between title and description */}
                         <Link 
                           href={`/research/${item.slug}`}
-                          className="block md:hidden w-full my-4"
+                          className="block md:hidden w-full my-4 bg-[#021019] rounded-[4px] p-4"
                         >
                           <Image 
                             src={item.img || '/visuals/mesh_orange@2x.png'} 
                             alt={item.title} 
                             width={400} 
                             height={400} 
-                            className="object-contain w-full h-auto rounded-[4px]" 
+                            className="object-contain w-full h-auto" 
                           />
                         </Link>
                         <p className="text-[18px] text-[#021019] mb-4">{item.description}</p>

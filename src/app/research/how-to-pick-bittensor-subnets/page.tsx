@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -7,12 +8,14 @@ import { PageTitle, PageSubtitle, IntroText, BodyText } from '@/components/typog
 import Footer from '@/components/Footer';
 import FadeInUp from '@/components/motion/FadeInUp';
 
-export const metadata = {
-  title: 'How to Pick Bittensor Subnets? - Neuralteq Research',
-};
-
 export default function HowToPickBittensorSubnetsPage() {
   const category = 'AI';
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#021019] text-[#021019] dark:text-[#ECFBFA]">
       <Header selectedNav="Research" />
@@ -92,17 +95,155 @@ export default function HowToPickBittensorSubnetsPage() {
                     <li><strong>Addressable Market Size:</strong> $50B–$100B (projected generative AI growth). $356B by 2030</li>
                   </ul>
                 </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">3. AI Model Development</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Dippy Roleplay (11), Omega Any-to-Any (21), Coldint (29), Finetuning (37), EdgeMaxxing (39), Pretraining (9), Gradients (56), Dippy Speech (58), Hivetrain AutoML (49)</li>
+                    <li><strong>Description:</strong> Focuses on training, fine-tuning, or enhancing AI models (e.g., LLMs, speech).</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Distributes compute and data needs, enabling customization and cost efficiency.</li>
+                    <li><strong>Addressable Market Size:</strong> $20B–$50B (training/fine-tuning market).</li>
+                  </ul>
+                </div>
 
-                {/* Continue with other categories... */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">4. Distributed Training</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Templar (3), Distributed Training Subnet (38)</li>
+                    <li><strong>Description:</strong> Enables large-scale model training across distributed compute resources.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Reduces costs, speeds up training, and broadens access.</li>
+                    <li><strong>Addressable Market Size:</strong> $2.8B — $9.58B.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">5. Model Hosting + Inference</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Nineteen (19), Targon (4), Chutes (64)</li>
+                    <li><strong>Description:</strong> Optimizes deployment and execution of AI models for rapid, cost-effective inference.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Lowers latency and costs via distributed nodes.</li>
+                    <li><strong>Addressable Market Size:</strong> $106B to $254B in 2030.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">6. Data</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Dataverse (13), Metasearch (22), Open Kaito (5), LogicNet (35), Precog (55), Dojo (52), ReadyAI (33)</li>
+                    <li><strong>Description:</strong> Handles data scraping, storage, embedding, or analysis for AI training and insights.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Ensures data sovereignty and incentivizes contributors.</li>
+                    <li><strong>Addressable Market Size:</strong> $50B–$100B.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">7. Prediction Markets</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> S&P 500 Oracle (28), Infinite Games (6), Bettensor (30), Sportstensor (41), Nextplace AI (48), Gaia (57), Score / Precog (44)</li>
+                    <li><strong>Description:</strong> Uses AI for predicting financial markets, sports, or events.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Enhances transparency and accuracy via distributed compute.</li>
+                    <li><strong>Addressable Market Size:</strong> $1B–$5B (prediction markets + sports betting).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">8. Scientific Research</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Protein Folding (25), Pyramid Scheme (36), Graphite (43), Nova (68)</li>
+                    <li><strong>Description:</strong> Applies AI to scientific challenges like protein folding, graph optimization, and medicinal research. Protein Folding (25) targets biotech and food, while Nova (68) focuses specifically on medicinal research (e.g., drug discovery via protein analysis). Graphite (43) optimizes routes.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Lowers the cost of compute-intensive research, enables and incentivizes global collaboration, and accelerates breakthroughs in fields like medicine and biotech by distributing workloads across a network.</li>
+                    <li><strong>Addressable Market Size:</strong> $10B–$50B. Protein Folding ties to biotech/medicines ($10B–$50B), and Nova's medicinal focus aligns with drug discovery, a $50B+ market, though its decentralized niche might start at $5B–$20B. Graphite's route optimization is $140M (1–2% of $5B).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">9. AI Detection</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> BitMind (34), It's AI (32)</li>
+                    <li><strong>Description:</strong> Deepfake detection, checks if content is generated with an AI. Helpful for checking authenticity and trust.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Scales detection efforts and adapts quickly to new patterns.</li>
+                    <li><strong>Addressable Market Size:</strong> $1B–$5B (emerging trust market).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">10. DeFi (Decentralized Finance)</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Sturdy (10)</li>
+                    <li><strong>Description:</strong> DeFi with an AI layer on top for optimizing yield and lending.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Useful for automating strategies, reducing costs, and increasing transparency.</li>
+                    <li><strong>Addressable Market Size:</strong> $10B–$20B (DeFi AI niche).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">11. Advertising</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> BitAds (16)</li>
+                    <li><strong>Description:</strong> Optimizes decentralized online advertising.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Reduces reliance on ad giants, improves privacy, and lowers costs.</li>
+                    <li><strong>Addressable Market Size:</strong> $5B–$25B (1–5% of $500B digital ad market).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">12. Cybersecurity</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Red Team (61), Bitsec (60)</li>
+                    <li><strong>Description:</strong> Provides AI-powered code vulnerability detection and cybersecurity challenges.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> No centralized data breaches, no single point of error, making it possible to continuously train and deploy real time models. Censorship resistant. Easy to scale work.</li>
+                    <li><strong>Addressable Market Size:</strong> $5B–$10B (AI cybersecurity segment).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">13. Coding</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> WebGenieAI (54), Bitsec (60, partial), Gen42 — Rizzo (45, partial)</li>
+                    <li><strong>Description:</strong> Assists with coding tasks, vulnerability detection, or web development.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Distributes compute and enables open-source collaboration. Censorship resistant.</li>
+                    <li><strong>Addressable Market Size:</strong> $1B–$5B (developer tools market).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">14. Trading</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Proprietary Trading Network (8 @taoshiio), Efficient Frontier (53), S&P 500 Oracle (28)</li>
+                    <li><strong>Description:</strong> Applies AI to algorithmic trading and price prediction.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Enables real-time analysis and crowd sourcing of models.</li>
+                    <li><strong>Addressable Market Size:</strong> $5B–$10B (algo trading niche).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">15. Infrastructure</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Subnets:</strong> Subvortex (7), Compute (27), Compute Subnet (51), Horde (12)</li>
+                    <li><strong>Description:</strong> Provides node infrastructure and scalable compute for Bittensor.</li>
+                    <li><strong>Why Decentralized AI is Beneficial:</strong> Ensures resilience and scalability.</li>
+                    <li><strong>Addressable Market Size:</strong> $10B–$50B (decentralized compute niche).</li>
+                  </ul>
+                </div>
               </div>
-
               <PageSubtitle className="mb-4">Summary</PageSubtitle>
               <p>
                 A summarizing cheat sheet on the AI use cases, it market size, and the key benefits of using decentralized AI.
-                <br />
+              </p>
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/fix_table@2x.png" 
+                    alt="Subnet Use Cases Cheat Sheet"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
+              <p>
                 * The market size ranges are very broad guesstimates based on AI and industry trends.
               </p>
-
               <PageSubtitle className="mb-4">Additional Things to Keep in Mind</PageSubtitle>
               <p>
                 Beyond use cases and market sizes, several factors can influence subnet investment decisions:
