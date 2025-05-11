@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 export default function HowToPickBittensorSubnetsPage() {
-  const category = 'dTAO';
+  const category = 'AI';
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#021019] text-[#021019] dark:text-[#ECFBFA]">
       <Header selectedNav="Research" />
@@ -28,11 +28,11 @@ export default function HowToPickBittensorSubnetsPage() {
                 </PageTitle>
               </div>
               <IntroText className="mb-16 md:mb-[64px]">
-              The importance of Bittensor subnets.
+                 The importance of Bittensor subnets.
               </IntroText>
             </div>
 
-            <Link href="/research/how-to-pick-bittensor-subnets" className="w-[360px] h-[320px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px] hover:opacity-90 transition-opacity duration-200">
+            <Link href="/research/how-to-pick-bittensor-subnets" className="w-[360px] h-[400px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px] hover:opacity-90 transition-opacity duration-200">
               <Image 
                 src="/visuals/visual_how_to_pick@2x.png" 
                 alt="How to pick Bittensor Subnets" 

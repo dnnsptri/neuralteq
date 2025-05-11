@@ -46,7 +46,7 @@ const TypewriterAnimation = () => {
     hasStarted.current = true;
     
     const totalChars = text.reduce((sum, line) => sum + line.length, 0);
-    const typingDelay = Math.max(7000 / totalChars, 30);
+    const typingDelay = Math.max(3500 / totalChars, 30);
     let timeout: NodeJS.Timeout;
 
     function type(line: number, char: number, display: string[]) {
@@ -145,7 +145,7 @@ const TypewriterAnimation = () => {
               <div 
                 key={index} 
                 className={styles.line}
-                style={{ opacity: 1, marginLeft: 40 }}
+                style={{ opacity: 1 }}
                 ref={index === currentLine || (isComplete && index === text.length - 1) ? activeLineRef : undefined}
               >
                 {line}

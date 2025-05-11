@@ -47,7 +47,7 @@ function useBlogItems() {
             id: '2',
             title: 'How to build a dynamic $TAO portfolio - Part 1',
             category: 'investing',
-            description: "How to build a dynamic $TAO portfolio that gives you enough exposure to profit from upswings, while still having enough 'dry powder' to buy potential dips? Building a portfolio is a fine art, a skill to master, not something you just learn over time, and certainly not something to take lightly.",
+            description: "How to build a dynamic $TAO portfolio that gives you enough exposure to profit from upswings, while still having enough 'dry powder' to buy potential dips? Building a portfolio is a fine art, a skill to master, not something you just learn over time, and certainly not something to take lightly. In this series, we'll try to give you some guidance on building your own portfolio.",
             author: 'Neuralteq Fund',
             img: '/visuals/visual_how_to_build@2x.png',
             slug: 'how-to-build-dynamic-tao-portfolio-part-1'
@@ -77,7 +77,7 @@ function useBlogItems() {
             description: "dTAO's #Bittensor initiative has effectively launched an open network comprising multiple subnet markets. Predicting behavior in these early stages is challenging. Prices might soar unexpectedly and pull back just as sharply. So it is important to stick to your plan, don't chase returns, don't fomo into prices that are running already.",
             author: 'Neuralteq Fund',
             img: '/visuals/visual_trade_early@2x.png',
-            slug: 'trading-early-markets'
+            slug: 'trading-early-markets-practice-patience'
           },
         ];
 
