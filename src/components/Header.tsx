@@ -73,7 +73,11 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
       }
       
       setLastScrollY(currentScrollY);
-      setShowHeaderContent(currentScrollY < 600);
+      if (currentScrollY < 80) {
+        setHeaderOpacity(1);
+      } else {
+        setHeaderOpacity(0);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -84,8 +88,7 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
     <>
       <header className="fixed top-4 md:top-8 left-0 right-0 z-50" style={{ opacity: headerOpacity, transition: 'opacity 0.5s' }}>
         <div className="relative flex items-center h-[72px]">
-          {showHeaderContent && (
-            <>
+          {/* Always render header content for smooth fade */}
           {/* Logo */}
           <motion.div 
             style={{ opacity: isMobile ? mobileOpacity : desktopOpacity }} 
@@ -171,8 +174,6 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
             />
           </motion.button>
               )}
-            </>
-          )}
         </div>
       </header>
 

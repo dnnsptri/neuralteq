@@ -8,11 +8,11 @@ import Footer from '@/components/Footer';
 import FadeInUp from '@/components/motion/FadeInUp';
 
 export const metadata = {
-  title: 'How to Pick Bittensor Subnets? - Neuralteq Research',
+  title: 'How to Build a Dynamic $TAO Portfolio - Part 1 - Neuralteq Research',
 };
 
-export default function HowToPickBittensorSubnetsPage() {
-  const category = 'dTAO';
+export default function HowToBuildDynamicTaoPortfolioPart1Page() {
+  const category = 'investing';
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#021019] text-[#021019] dark:text-[#ECFBFA]">
       <Header selectedNav="Research" />
@@ -24,7 +24,7 @@ export default function HowToPickBittensorSubnetsPage() {
               <div className="relative mb-16 md:mb-[64px]">
                 <span className="text-xs uppercase tracking-wide bg-[#021019] text-[#ECFBFA] px-2 py-1 rounded mb-4 inline-block border border-[#ECFBFA]">{category}</span>
                 <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                  How to Pick Bittensor Subnets
+                  How to Build a Dynamic $TAO Portfolio - Part 1
                 </PageTitle>
               </div>
               <IntroText className="mb-16 md:mb-[64px]">
@@ -32,10 +32,10 @@ export default function HowToPickBittensorSubnetsPage() {
               </IntroText>
             </div>
 
-            <Link href="/research/how-to-pick-bittensor-subnets" className="w-[360px] h-[320px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px] hover:opacity-90 transition-opacity duration-200">
+            <Link href="/research/how-to-build-dynamic-tao-portfolio-part-1" className="w-[360px] h-[320px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px]">
               <Image 
-                src="/visuals/visual_how_to_pick@2x.png" 
-                alt="How to pick Bittensor Subnets" 
+                src="/visuals/visual_how_to_build@2x.png" 
+                alt="How to Build a Dynamic $TAO Portfolio - Part 1" 
                 width={300} 
                 height={300} 
                 className="object-contain" 
@@ -48,14 +48,13 @@ export default function HowToPickBittensorSubnetsPage() {
         <CenteredContent>
           <FadeInUp delay={0.0}>
             <BodyText className="space-y-6 md:space-y-8 mb-8">
+              {/* Use the same body content as 'how to pick' */}
               <p>
                 The Bittensor network is a game changer in the development, deployment, and monetisation of artificial intelligence. It rapidly scales the development of open source AI by using subnets. Subnets are specialized networks, focusing on specific AI use cases while leveraging distributed computing power.
               </p>
-
               <p>
                 For investors, subnet selection is a challenge: use cases range from conversational agents to medicinal research, therefore each subnet is an unique opportunity, with a specific risk profile. At the moment 75 subnets are already active and every two days more are activated. To win in this complex landscape, you need a structured approach. This article aims to present you a framework to simplify your investment process by categorizing subnets into key AI use cases. It will try to give you some guidance by estimating the market potential, and highlight helpful features. Whether you're a retail investor, trader, or institution, understanding these subnet specifics will help you identify high-potential investments in this fast moving decentralized AI economy.
               </p>
-
               <PageSubtitle className="mb-4">Investment Framework</PageSubtitle>
               <p>
                 Determining your investment strategy is an important first step in investing in the TAO subnet market. Based on your risk appetite and your time horizon you can choose one or multiple allocation strategies. Are you looking for short-term gains or long-term exposure?
@@ -69,9 +68,7 @@ export default function HowToPickBittensorSubnetsPage() {
               <p>
                 If this is your thing, the categorization framework below can help you to select which subnets you want to slowly start allocating towards.
               </p>
-
               <PageSubtitle className="mb-4">Categorization Framework for Bittensor Subnets</PageSubtitle>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-xl font-semibold mb-2">1. AI Agents</h3>
@@ -82,7 +79,6 @@ export default function HowToPickBittensorSubnetsPage() {
                     <li><strong>Addressable Market Size:</strong> $100B to $390B (OpenAI is already at $300B).</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-semibold mb-2">2. Generative AI</h3>
                   <ul className="list-disc pl-6 space-y-2">
@@ -92,17 +88,14 @@ export default function HowToPickBittensorSubnetsPage() {
                     <li><strong>Addressable Market Size:</strong> $50B–$100B (projected generative AI growth). $356B by 2030</li>
                   </ul>
                 </div>
-
                 {/* Continue with other categories... */}
               </div>
-
               <PageSubtitle className="mb-4">Summary</PageSubtitle>
               <p>
                 A summarizing cheat sheet on the AI use cases, it market size, and the key benefits of using decentralized AI.
                 <br />
                 * The market size ranges are very broad guesstimates based on AI and industry trends.
               </p>
-
               <PageSubtitle className="mb-4">Additional Things to Keep in Mind</PageSubtitle>
               <p>
                 Beyond use cases and market sizes, several factors can influence subnet investment decisions:
@@ -114,7 +107,6 @@ export default function HowToPickBittensorSubnetsPage() {
                 <li><strong>Marketing:</strong> In crypto it's all about hype. Subnets like APEX (ChatGPT competitor) or Nova (AI drug discovery) have usecases that are automatically more known with the current usebase. It also helps if a subnet is carried by a strong team like Macrocosmos. Twitter followers are an interesting metric to look at, for instance Sturdy's 27K or Masa's 218K and backing from reputable VCs like YCombinator,or Binance is an additional validation of the business case.</li>
                 <li><strong>Overall State of the Market:</strong> The decentralized AI market is still early but growing fast, most products don't have users yet. It will take time for them to find their revenue models and to convert their efforts into viable business models. That means that right now volatility will stay high, emission rates might fluctuate and competition from centralized players like OpenAI or Google is strong. Macro trends, like Trump's tariffs, also impact market dynamics.</li>
               </ul>
-
               <PageSubtitle className="mb-4">Making Informed Subnet Choices</PageSubtitle>
               <p>
                 Deciding which subnets to invest to is not that easy, and hopefully this framework will provide you with a starting point. We have set out 15 AI use cases, with a broadly defined clear market opportunity , while generative AI and AI agents seem to be the larger opportunity in market size, there is also a lot of competition. It is important to think about if and how a subnet could be able to win within its specific competitive landscape.
