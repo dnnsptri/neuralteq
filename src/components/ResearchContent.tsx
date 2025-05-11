@@ -174,7 +174,7 @@ export default function ResearchContent() {
                 ))}
               </div>
               {/* Gradient overlay, only on mobile */}
-              <div className="pointer-events-none fixed right-0 top-0 h-12 w-12 md:hidden z-20" style={{background: 'linear-gradient(to left, rgba(2,16,25,0.8) 0%, transparent 80%)'}} />
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-12 md:hidden z-20" style={{background: 'linear-gradient(to left, rgba(2,16,25,0.8) 0%, transparent 80%)'}} />
             </div>
           </CenteredContent>
         </div>
