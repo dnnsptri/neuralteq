@@ -107,7 +107,12 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`nav-link group text-[var(--foreground)] ${selectedNav === item.name ? 'nav-link-active' : ''}`}
+                      className={`nav-link group text-[var(--foreground)] ${
+                        (!selectedNav && item.href !== '/' && pathname.startsWith(item.href)) ||
+                        (selectedNav === item.name)
+                          ? 'nav-link-active'
+                          : ''
+                      }`}
                     >
                       {item.name === 'Fund' || item.name === 'Fund' ? 'Fund' : item.name}
                       <span className="nav-link-hover" />

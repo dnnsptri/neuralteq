@@ -77,7 +77,10 @@ export default function MobileMenu({ isOpen, onClose, disableNav = false, select
                 key={item.name}
                 href={item.href}
                 className={`block py-2 text-[24px] font-medium relative transition-opacity ${
-                  selectedNav === item.name ? 'underline underline-offset-4' : ''
+                  (!selectedNav && item.href !== '/' && pathname.startsWith(item.href)) ||
+                  (selectedNav === item.name)
+                    ? 'underline underline-offset-4'
+                    : ''
                 }`}
                 onClick={() => {
                   if (item.name === 'Home') {
