@@ -6,7 +6,6 @@ import Link from 'next/link';
 import CenteredContent from './layouts/CenteredContent';
 import WideContent from './layouts/WideContent';
 import { PageTitle, PageSubtitle, IntroText, BodyText } from './typography';
-import FooterMesh from './FooterMesh';
 import SocialIcons from './SocialIcons';
 import Button from './ui/Button';
 import { Video, Quote, Mesh } from './content';
