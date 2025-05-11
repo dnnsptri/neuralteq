@@ -13,7 +13,7 @@ interface FooterProps {
 
 const footerLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Get in touch', href: 'mailto:roger@neuralteq.com' },
+  { name: 'Get in touch', href: 'mailto:info@neuralteq.com' },
 ];
 
 export default function Footer({ hideMesh = false }: FooterProps) {
@@ -21,6 +21,14 @@ export default function Footer({ hideMesh = false }: FooterProps) {
   const [mounted, setMounted] = React.useState(false);
   const [isDark, setIsDark] = React.useState(true);
   const pathname = usePathname();
+  let elementSrc = '';
+  if (pathname === '/privacy') elementSrc = '/visuals/element_Why@2x.png';
+  else if (pathname.startsWith('/validator')) elementSrc = '/visuals/element_Validator@2x.png';
+  else if (pathname.startsWith('/business-development')) elementSrc = '/visuals/element_Business@2x.png';
+  else if (pathname.startsWith('/mining')) elementSrc = '/visuals/element_Mining@2x.png';
+  else if (pathname.startsWith('/fund')) elementSrc = '/visuals/element_Fund@2x.png';
+  else if (pathname.startsWith('/research')) elementSrc = '/visuals/element_Research@2x.png';
+  else if (pathname.startsWith('/why-us') || pathname === '/' || pathname.startsWith('/index') || pathname.startsWith('/animation')) elementSrc = '/visuals/element_Why@2x.png';
 
   React.useEffect(() => {
     setMounted(true);
@@ -44,23 +52,16 @@ export default function Footer({ hideMesh = false }: FooterProps) {
       <div className="footer-mesh flex justify-center mb-12 md:mb-20">
         {/* Show element visual based on page */}
         {(() => {
-          let elementSrc = '';
-          if (pathname.startsWith('/validator')) elementSrc = '/visuals/element_Validator@2x.png';
-          else if (pathname.startsWith('/business-development')) elementSrc = '/visuals/element_Business@2x.png';
-          else if (pathname.startsWith('/mining')) elementSrc = '/visuals/element_Mining@2x.png';
-          else if (pathname.startsWith('/fund')) elementSrc = '/visuals/element_Fund@2x.png';
-          else if (pathname.startsWith('/research')) elementSrc = '/visuals/element_Research@2x.png';
-          else if (pathname.startsWith('/why-us') || pathname === '/' || pathname.startsWith('/index') || pathname.startsWith('/animation')) elementSrc = '/visuals/element_Why@2x.png';
           if (!elementSrc) return null;
           return (
         <Image
               src={elementSrc}
               alt="Footer Visual"
-              width={80}
-              height={80}
+              width={60}
+              height={60}
               quality={100}
               priority
-              className="w-[80px] h-[80px] object-contain rounded-full"
+              className="w-[60px] h-[60px] object-contain rounded-full"
         />
           );
         })()}
@@ -75,9 +76,8 @@ export default function Footer({ hideMesh = false }: FooterProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[12px] md:text-[14px] link"
+                  className="text-[12px] md:text-[14px] link"
                 style={{ color: isDark ? '#ECFBFA' : '#021019' }}
-                {...(link.name === 'Privacy Policy' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {link.name}
               </Link>

@@ -44,7 +44,7 @@ const TypewriterAnimation = () => {
   useEffect(() => {
     if (!mounted || hasStarted.current) return;
     hasStarted.current = true;
-
+    
     const totalChars = text.reduce((sum, line) => sum + line.length, 0);
     const typingDelay = Math.max(7000 / totalChars, 30);
     let timeout: NodeJS.Timeout;
@@ -155,24 +155,24 @@ const TypewriterAnimation = () => {
               </div>
                 );
               })}
-            </div>
-            {isComplete && (
-              <div className={`${styles.callToAction} ${styles.fadeIn}`}>
-                <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
-                <div className={styles.buttons}>
-                  <a 
-                    href="https://dashboard.neuralteq.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={`${styles.button} ${styles.primaryButton}`}
-                  >
-                      Staking dashboard
-                  </a>
-                    <Link href="/" className={styles.button}>Homepage</Link>
-                </div>
-              </div>
-            )}
           </div>
+          {isComplete && (
+            <div className={`${styles.callToAction} ${styles.fadeIn}`}>
+              <p className={styles.callToActionText}>Let's get down to business and jump straight into:</p>
+              <div className={styles.buttons}>
+                <a 
+                  href="https://dashboard.neuralteq.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`${styles.button} ${styles.primaryButton}`}
+                >
+                    Staking dashboard
+                </a>
+                  <Link href="/" className={styles.button}>Homepage</Link>
+              </div>
+            </div>
+          )}
+        </div>
         </CenteredContent>
       </div>
     </div>

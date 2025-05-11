@@ -9,9 +9,8 @@ import Button from './ui/Button';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  isDark: boolean;
-  onThemeToggle: () => void;
   disableNav?: boolean;
+  selectedNav?: string;
 }
 
 const navigationItems = [
@@ -24,7 +23,7 @@ const navigationItems = [
   { name: 'Why us', href: '/why-us' },
 ];
 
-export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, disableNav = false }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, disableNav = false, selectedNav }: MobileMenuProps) {
   const pathname = usePathname();
 
   // Prevent scrolling when menu is open
@@ -56,34 +55,18 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
         }`}
       >
         <div className="flex flex-col h-full p-6">
-          {/* Header with Close and Theme buttons */}
+          {/* Header with Close button */}
           <div className="flex items-center justify-end gap-5">
-            {/* Theme toggle */}
-            {!disableNav && (
-              <button 
-                onClick={onThemeToggle}
-                className="p-2"
-                aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-              >
-                <Image
-                  src={isDark ? "/icons/icon_light.svg" : "/icons/icon_dark.svg"}
-                  alt="Theme toggle"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6"
-                />
-              </button>
-            )}
-          {/* Close button */}
-          <button 
-            onClick={onClose}
+            {/* Close button */}
+            <button 
+              onClick={onClose}
               className="p-2"
-            aria-label="Close menu"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
+              aria-label="Close menu"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
           {/* Navigation */}
@@ -94,7 +77,7 @@ export default function MobileMenu({ isOpen, onClose, isDark, onThemeToggle, dis
                 key={item.name}
                 href={item.href}
                 className={`block py-2 text-[24px] font-medium relative transition-opacity ${
-                  pathname === item.href ? 'underline underline-offset-4' : ''
+                  selectedNav === item.name ? 'underline underline-offset-4' : ''
                 }`}
                 onClick={() => {
                   if (item.name === 'Home') {

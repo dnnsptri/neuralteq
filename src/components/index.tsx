@@ -100,9 +100,9 @@ export default function IndexContent() {
     if (!isHovering && !isTransitioning) {
       autoAdvanceRef.current = setInterval(() => {
         setIsTransitioning(true);
-        setActiveIndex((prev) => (prev + 1) % services.length);
+      setActiveIndex((prev) => (prev + 1) % services.length);
         setTimeout(() => setIsTransitioning(false), 700); // Match transition duration
-      }, 4000);
+    }, 4000);
     }
     return () => {
       if (autoAdvanceRef.current) clearInterval(autoAdvanceRef.current);
@@ -221,7 +221,7 @@ export default function IndexContent() {
                     <FadeInUp delay={0.0}>
                       <BodyText className="space-y-6 md:space-y-8 mb-12 md:mb-32">
                         {/* Services Section: SmallColumn-style list and animated carousel */}
-                        <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
+                        <div className="mt-12 flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
                           {/* SmallColumn-style clickable list - now always first */}
                           <PageSubtitle className="block md:hidden mb-6 text-center mt-[-96px]">Dive deeper in what Neuralteq is all about:</PageSubtitle>
                           <div className={`hidden md:block bg-white dark:bg-[#061C2B] ${isDark ? 'shadow' : ''} p-8 md:p-12 max-w-[400px] w-full flex flex-col justify-center transition-all duration-500 mx-auto mt-[-96px] md:mt-4`} style={{opacity: 1, transform: `scale(1)`, borderRadius: '20px'}}>
@@ -328,7 +328,7 @@ export default function IndexContent() {
                                       style={style as React.CSSProperties}
                                     >
                                       <div className="w-full flex justify-center mb-10">
-                                        <Image src={service.visual} alt="Mesh visual" width={230} height={220} style={{borderRadius: 2, width: 230, height: 220}} />
+                                        <Image src={service.visual} alt="Mesh visual" width={220} height={220} style={{borderRadius: 2, width: 220, height: 220}} />
                                       </div>
                                       <span className="text-xl text-white mb-2 block text-center" style={{fontWeight: 500}}>{service.label}</span>
                                       <span className="text-[16px] text-white text-center px-4 block mb-4" style={{fontWeight: 300}}>{service.description}</span>
@@ -343,7 +343,7 @@ export default function IndexContent() {
                     </FadeInUp>
                   </div>
                   {/* Why us section */}
-                  <div className="mt-16">
+                  <div className="mt-24">
                     <FadeInUp delay={0.0}>
                       <PageSubtitle className="mb-6 md:mb-8">
                         Why us
@@ -409,16 +409,17 @@ export default function IndexContent() {
         .arrow-btn:hover .arrow-icon {
           color: #ECFBFA;
         }
-        @media (prefers-color-scheme: dark) {
-          .arrow-btn {
+        :global(html.dark) .arrow-btn {
             background: rgba(2,16,25,1);
           }
-          .arrow-btn:hover {
+        :global(html.dark) .arrow-btn:hover {
             background: #021019;
             box-shadow: 0 0 0 2px #ECFBFA33;
             outline: 2px solid #ECFBFA;
             outline-offset: 2px;
           }
+        :global(html.dark) .arrow-btn .arrow-icon {
+          color: #ECFBFA;
         }
       `}</style>
     </div>

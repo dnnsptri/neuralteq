@@ -114,7 +114,7 @@ export default function BusinessContent() {
             </FadeInUp>
 
             <FadeInUp delay={0.0}>
-              <BodyText className="mt-8 space-y-6">
+              <BodyText className="mt-24 space-y-6">
                 <p>
                   Today, our role goes beyond providing validation services, we actively work on delivering growth and adoption to the Bittensor ecosystem by providing strategic advisory and commercial deal-making support. We aim to connect emerging decentralized technologies with traditional markets, empowering businesses to harness the full potential of Bittensor through education, support, and tailored solutions.
                 </p>

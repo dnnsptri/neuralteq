@@ -11,22 +11,24 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#ECFBFA] text-[#021019]">
-      <Header disableNav={true} disableLogoLink={true} />
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#021019] text-[#021019] dark:text-[#ECFBFA]">
+      <Header />
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
-          <div className="relative mb-16 md:mb-[64px]">
-            <PageTitle className="pt-[60px] mb-6 md:mb-8">
-              Privacy Policy
-            </PageTitle>
-          </div>
-          <IntroText className="mb-16 md:mb-[64px]">
-          At Neuralteq, accessible from our website https://www.neuralteq.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Neuralteq and how we use it. If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
-          </IntroText>
+          <FadeInUp delay={0.0}>
+            <div className="relative mb-16 md:mb-[64px]">
+              <PageTitle className="pt-[60px] mb-6 md:mb-8">
+                Privacy Policy
+              </PageTitle>
+            </div>
+            <IntroText className="mb-16 md:mb-[64px]">
+              At Neuralteq, accessible from our website https://www.neuralteq.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Neuralteq and how we use it. If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
+            </IntroText>
+          </FadeInUp>
           </CenteredContent>
          
           <CenteredContent>
-          <FadeInUp delay={0.7}>
+          <FadeInUp delay={0.0}>
             <BodyText className="space-y-6 md:space-y-8 mb-8">
               <PageSubtitle className="mb-4">Log files</PageSubtitle>
               <p>

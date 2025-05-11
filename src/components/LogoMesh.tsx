@@ -82,31 +82,47 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
   }
 
   // Dark mode: >=1400px use SVG + mp4, <1400px use @2x.PNG
+  if (windowWidth !== null && windowWidth < 768) {
+    return (
+      <div className="relative w-[140px] h-[72px] flex items-center justify-end">
+        <Image
+          src={isDark ? "/visuals/logo_neuralteq.svg" : "/visuals/logo_neuralteq_light.svg"}
+          alt="Neuralteq Logo"
+          width={140}
+          height={72}
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ zIndex: 2 }}
+          priority
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-[140px] h-[72px] flex items-center justify-end">
       {showVideo ? (
         <>
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          width={77}
+          height={77}
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-[64px] h-[64px] object-cover pointer-events-none"
+          style={{ zIndex: 1 }}
+        >
+          <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
+          <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
+          <Image
+            src="/visuals/mesh_orange@2x.png"
+            alt="Mesh Background"
             width={77}
             height={77}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[64px] h-[64px] object-cover pointer-events-none"
-            style={{ zIndex: 1 }}
-          >
-            <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
-            <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
-            <Image
-              src="/visuals/mesh_orange@2x.png"
-              alt="Mesh Background"
-              width={77}
-              height={77}
-              className="object-cover"
-            />
-          </video>
+            className="object-cover"
+          />
+        </video>
           <Image
             src="/visuals/logo_neuralteq.svg"
             alt="Neuralteq Logo"
@@ -118,15 +134,15 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
           />
         </>
       ) : (
-        <Image
+      <Image
           src="/visuals/logo_neuralteq@2x.png"
-          alt="Neuralteq Logo"
-          width={140}
-          height={72}
-          className="absolute inset-0 w-full h-full object-contain"
-          style={{ zIndex: 2 }}
-          priority
-        />
+        alt="Neuralteq Logo"
+        width={140}
+        height={72}
+        className="absolute inset-0 w-full h-full object-contain"
+        style={{ zIndex: 2 }}
+        priority
+      />
       )}
     </div>
   );

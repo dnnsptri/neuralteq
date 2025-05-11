@@ -28,7 +28,7 @@ const SocialIcons = ({ className, isFooter }: SocialIconsProps) => {
     });
     return () => observer.disconnect();
   }, []);
-
+  
   return (
     <div className={`${containerClass} ${className || ''}`}>
       <a 

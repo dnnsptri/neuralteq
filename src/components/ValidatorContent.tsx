@@ -45,7 +45,7 @@ export default function ValidatorContent() {
           <div className="relative mb-16 md:mb-[64px]">
             <FadeInUp>
               <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                Secure. Reliable. Profitable
+                Secure. Reliable. Profitable.
               </PageTitle>
             </FadeInUp>
           </div>

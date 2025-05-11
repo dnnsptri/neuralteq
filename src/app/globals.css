@@ -108,6 +108,17 @@ body {
   .mobile-margin-bottom {
     margin-bottom: 32px;
   }
+
+  .page-title {
+    padding-top: 45px !important;
+    margin-bottom: 18px !important;
+  }
+  .page-subtitle {
+    margin-bottom: 12px !important;
+  }
+  .intro-text {
+    margin-bottom: 36px !important;
+  }
 }
 
 @layer components {
