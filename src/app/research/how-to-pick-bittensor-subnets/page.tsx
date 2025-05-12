@@ -64,7 +64,7 @@ export default function HowToPickBittensorSubnetsPage() {
                 Determining your investment strategy is an important first step in investing in the TAO subnet market. Based on your risk appetite and your time horizon you can choose one or multiple allocation strategies. Are you looking for short-term gains or long-term exposure?
               </p>
               <p>
-                Learn more on different strategies by checking this page regularly for updates on specialized investment strategies.
+                Learn more on different strategies by checking this page regularly for updates on specialized investment strategies. This article from 2 weeks ago gives a brief overview of a more active trading approach: <Link href="https://x.com/neuralteq/status/1893994024895209900" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://x.com/neuralteq/status/1893994024895209900</Link>
               </p>
               <p>
                 If you are long term oriented, it is possible that you want to slowly increase exposure over time through dollar-cost averaging. Doing this will give you an average price over time and it will help you to buy through market dips, reducing impact of price volatility.

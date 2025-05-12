@@ -107,7 +107,7 @@ export default function BusinessContent() {
 
             <FadeInUp delay={0.0}>
               <Quote 
-                text="We bridge decentralized AI with real-world impact, turning subnet innovation into everyday solutions"
+                text='"We bridge decentralized AI with real-world impact, turning subnet innovation into everyday solutions"'
                 author="Roger Majelle (Neuralteq)"
                 className="mb-12"
               />

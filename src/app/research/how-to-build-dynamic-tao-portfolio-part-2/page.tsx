@@ -46,7 +46,6 @@ export default function HowToBuildDynamicTaoPortfolioPart2Page() {
         </CenteredContent>
 
         <CenteredContent>
-          <div className="w-full max-w-full px-2 sm:px-4">
             <FadeInUp delay={0.0}>
               <BodyText className="space-y-6 md:space-y-8 mb-8">
                 <p>
@@ -100,7 +99,6 @@ export default function HowToBuildDynamicTaoPortfolioPart2Page() {
                 </p>
               </BodyText>
             </FadeInUp>
-          </div>
         </CenteredContent>
       </main>
       <div className="mt-24 md:mt-32 z-50">
