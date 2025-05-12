@@ -68,7 +68,7 @@ function useBlogItems() {
             description: "What’s going on in the market, and what does this mean for $dTAO? Here’s a short analysis of current market conditions and the dTAO ecosystem.",
             author: 'Neuralteq Fund',
             img: '/visuals/visual_updates@2x.png',
-            slug: '6-weeks-in-dynamic-tao-root-proportion'
+            slug: 'is-the-bull-market-over'
           },
           {
             id: '5',

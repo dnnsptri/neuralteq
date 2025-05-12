@@ -66,7 +66,7 @@ export default function RiskRewardInTaoPage() {
               <div className="overflow-hidden">
                 <FadeInUp delay={0.0}>
                   <Image
-                    src="/visuals/risk_graph@2x.png" 
+                    src="/visuals/risk_graph_1@2x.png" 
                     alt="Vision"
                     width={850}
                     height={1200}
@@ -75,6 +75,48 @@ export default function RiskRewardInTaoPage() {
                   />
                 </FadeInUp>
               </div>
+              <p>
+                Is this a good R:R? That is totally dependent on your trading style. If you go all in, this might be very risky; if you are taking small positions across the board, it might be more suitable because you allocate a small portion of your portfolio.
+              </p>
+              <p>
+                How can you improve this R:R? Buying at resistance might be risky. You can wait for either a continuation, or a dip to the range low. Both cases will improve your R:R by a lot.
+              </p>
+              <p>
+                Wait for breakout - retest - continuation gives you an R:R of 12.5.
+              </p>
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/risk_graph_2@2x.png" 
+                    alt="Vision"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
+              <p>
+                Wait for dip to range low gives you even a 30.7 R:R.
+              </p>
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/risk_graph_3@2x.png" 
+                    alt="Vision"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
+              <p>
+                Mastering risk-reward ratios enables you to significantly enhance your portfolio management. By strategically timing your entry, wait for a breakout or a dip to range lows, you can optimize your R:R.
+              </p>
+              <p>
+                Trade smarter, not harder.
+              </p>
             </BodyText>
           </FadeInUp>
         </CenteredContent>

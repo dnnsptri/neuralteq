@@ -46,7 +46,7 @@ const SocialIcons = ({ className, isFooter }: SocialIconsProps) => {
         />
       </a>
       <a 
-        href="https://x.com/TAO_ValidatorX" 
+        href="https://x.com/neuralteq/" 
         target="_blank" 
         rel="noopener noreferrer" 
         className={styles.icon} 

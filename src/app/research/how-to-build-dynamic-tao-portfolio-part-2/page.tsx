@@ -80,7 +80,7 @@ export default function HowToBuildDynamicTaoPortfolioPart2Page() {
                   For more specific information about subnets and how to trade them, feel free to check these links:
                 </p>
                 <p>
-                  - Our earlier post to learn more about the different subnets and their AI use cases: <Link href="https://x.com/neuralteq/1899839775059718502" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://tinyurl.com/bdtue3sv</Link><br />
+                  - Our earlier post to learn more about the different subnets and their AI use cases: <Link href="https://x.com/neuralteq/status/1899839775059718502" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://tinyurl.com/35jvtnmn</Link><br />
                   - The TAO-Validator page for a weekly round-up on all the subnet developments, this is the most recent one: <Link href="https://x.com/TAO_ValidatorX/status/1916400260051505526" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://tinyurl.com/4dzcf9p9</Link><br />
                   - The TAO-Validator platform where you can see dTAO prices and where you can swap in and out of subnets: <Link href="https://t.co/dYXmtUTt1l" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://t.co/dYXmtUTt1l</Link><br />
                 </p>
