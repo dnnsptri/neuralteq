@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Work_Sans } from 'next/font/google'
 import './globals.css'
 import SocialIcons from '@/components/SocialIcons'
+import { Suspense } from 'react'
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -76,7 +77,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${workSans.variable} font-sans min-h-screen transition-colors`}>
-        {children}
+        <Suspense fallback={null}>
+          {children}
+        </Suspense>
         <SocialIcons />
       </body>
     </html>
