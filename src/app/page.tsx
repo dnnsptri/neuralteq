@@ -11,6 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     if (searchParams.get('skipAnimation') === '1') {
+      localStorage.removeItem('animationInProgress');
       setChecked(true);
       return;
     }
@@ -24,16 +25,15 @@ export default function Home() {
           visitData = JSON.parse(visitDataRaw);
         } catch {}
       }
-      // If more than 2 weeks have passed, reset counter
       if (now - visitData.lastReset > TWO_WEEKS) {
         visitData = { count: 0, lastReset: now };
       }
-      // Only increment and redirect if not already redirected in this session
-      if (!sessionStorage.getItem('animationShownThisVisit')) {
+      // Only redirect if animation is not already in progress
+      if (!localStorage.getItem('animationInProgress')) {
         visitData.count += 1;
         localStorage.setItem('animationVisitData', JSON.stringify(visitData));
         if (visitData.count <= 3) {
-          sessionStorage.setItem('animationShownThisVisit', 'true');
+          localStorage.setItem('animationInProgress', 'true');
           router.replace('/animation');
           return;
         }
@@ -42,9 +42,12 @@ export default function Home() {
       const skipAnimation = localStorage.getItem('skipAnimationOnce');
       if (skipAnimation) {
         localStorage.removeItem('skipAnimationOnce');
+        localStorage.removeItem('animationInProgress');
         setChecked(true);
         return;
       }
+      // Always clear animationInProgress when landing on homepage
+      localStorage.removeItem('animationInProgress');
     }
     setChecked(true);
   }, [router, searchParams]);
