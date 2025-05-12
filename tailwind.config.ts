@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-work-sans)'],
+        sans: ['var(--font-manrope)', 'Manrope', 'sans-serif'],
       },
       colors: {
         primary: {

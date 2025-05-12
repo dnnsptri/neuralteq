@@ -1,14 +1,7 @@
 import type { Metadata } from 'next'
-import { Work_Sans } from 'next/font/google'
 import './globals.css'
 import SocialIcons from '@/components/SocialIcons'
 import { Suspense } from 'react'
-
-const workSans = Work_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-work-sans',
-})
 
 export const metadata: Metadata = {
   title: 'Neuralteq - Accelerating Subnet Adoption. Building the TAO Ecosystem',
@@ -76,7 +69,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${workSans.variable} font-sans min-h-screen transition-colors`}>
+      <body className={`font-sans min-h-screen transition-colors`}>
         <Suspense fallback={null}>
           {children}
         </Suspense>
