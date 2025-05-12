@@ -21,7 +21,7 @@ export default function HowToPickBittensorSubnetsPage() {
       <Header selectedNav="Research" />
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
-          <FadeInUp delay={0.0}>
+          <FadeInUp delay={0.2}>
           <div className="flex flex-col md:flex-row gap-3 items-center md:items-start">
             <div className="flex-1">
               <div className="relative mb-16 md:mb-[64px]">
@@ -37,7 +37,7 @@ export default function HowToPickBittensorSubnetsPage() {
 
             <Link href="/research/how-to-pick-bittensor-subnets" className="w-[360px] h-[400px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px] hover:opacity-90 transition-opacity duration-200">
               <Image 
-                src="/visuals/visual_how_to_pick@2x.png" 
+                src="/visuals/visual_ai@2x.png" 
                 alt="How to pick Bittensor Subnets" 
                 width={300} 
                 height={300} 

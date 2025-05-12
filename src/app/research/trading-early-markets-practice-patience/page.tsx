@@ -18,7 +18,7 @@ export default function TradingEarlyMarketsPracticePatiencePage() {
       <Header selectedNav="Research" />
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
-          <FadeInUp delay={0.0}>
+          <FadeInUp delay={0.2}>
           <div className="flex flex-col md:flex-row gap-3 items-center md:items-start">
             <div className="flex-1">
               <div className="relative mb-16 md:mb-[64px]">
@@ -34,7 +34,7 @@ export default function TradingEarlyMarketsPracticePatiencePage() {
 
             <Link href="/research/trading-early-markets-practice-patience" className="w-[360px] h-[400px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px] hover:opacity-90 transition-opacity duration-200">
               <Image 
-                src="/visuals/visual_trade_early@2x.png" 
+                src="/visuals/visual_updates@2x.png" 
                 alt="Trading early markets. Practice patience, do not fomo and stick to the plan" 
                 width={300} 
                 height={300} 
@@ -67,12 +67,36 @@ export default function TradingEarlyMarketsPracticePatiencePage() {
               <p>
                 SN10 - <Link href="https://x.com/search?q=%24Sturdy&src=cashtag_click" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">$Sturdy</Link> experienced an initial selloff before finding support around the 0.026 level, which later served as a base for two more bounces. It is close to this level right now. What do you think, will it bounce again?
               </p>
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/trade_graph_1@2x.png" 
+                    alt="Trade graph 1"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
               <p>
                 SN8 - <Link href="https://x.com/search?q=%24Taoshi&src=cashtag_click" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">$Taoshi</Link> initially dropped to 0.043 before running more than 100% up. If you missed this initial surge, you could have waited for the drop back for it to return to this level before the substantial rise to the all time highs. The Taoshi chart also shows a support resistance flip. This is a phenomenon where the previous resistance acts as a support once broken.
               </p>
               <p>
                 Looking at this chart there is a chance that the support level at 0.13 may hold and lead to a bounce. However, if it fails to hold, the next support level is significantly lower, nearly 60% down at 0.05. Being aware of these levels allows you to make an informed decision and effectively manage your risk.
               </p>
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/trade_graph_2@2x.png" 
+                    alt="Trade graph 2"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
               <p>
                 Of course, employing a support and resistance strategy typically means selling at resistance. However, there are indicators that can guide you to buy back in if the price breaks through, or help you decide to maintain your position. We will discuss more on this topic in later articles.
               </p>

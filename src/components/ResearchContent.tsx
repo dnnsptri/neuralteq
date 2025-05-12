@@ -40,7 +40,7 @@ function useBlogItems() {
             category: 'ai',
             description: "The importance of Bittensor subnets. The Bittensor network is a game changer in the development, deployment, and monetisation of artificial intelligence. It rapidly scales the development of open source AI by using subnets. Subnets are specialized networks, focusing on specific AI use cases while leveraging distributed computing power.",
             author: 'Neuralteq Fund',
-            img: '/visuals/visual_how_to_pick@2x.png',
+            img: '/visuals/visual_ai@2x.png',
             slug: 'how-to-pick-bittensor-subnets'
           },
           {
@@ -49,7 +49,7 @@ function useBlogItems() {
             category: 'investing',
             description: "How to build a dynamic $TAO portfolio that gives you enough exposure to profit from upswings, while still having enough 'dry powder' to buy potential dips? Building a portfolio is a fine art, a skill to master, not something you just learn over time, and certainly not something to take lightly. In this series, we'll try to give you some guidance on building your own portfolio.",
             author: 'Neuralteq Fund',
-            img: '/visuals/visual_how_to_build@2x.png',
+            img: '/visuals/visual_investing@2x.png',
             slug: 'how-to-build-dynamic-tao-portfolio-part-1'
           },
           {
@@ -58,26 +58,62 @@ function useBlogItems() {
             category: 'investing',
             description: "Subnet Use Cases and Balanced Exposure. In our previous post we discussed $dTAO specific to take into account when building your portfolio, Emission, Subnet teams, Dilution risks and more. These are important in understanding the #Bittensor protocol dynamics and help to paint a picture on what kind of ...",
             author: 'Neuralteq Fund',
-            img: '/visuals/visual_how_to_build@2x.png',
+            img: '/visuals/visual_investing@2x.png',
             slug: 'how-to-build-dynamic-tao-portfolio-part-2'
           },
           {
             id: '4',
-            title: '6 weeks in dynamic TAO, how is root proportion holding up?',
-            category: 'dtao',
-            description: "What is it, and why does it matter? Bittensor subnets launch with 1 Alpha token supply. From there, each block emits 2 Alpha per subnet, while 1 $TAO total is split across all subnets based on their emission percentage.",
+            title: 'Is the bull market over? Or is this a generational buying opportunity?',
+            category: 'updates',
+            description: "What’s going on in the market, and what does this mean for $dTAO? Here’s a short analysis of current market conditions and the dTAO ecosystem.",
             author: 'Neuralteq Fund',
-            img: '/visuals/visual_root_proportion@2x.png',
+            img: '/visuals/visual_updates@2x.png',
             slug: '6-weeks-in-dynamic-tao-root-proportion'
           },
           {
             id: '5',
+            title: 'Study Cycle Rotation',
+            category: 'updates',
+            description: "#Crypto used to follow a fairly predictable cycle rotation. Is this the beginning of a $dTAO version of altseason? Or just a temporary change in momentum?",
+            author: 'Neuralteq Fund',
+            img: '/visuals/visual_updates@2x.png',
+            slug: 'study-cycle-rotation'
+          },
+          {
+            id: '6',
+            title: '6 weeks in dynamic TAO, how is root proportion holding up?',
+            category: 'dtao',
+            description: "What is it, and why does it matter? Bittensor subnets launch with 1 Alpha token supply. From there, each block emits 2 Alpha per subnet, while 1 $TAO total is split across all subnets based on their emission percentage.",
+            author: 'Neuralteq Fund',
+            img: '/visuals/visual_dtao@2x.png',
+            slug: '6-weeks-in-dynamic-tao-root-proportion'
+          },
+          {
+            id: '7',
             title: 'Trading early markets. Practice patience, do not fomo and stick to the plan',
             category: 'updates',
             description: "dTAO's #Bittensor initiative has effectively launched an open network comprising multiple subnet markets. Predicting behavior in these early stages is challenging. Prices might soar unexpectedly and pull back just as sharply. So it is important to stick to your plan, don't chase returns, don't fomo into prices that are running already.",
             author: 'Neuralteq Fund',
-            img: '/visuals/visual_trade_early@2x.png',
+            img: '/visuals/visual_updates@2x.png',
             slug: 'trading-early-markets-practice-patience'
+          },
+          {
+            id: '8',
+            title: 'Risk and reward in TAO',
+            category: 'updates',
+            description: "dTAO's #Bittensor initiative has effectively launched an open network comprising multiple subnet markets. Predicting behavior in these early stages is challenging. Prices might soar unexpectedly and pull back just as sharply. So it is important to stick to your plan, don't chase returns, don't fomo into prices that are running already.",
+            author: 'Neuralteq Fund',
+            img: '/visuals/visual_updates@2x.png',
+            slug: 'risk-reward-in-tao'
+          },
+          {
+            id: '9',
+            title: 'Studying the relative strength of TAO subnet tokens',
+            category: 'updates',
+            description: "There is an edge in knowing which tokens bounce back the hardest after a dip. Buy those to strengthen your portfolio. Subnet 26 (Storb) being the winner here. Followed by subnet 38 (Distributed Training)",
+            author: 'Neuralteq Fund',
+            img: '/visuals/visual_updates@2x.png',
+            slug: 'studying-relative-strength-of-tao-subnet-tokens'
           },
         ];
 
@@ -102,10 +138,10 @@ export default function ResearchContent() {
   // Blog filter logic
   const filters = [
     { label: 'All', value: 'all' },
+    { label: 'AI', value: 'ai' },
     { label: 'dTAO', value: 'dtao' },
     { label: 'Market updates', value: 'updates' },
     { label: 'Investing', value: 'investing' },
-    { label: 'AI', value: 'ai' },
   ];
   const [activeFilter, setActiveFilter] = useState('all');
 

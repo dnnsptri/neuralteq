@@ -18,7 +18,7 @@ export default function SixWeeksInDynamicTaoRootProportionPage() {
       <Header selectedNav="Research" />
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
-          <FadeInUp delay={0.0}>
+          <FadeInUp delay={0.2}>
           <div className="flex flex-col md:flex-row gap-3 items-center md:items-start">
             <div className="flex-1">
               <div className="relative mb-16 md:mb-[64px]">
@@ -27,14 +27,19 @@ export default function SixWeeksInDynamicTaoRootProportionPage() {
                   6 weeks in dynamic TAO, how is root proportion holding up?
                 </PageTitle>
               </div>
+              <FadeInUp delay={0.2}>
+                <PageSubtitle className="mb-16 md:mb-[64px]">
+                  What is it, and why does it matter?
+                </PageSubtitle>
+          </FadeInUp>
               <IntroText className="mb-16 md:mb-[64px]">
-                  What is it, and why does it matter? Bittensor subnets launch with 1 Alpha token supply. From there, each block emits 2 Alpha per subnet, while 1 $TAO total is split across all subnets based on their emission percentage.
+                   Bittensor subnets launch with 1 Alpha token supply. From there, each block emits 2 Alpha per subnet, while 1 $TAO total is split across all subnets based on their emission percentage.
               </IntroText>
             </div>
 
             <Link href="/research/6-weeks-in-dynamic-tao-root-proportion" className="w-[360px] h-[400px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px] hover:opacity-90 transition-opacity duration-200">
               <Image 
-                src="/visuals/visual_root_proportion@2x.png" 
+                src="/visuals/visual_dtao@2x.png" 
                 alt="6 weeks in dynamic TAO, how is root proportion holding up?" 
                 width={300} 
                 height={300} 
@@ -58,7 +63,18 @@ export default function SixWeeksInDynamicTaoRootProportionPage() {
               <p>
                 Keep an eye on subnets in the following month, and see if markets offer opportunities for entries.
               </p>
-              
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/root_graph@2x.png" 
+                    alt="Current root proportion"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
             </BodyText>
           </FadeInUp>
         </CenteredContent>

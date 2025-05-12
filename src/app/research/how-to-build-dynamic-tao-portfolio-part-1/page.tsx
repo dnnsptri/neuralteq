@@ -18,7 +18,7 @@ export default function HowToBuildDynamicTaoPortfolioPart1Page() {
       <Header selectedNav="Research" />
       <main className="mt-24 md:mt-48 flex-1">
         <CenteredContent>
-          <FadeInUp delay={0.0}>
+          <FadeInUp delay={0.2}>
           <div className="flex flex-col md:flex-row gap-3 items-center md:items-start">
             <div className="flex-1">
               <div className="relative mb-16 md:mb-[64px]">
@@ -34,7 +34,7 @@ export default function HowToBuildDynamicTaoPortfolioPart1Page() {
 
             <Link href="/research/how-to-build-dynamic-tao-portfolio-part-1" className="w-[360px] h-[400px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px]">
               <Image 
-                src="/visuals/visual_how_to_build@2x.png" 
+                src="/visuals/visual_investing@2x.png" 
                 alt="How to Build a Dynamic $TAO Portfolio - Part 1" 
                 width={300} 
                 height={300} 
