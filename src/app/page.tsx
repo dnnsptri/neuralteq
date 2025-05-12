@@ -1,14 +1,19 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import IndexContent from '@/components/index';
 
 export default function Home() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
+    if (searchParams.get('skipAnimation') === '1') {
+      setChecked(true);
+      return;
+    }
     if (typeof window !== 'undefined') {
       const skipAnimation = localStorage.getItem('skipAnimationOnce');
       if (skipAnimation) {
@@ -37,7 +42,7 @@ export default function Home() {
       }
     }
     setChecked(true);
-  }, [router]);
+  }, [router, searchParams]);
 
   if (!checked) {
     // Optionally, show a loading spinner here

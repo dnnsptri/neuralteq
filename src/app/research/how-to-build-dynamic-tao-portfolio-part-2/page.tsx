@@ -81,16 +81,39 @@ export default function HowToBuildDynamicTaoPortfolioPart2Page() {
                 <p>
                   - Our earlier post to learn more about the different subnets and their AI use cases: <Link href="https://x.com/neuralteq/status/1899839775059718502" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://tinyurl.com/35jvtnmn</Link><br />
                   - The TAO-Validator page for a weekly round-up on all the subnet developments, this is the most recent one: <Link href="https://x.com/TAO_ValidatorX/status/1916400260051505526" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://tinyurl.com/4dzcf9p9</Link><br />
-                  - The TAO-Validator platform where you can see dTAO prices and where you can swap in and out of subnets: <Link href="https://t.co/dYXmtUTt1l" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://t.co/dYXmtUTt1l</Link><br />
+                  - The TAO-Validator platform where you can see dTAO prices and where you can swap in and out of subnets: <Link href="https://dashboard.neuralteq.com/subnets/1?to=0&action=ADD" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://tinyurl.com/4tbkua5h</Link><br />
                 </p>
+                <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/fix_table@2x.png" 
+                    alt="Subnet Use Cases Cheat Sheet"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
                 <PageSubtitle className="mb-4">Building a Balanced Portfolio</PageSubtitle>
+                <div>
+                <h3 className="text-xl font-semibold mb-2">60% High Market Cap Subnets (Bluechips):</h3>
                 <p>
-                  - 60% High Market Cap Subnets (Bluechips): The higher market cap subnets usually have a higher market cap for a reason. Other people have already validated parts of their business model, so there might be a lower risk of failure. There is more liquidity, so you can allocate higher amounts of capital. They also have higher emission rates (remember, the higher the Alpha price, the higher the emission the subnet gets). A potential way of doing this is to slowly buy into the top 10 or top 15 subnet tokens over time.
-                    <br />
-                  - 20% New Subnets: Newer subnets are highly volatile; there are many opportunities, but there is also more risk involved. You really have to do your homework to make sure you are buying a valuable subnet token. Also, because they have low starting liquidity, the Alpha tokens dilute much faster than those of the higher subnets. Definitely worth your time to investigate, but be cautious and take calculated bets.
-                    <br />
-                  - 20% Root: Keep TAO aside to buy into dips. The great thing about Bittensor is that your idle TAO can still earn a good 22% APY. So far, we have seen wide ranges, so even if you have found a potentially good subnet, it might be worth slowly increasing your position over time and waiting for a good moment to buy.
+                  The higher market cap subnets usually have a higher market cap for a reason. Other people have already validated parts of their business model, so there might be a lower risk of failure. There is more liquidity, so you can allocate higher amounts of capital. They also have higher emission rates (remember, the higher the Alpha price, the higher the emission the subnet gets). A potential way of doing this is to slowly buy into the top 10 or top 15 subnet tokens over time.
                 </p>
+                </div>
+                <div>
+                <h3 className="text-xl font-semibold mb-2">20% New Subnets:</h3>
+                <p>
+                  Newer subnets are highly volatile; there are many opportunities, but there is also more risk involved. You really have to do your homework to make sure you are buying a valuable subnet token. Also, because they have low starting liquidity, the Alpha tokens dilute much faster than those of the higher subnets. Definitely worth your time to investigate, but be cautious and take calculated bets.
+                </p>
+                </div>
+                <div>
+                <h3 className="text-xl font-semibold mb-2">20% Root:</h3>
+                <p>
+                  Keep TAO aside to buy into dips. The great thing about Bittensor is that your idle TAO can still earn a good 22% APY. So far, we have seen wide ranges, so even if you have found a potentially good subnet, it might be worth slowly increasing your position over time and waiting for a good moment to buy.
+                </p>
+                </div>
                 <p>
                   Hope this helps you in setting up and finetuning your dTAO portfolio. A good portfolio is all about diversifying across subnet use cases while staying liquid for new opportunities.
                 </p>

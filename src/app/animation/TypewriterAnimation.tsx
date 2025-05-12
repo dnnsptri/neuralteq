@@ -168,7 +168,7 @@ const TypewriterAnimation = () => {
                 >
                     Staking dashboard
                 </a>
-                  <Link href="/" className={styles.button}>Homepage</Link>
+                  <Link href="/?skipAnimation=1" className={styles.button}>Homepage</Link>
               </div>
             </div>
           )}
