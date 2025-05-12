@@ -15,12 +15,6 @@ export default function Home() {
       return;
     }
     if (typeof window !== 'undefined') {
-      const skipAnimation = localStorage.getItem('skipAnimationOnce');
-      if (skipAnimation) {
-        localStorage.removeItem('skipAnimationOnce');
-        setChecked(true);
-        return;
-      }
       const now = Date.now();
       const TWO_WEEKS = 14 * 24 * 60 * 60 * 1000;
       const visitDataRaw = localStorage.getItem('animationVisitData');
@@ -34,10 +28,21 @@ export default function Home() {
       if (now - visitData.lastReset > TWO_WEEKS) {
         visitData = { count: 0, lastReset: now };
       }
-      visitData.count += 1;
-      localStorage.setItem('animationVisitData', JSON.stringify(visitData));
-      if (visitData.count <= 3) {
-        router.replace('/animation');
+      // Only increment and redirect if not already redirected in this session
+      if (!sessionStorage.getItem('animationShownThisVisit')) {
+        visitData.count += 1;
+        localStorage.setItem('animationVisitData', JSON.stringify(visitData));
+        if (visitData.count <= 3) {
+          sessionStorage.setItem('animationShownThisVisit', 'true');
+          router.replace('/animation');
+          return;
+        }
+      }
+      // If skipAnimationOnce is set, skip animation and clear the flag
+      const skipAnimation = localStorage.getItem('skipAnimationOnce');
+      if (skipAnimation) {
+        localStorage.removeItem('skipAnimationOnce');
+        setChecked(true);
         return;
       }
     }
