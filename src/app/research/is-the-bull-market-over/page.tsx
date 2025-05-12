@@ -27,7 +27,7 @@ export default function HowToPickBittensorSubnetsPage() {
               <div className="relative mb-16 md:mb-[64px]">
                 <span className="text-xs uppercase tracking-wide bg-[#021019] text-[#ECFBFA] px-2 py-1 rounded mb-4 inline-block border border-[#ECFBFA]">{category}</span>
                 <PageTitle className="pt-[60px] mb-6 md:mb-8">
-                  Is the bull market over? Or is this a generational buying opportunity?
+                  Is the bull market over?<br />Or is this a generational buying opportunity?
                 </PageTitle>
               </div>
               <IntroText className="mb-16 md:mb-[64px]">
@@ -88,10 +88,10 @@ export default function HowToPickBittensorSubnetsPage() {
                 </FadeInUp>
               </div>
               <p>
-                Unfortunately, we can see this correlation in the Bittensor chart. After initially forming a falling wedge pattern and showing a clean breakout, $TAO’s price got “wrecked” because the overall market went down.
+                That said, prices could still move lower, market bottoms are frequently accompanied by large liquidations. Although the current 24-hour liquidations (just under $1 billion) aren’t at record highs, they add up when considering the past few days. So, if you have a long-term investment horizon, this price level could offer a favorable risk–reward ratio.
               </p>
               <p>
-                We see similar influences in dTAO. Because the launch went well and the market was relatively stable, there was an initial inflow of capital, leading to very strong prices. Once the initial hype cooled off, there was a strong selloff, and now we’re waiting for a bottom to form before a new uptrend can begin. This pattern appears across all dTAO tokens, though some show more strength due to higher market interest.
+                How does this relate to dTAO? Since dTAO markets are so new, we can’t yet confirm any correlations. But looking at altcoins in general, we see a strong correlation between Bitcoin’s price action and coins like $Ether or #Bittensor. A weak overall market means fewer profits to reinvest in other coins, so if Bitcoin is weak, there’s a lower chance of seeing an uptrend in TAO or in dTAO tokens as a derivative.
               </p>
               <div className="overflow-hidden">
                 <FadeInUp delay={0.0}>
@@ -106,10 +106,28 @@ export default function HowToPickBittensorSubnetsPage() {
                 </FadeInUp>
               </div>
               <p>
+                Unfortunately, we can see this correlation in the Bittensor chart. After initially forming a falling wedge pattern and showing a clean breakout, $TAO’s price got “wrecked” because the overall market went down.
+              </p>
+              <p>
+                We see similar influences in dTAO. Because the launch went well and the market was relatively stable, there was an initial inflow of capital, leading to very strong prices. Once the initial hype cooled off, there was a strong selloff, and now we’re waiting for a bottom to form before a new uptrend can begin. This pattern appears across all dTAO tokens, though some show more strength due to higher market interest.
+              </p>
+              <div className="overflow-hidden">
+                <FadeInUp delay={0.0}>
+                  <Image
+                    src="/visuals/bull_graph_4@2x.png" 
+                    alt="Fear and Greed Index"
+                    width={850}
+                    height={1200}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </FadeInUp>
+              </div>
+              <p>
               A chart by <Link href="http://tao.app" className="underline text-[#EF6C00] hover:text-[#ECFBFA] transition-colors duration-200" target="_blank" rel="noopener noreferrer">http://tao.app</Link> shows the total value of dTAO subnets. After initially running up to four times the TAO token value, it has been slowly bleeding back toward 1 TAO. Because these markets are so new, and the general market is in a selloff, we don't know where the bottom will be. One hypothesis is that dTAO subnet value might be fairly priced around 1 TAO, but market inefficiencies could push it temporarily higher or lower.
               </p>
               <p>
-              So, what now? Of course, nobody really knows. However, there are several ways to approach this. If the overall market strengthens again, we expect the dTAO subnets to start trending as well. If you’re in it for the long term, you can stake to root and wait for the market to recover. If you’re holding cash, you could gradually dollar-cost average (DCA) into TAO and consider doing the same with subnet tokens. Generally, it looks like the dTAO markets are cooling off before trending upward again. In the meantime, watch for subnets with strong marketing teams and ongoing development, those projects are more likely to stand out once the market rebounds.So, what now? Of course, nobody really knows. However, there are several ways to approach this. If the overall market strengthens again, we expect the dTAO subnets to start trending as well. If you’re in it for the long term, you can stake to root and wait for the market to recover. If you’re holding cash, you could gradually dollar-cost average (DCA) into TAO and consider doing the same with subnet tokens. Generally, it looks like the dTAO markets are cooling off before trending upward again. In the meantime, watch for subnets with strong marketing teams and ongoing development, those projects are more likely to stand out once the market rebounds.
+                So, what now? Of course, nobody really knows. However, there are several ways to approach this. If the overall market strengthens again, we expect the dTAO subnets to start trending as well. If you’re in it for the long term, you can stake to root and wait for the market to recover. If you’re holding cash, you could gradually dollar-cost average (DCA) into TAO and consider doing the same with subnet tokens. Generally, it looks like the dTAO markets are cooling off before trending upward again. In the meantime, watch for subnets with strong marketing teams and ongoing development, those projects are more likely to stand out once the market rebounds.So, what now? Of course, nobody really knows. However, there are several ways to approach this. If the overall market strengthens again, we expect the dTAO subnets to start trending as well. If you’re in it for the long term, you can stake to root and wait for the market to recover. If you’re holding cash, you could gradually dollar-cost average (DCA) into TAO and consider doing the same with subnet tokens. Generally, it looks like the dTAO markets are cooling off before trending upward again. In the meantime, watch for subnets with strong marketing teams and ongoing development, those projects are more likely to stand out once the market rebounds.
               </p>
               <p>
                 Just be aware of the risks: although it might look like the main selloff is over, you can never be completely certain.
