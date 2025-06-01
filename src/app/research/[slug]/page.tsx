@@ -67,13 +67,13 @@ export default function ResearchDetailPage() {
                 )}
               </div>
               {item?.image_url && (
-                <div className="w-[400px] h-[400px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px]">
+                <div className="w-[300px] h-[300px] flex-shrink-0 flex items-center justify-center bg-[#021019] rounded-[4px]">
                   <Image
                     src={item.image_url}
                     alt={item.title}
-                    width={400}
-                    height={400}
-                    className="object-contain w-[400px] h-[400px] max-w-none max-h-none"
+                    width={300}
+                    height={300}
+                    className="object-contain w-[300px] h-[300px] max-w-none max-h-none"
                   />
                 </div>
               )}
