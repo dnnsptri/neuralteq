@@ -8,6 +8,7 @@ import { PageTitle, PageSubtitle, IntroText, BodyText } from './typography';
 import Footer from './Footer';
 import FadeInUp from './motion/FadeInUp';
 import SmallColumn from './ui/SmallColumn';
+import ContactForm from './ContactForm';
 
 export default function WhyUsContent() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -114,7 +115,7 @@ export default function WhyUsContent() {
 
           <FadeInUp delay={0.2}>
             <IntroText className="mb-16 md:mb-[64px]">
-              Our vision is a future where decentralized AI seamlessly integrates with everyday life, empowering individuals and businesses through autonomous, and collaborative technologies.
+              We have a vision of a future where decentralized AI seamlessly integrates with everyday life, empowering individuals and businesses through autonomous, and collaborative technologies.
             </IntroText>
           </FadeInUp>
 
@@ -138,14 +139,9 @@ export default function WhyUsContent() {
           </FadeInUp>
             </div>
             {/* Side Column - 1/3 width */}
-            <div className="md:w-1/3">
+            <div className="md:w-1/3 md:-mt-[90px]">
               <FadeInUp delay={0.2}>
-                <SmallColumn
-                  title="Join our team!"
-                  description="Reach out and become part of the effort shaping the future of Bittensor."
-                  buttonText="Get in touch"
-                  buttonHref="mailto:info@neuralteq.com"
-                />
+                <ContactForm />
               </FadeInUp>
             </div>
           </div>

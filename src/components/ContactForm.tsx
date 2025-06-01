@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { PageSubtitle } from './typography';
+import Button from './ui/Button';
 
 interface FormData {
   name: string;
@@ -60,10 +61,10 @@ export default function ContactForm() {
     }
 
     try {
-      // Get reCAPTCHA token if grecaptcha is available
+      // Always try to get reCAPTCHA token if grecaptcha is available
       let recaptchaToken = '';
       const grecaptcha = (window as any).grecaptcha;
-      if (grecaptcha && RECAPTCHA_SITE_KEY !== '6LfxqjMrAAAAAFycj20aUWgCDQNaRaTKhtGguuXv') {
+      if (grecaptcha) {
         recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
       }
       const response = await fetch('/api/contact', {
@@ -109,7 +110,8 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`w-full px-4 py-2 rounded border-0 bg-[#021019] focus:border-2 focus:border-[var(--link-color)] focus:ring-2 focus:ring-[var(--link-color)] ${errors.name ? 'border-2 border-red-500' : ''}`}
+            className={`w-full px-4 py-2 rounded border-0 bg-[#021019] text-[#ECFBFA] placeholder:text-[#ECFBFA]/20 focus:outline-none focus:ring-2 focus:ring-[#ECFBFA] focus:border-[#ECFBFA] ${errors.name ? 'border-2 border-red-500' : ''}`}
+            placeholder="Your name"
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
@@ -122,7 +124,8 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`w-full px-4 py-2 rounded border-0 bg-[#021019] focus:border-2 focus:border-[var(--link-color)] focus:ring-2 focus:ring-[var(--link-color)] ${errors.email ? 'border-2 border-red-500' : ''}`}
+            className={`w-full px-4 py-2 rounded border-0 bg-[#021019] text-[#ECFBFA] placeholder:text-[#ECFBFA]/20 focus:outline-none focus:ring-2 focus:ring-[#ECFBFA] focus:border-[#ECFBFA] ${errors.email ? 'border-2 border-red-500' : ''}`}
+            placeholder="Your email"
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
@@ -135,7 +138,8 @@ export default function ContactForm() {
             value={formData.note}
             onChange={handleChange}
             rows={4}
-            className="w-full px-4 py-2 rounded border-0 bg-[#021019] focus:border-2 focus:border-[var(--link-color)] focus:ring-2 focus:ring-[var(--link-color)]"
+            className="w-full px-4 py-2 rounded border-0 bg-[#021019] text-[#ECFBFA] placeholder:text-[#ECFBFA]/20 focus:outline-none focus:ring-2 focus:ring-[#ECFBFA] focus:border-[#ECFBFA]"
+            placeholder="Your message"
           />
         </div>
 
@@ -150,7 +154,7 @@ export default function ContactForm() {
           <button 
             type="submit"
             disabled={isSubmitting}
-            className="text-base font-medium px-4 py-3 rounded transition-all duration-300 dark:bg-[var(--foreground)] dark:text-[var(--background)] dark:hover:bg-transparent dark:hover:text-[var(--foreground)] dark:hover:outline-[var(--foreground)] bg-[#021019] text-[#E0F0F0] hover:bg-transparent hover:text-[#021019] hover:outline hover:outline-2 hover:outline-[#021019] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="text-base font-bold px-4 py-3 rounded transition-all duration-300 bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] disabled:opacity-50 disabled:pointer-events-none w-full"
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
