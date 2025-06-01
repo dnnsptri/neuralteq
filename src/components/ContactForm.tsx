@@ -144,10 +144,10 @@ export default function ContactForm() {
         </div>
 
         {submitStatus === 'success' && (
-          <p className="text-green-500 text-sm">Thank you for your message! We'll get back to you soon.</p>
+          <p className="text-[#529387] text-sm">Thank you for your message! We'll get back to you soon.</p>
         )}
         {submitStatus === 'error' && (
-          <p className="text-red-500 text-sm">Something went wrong. Please try again later.</p>
+          <p className="text-[#EF6C00] text-sm">Something went wrong. Please try again later.</p>
         )}
 
         <div className="pt-4">
