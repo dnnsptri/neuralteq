@@ -110,11 +110,10 @@ export default function LogoMesh({ alwaysShowMesh = false }: { alwaysShowMesh?: 
           playsInline
           width={77}
           height={77}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[64px] h-[64px] object-cover pointer-events-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[64px] h-[64px] object-cover pointer-events-none"
           style={{ zIndex: 1 }}
         >
-          <source src="/visuals/mesh_orange_gray_50.mp4" type="video/mp4" />
-          <source src="/visuals/mesh_orange_gray_50.webm" type="video/webm" />
+          <source src="https://grzehdwhscarwjpalhje.supabase.co/storage/v1/object/sign/visuals/mesh_orange_gray_50.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzhmMDJhNjNiLWQwZDYtNDdiOC05YWYyLTU3MDk3ZDQ2YWVkOCJ9.eyJ1cmwiOiJ2aXN1YWxzL21lc2hfb3JhbmdlX2dyYXlfNTAubXA0IiwiaWF0IjoxNzQ4NzkzNDkzLCJleHAiOjE5MDY0NzM0OTN9.yRP56PiUURcNNG3Qpz1czpWZq9DYj8VqCXTgOscCQc8" type="video/mp4" />
           <Image
             src="/visuals/mesh_orange@2x.png"
             alt="Mesh Background"

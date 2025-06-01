@@ -124,7 +124,19 @@ body {
 @layer components {
   /* Links */
   .link {
-    @apply hover:underline hover:text-[#EF6C00] transition-colors;
+    color: #EF6C00;
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+
+  .link:visited {
+    color: #EF6C00;
+  }
+
+  .link:hover,
+  .link:active {
+    color: #D4E1E0;
+    text-decoration: underline;
   }
 
   /* Navigation */
@@ -245,4 +257,59 @@ body {
   .animate-in {
     @apply opacity-100 translate-y-0;
   }
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: inherit;
+}
+
+.markdown-body h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.markdown-body h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.markdown-body h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1.25rem;
+  color: inherit;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body a.link,
+.markdown-body a.link:visited {
+  color: #EF6C00;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.markdown-body a.link:hover,
+.markdown-body a.link:active {
+  color: #D4E1E0;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body {
+  color: inherit;
+  font-size: 1.1rem;
+  line-height: 1.7;
 } 

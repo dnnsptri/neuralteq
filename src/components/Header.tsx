@@ -103,7 +103,7 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
 
           {/* Centered Navigation - Desktop */}
           {!disableNav && (
-            <div className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 hidden md:block">
+            <div className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 hidden lg:block">
                   <div className={`rounded-full px-4 py-2 flex items-center shadow-sm bg-[#061C2B]` }>
                 <nav className="flex items-center space-x-1 whitespace-nowrap">
                   {navigationItems.map((item) => (
@@ -130,7 +130,7 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
           {!disableNav && (
           <motion.div 
             style={{ opacity: isMobile ? mobileOpacity : desktopOpacity }}
-                className="absolute right-8 hidden md:flex items-center gap-6 my-16"
+                className="absolute right-8 hidden lg:flex items-center gap-6 my-16"
           >
             {/* Staking Dashboard - Desktop */}
             <Button 
@@ -162,7 +162,7 @@ export default function Header({ disableNav = false, disableLogoLink = false, se
           <motion.button 
             style={{ opacity: mobileOpacity }}
               onClick={() => setIsMobileMenuOpen(true)}
-                className="md:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded-[4px] bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
+                className="block lg:hidden absolute right-8 w-10 h-10 flex items-center justify-center rounded-[4px] bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)] hover:outline hover:outline-2 hover:outline-[var(--foreground)] transition-all duration-300"
               aria-label="Open menu"
             >
             <Image

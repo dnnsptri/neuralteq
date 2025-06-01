@@ -24,38 +24,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" data-theme="dark" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var html = document.documentElement;
-                  // Default to dark mode if no theme is set
-                  if (!theme) {
-                    theme = 'dark';
-                    localStorage.setItem('theme', 'dark');
-                  }
-                  // Apply the stored theme
-                  if (theme === 'dark') {
-                    html.classList.add('dark');
-                    html.setAttribute('data-theme', 'dark');
-                  } else {
-                    html.classList.remove('dark');
-                    html.setAttribute('data-theme', 'light');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6WRDLDVCG"></script>
         <script

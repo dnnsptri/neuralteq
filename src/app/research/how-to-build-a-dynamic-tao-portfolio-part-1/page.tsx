@@ -22,7 +22,7 @@ export default function HowToPickBittensorSubnetsPage() {
       const { data, error } = await supabase
         .from('neuralteq_research')
         .select('*')
-        .eq('slug', 'risk-reward-in-tao')
+        .eq('slug', 'how-to-build-a-dynamic-tao-portfolio-part-1')
         .maybeSingle();
       if (error) setError(error.message);
       setItem(data);

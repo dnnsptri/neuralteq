@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Header from '@/components/Header';
 import CenteredContent from '@/components/layouts/CenteredContent';
 import { PageTitle, PageSubtitle, IntroText, BodyText } from '@/components/typography';
@@ -11,8 +10,10 @@ import { supabase } from '../../../../lib/supabaseClient';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import { useParams } from 'next/navigation';
 
-export default function HowToPickBittensorSubnetsPage() {
+export default function ResearchDetailPage() {
+  const { slug } = useParams();
   const [item, setItem] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -22,14 +23,27 @@ export default function HowToPickBittensorSubnetsPage() {
       const { data, error } = await supabase
         .from('neuralteq_research')
         .select('*')
-        .eq('slug', 'risk-reward-in-tao')
+        .eq('slug', Array.isArray(slug) ? slug[0] : slug)
         .maybeSingle();
       if (error) setError(error.message);
       setItem(data);
       setLoading(false);
     };
     fetchItem();
-  }, []);
+  }, [slug]);
+
+  // Fallback for not found
+  if (!loading && !item) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white dark:bg-[#021019] text-[#021019] dark:text-[#ECFBFA]">
+        <Header selectedNav="Research" />
+        <main className="mt-24 md:mt-48 flex-1 flex items-center justify-center">
+          <div className="text-2xl text-red-500">Research article not found.</div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#021019] text-[#021019] dark:text-[#ECFBFA]">
@@ -59,7 +73,7 @@ export default function HowToPickBittensorSubnetsPage() {
                     alt={item.title}
                     width={400}
                     height={400}
-                    className="object-contain"
+                    className="object-contain w-[400px] h-[400px] max-w-none max-h-none"
                   />
                 </div>
               )}
@@ -80,10 +94,10 @@ export default function HowToPickBittensorSubnetsPage() {
                       h2: ({node, children, ...props}) => <PageTitle className="page-title" {...props}>{children}</PageTitle>,
                       h3: ({node, children, ...props}) => <PageSubtitle className="page-subtitle" {...props}>{children}</PageSubtitle>,
                       p: ({node, children, ...props}) => <BodyText className="body-text" {...props}>{children}</BodyText>,
-                      ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-4" {...props} />,
-                      ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-4" {...props} />,
-                      li: ({node, ...props}) => <li className="mb-2" {...props} />,
-                      a: ({node, ...props}) => <a className="link" target="_blank" rel="noopener noreferrer" {...props} />,
+                      ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-4" {...props} />, 
+                      ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-4" {...props} />, 
+                      li: ({node, ...props}) => <li className="mb-2" {...props} />, 
+                      a: ({node, ...props}) => <a className="link" target="_blank" rel="noopener noreferrer" {...props} />, 
                     }}
                   >
                     {item.content}

@@ -1,9 +1,5 @@
-import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-
-const TypewriterAnimation = dynamic(() => import('./TypewriterAnimation'), {
-  ssr: false
-});
+import type { Metadata } from 'next';
+import TypewriterAnimationClient from './TypewriterAnimationClient';
 
 export const metadata: Metadata = {
   title: 'Neuralteq - Accelerating Subnet Adoption. Building the TAO Ecosystem',
@@ -11,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function AnimationPage() {
-  return <TypewriterAnimation />;
+  return <TypewriterAnimationClient />;
 } 
