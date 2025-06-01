@@ -1,8 +1,14 @@
 module.exports = {
     images: {
       remotePatterns: [
-        new URL('https://www.neuralteq.com/**'),
-        { protocol: 'https', hostname: 'grzehdwhscarwjpalhje.supabase.co' },
+        {
+          protocol: 'https',
+          hostname: 'grzehdwhscarwjpalhje.supabase.co',
+        },
+        {
+          protocol: 'https',
+          hostname: 'www.neuralteq.com',
+        },
       ],
       domains: ['grzehdwhscarwjpalhje.supabase.co', 'www.neuralteq.com'],
     },
